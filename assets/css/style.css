@@ -18,10 +18,14 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
 }
+
 a:hover {
   color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+  text-decoration: none;
 }
 
 /* ---------- Container ---------- */
