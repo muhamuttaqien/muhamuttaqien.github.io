@@ -54,7 +54,7 @@ a:hover {
 }
 
 .intro h1 {
-  color: var(--accent);
+  color: #2d3748;
   font-size: 2rem;
   margin: 0 0 1rem 0;
 }
