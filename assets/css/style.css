@@ -1,7 +1,7 @@
 :root {
-  --accent: #267cb9;
-  --text: #333;
-  --bg: #ffffff;
+  --accent: #4a5568;
+  --text: #2d3748;
+  --bg: #f8f9fa;
   --light-bg: #f5f7fa;
 }
 
@@ -25,7 +25,7 @@ a:hover {
 }
 
 .container {
-  max-width: 950px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
