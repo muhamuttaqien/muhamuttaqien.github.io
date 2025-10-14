@@ -1,55 +1,106 @@
-# Data Scientist
+<style>
+:root {
+  --accent: #e57373;        /* soft red */
+  --text: #333;
+  --bg: #fffaf9;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  margin: 2rem;
+}
+h1, h2, h3, h4 {
+  color: var(--accent);
+  margin-top: 1.8em;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  max-width: 100%;
+}
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 2em 0;
+}
+</style>
 
-#### Technical Skills: Python, SQL, AWS, Snowflake, MATLAB
+# 🎯 Data Scientist
 
-## Education
-- Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
-- M.S., Physics	| The University of Texas at Dallas (_December 2019_)	 			        		
-- B.S., Physics | The University of Texas at Dallas (_May 2017_)
+#### **Technical Skills:** Python · SQL · AWS · Snowflake · MATLAB
 
-## Work Experience
-**Data Scientist @ Toyota Financial Services (_June 2022 - Present_)**
-- Uncovered and corrected missing step in production data pipeline which impacted over 70% of active accounts
-- Redeveloped loan originations model which resulted in 50% improvement in model performance and saving 1 million dollars in potential losses
+---
 
-**Data Science Consultant @ Shawhin Talebi Ventures LLC (_December 2020 - Present_)**
-- Conducted data collection, processing, and analysis for novel study evaluating the impact of over 300 biometrics variables on human performance in hyper-realistic, live-fire training scenarios
-- Applied unsupervised deep learning approaches to longitudinal ICU data to discover novel sepsis sub-phenotypes
+## 🎓 Education
+- **Ph.D., Physics** — University of Arcadia (_May 2022_)  
+- **M.S., Physics** — University of Arcadia (_Dec 2019_)  
+- **B.S., Physics** — University of Arcadia (_May 2017_)
 
-## Projects
-### Data-Driven EEG Band Discovery with Decision Trees
-[Publication](https://www.mdpi.com/1424-8220/22/8/3048)
+---
 
-Developed objective strategy for discovering optimal EEG bands based on signal power spectra using **Python**. This data-driven approach led to better characterization of the underlying power spectrum by identifying bands that outperformed the more commonly used band boundaries by a factor of two. The proposed method provides a fully automated and flexible approach to capturing key signal components and possibly discovering new indices of brain activity.
+## 💼 Work Experience
 
-![EEG Band Discovery](/assets/img/eeg_band_discovery.jpeg)
+### **Data Scientist @ Orion Analytics**  
+📅 _June 2022 – Present_  
+- Discovered and fixed a critical step missing from the production pipeline, improving data integrity for 80% of records.  
+- Rebuilt the loan origination risk model, boosting performance by 45% and preventing significant financial losses.
 
-### Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales
-[Publication](https://www.mdpi.com/1424-8220/22/11/4240)
+### **Data Science Consultant @ Insight Labs**  
+📅 _Jan 2021 – May 2022_  
+- Processed and analyzed biometric data from over 300 variables to study performance under stress conditions.  
+- Applied unsupervised deep learning to ICU data, revealing new sub-phenotypes in sepsis progression.
 
-Used **Matlab** to train over 100 machine learning models which estimated particulate matter concentrations based on a suite of over 300 biometric variables. We found biometric variables can be used to accurately estimate particulate matter concentrations at ultra-fine spatial scales with high fidelity (r2 = 0.91) and that smaller particles are better estimated than larger ones. Inferring environmental conditions solely from biometric measurements allows us to disentangle key interactions between the environment and the body.
+---
 
-![Bike Study](/assets/img/bike_study.jpeg)
+## 🧠 Projects
 
-## Talks & Lectures
-- Causality: The new science of an old question - GSP Seminar, Fall 2021
-- Guest Lecture: Dimensionality Reduction - Big Data and Machine Learning for Scientific Discovery (PHYS 5336), Spring 2021
-- Guest Lecture: Fourier and Wavelet Transforms - Scientific Computing (PHYS 5315), Fall 2020
-- A Brief Introduction to Optimization - GSP Seminar, Fall 2019
-- Weeks of Welcome Poster Competition - UTD, Fall 2019
-- A Brief Introduction to Networks - GSP Seminar, Spring 2019
+### 🔍 Data-Driven EEG Band Discovery
+📄 [Publication Link](#)  
+Developed a **Python-based approach** for automatically discovering optimal EEG frequency bands.  
+The model doubled performance compared to traditional boundaries, allowing improved brain-signal interpretation.
 
-- [Data Science YouTube](https://www.youtube.com/channel/UCa9gErQ9AE5jT2DZLjXBIdA)
+![EEG Band Discovery](assets/img/eeg_band_discovery.jpeg)
 
-## Publications
-1. Talebi S., Lary D.J., Wijeratne L. OH., and Lary, T. Modeling Autonomic Pupillary Responses from External Stimuli Using Machine Learning (2019). DOI: 10.26717/BJSTR.2019.20.003446
-2. Wijeratne, L.O.; Kiv, D.R.; Aker, A.R.; Talebi, S.; Lary, D.J. Using Machine Learning for the Calibration of Airborne Particulate Sensors. Sensors 2020, 20, 99.
-3. Lary, D.J.; Schaefer, D.; Waczak, J.; Aker, A.; Barbosa, A.; Wijeratne, L.O.H.; Talebi, S.; Fernando, B.; Sadler, J.; Lary, T.; Lary, M.D. Autonomous Learning of New Environments with a Robotic Team Employing Hyper-Spectral Remote Sensing, Comprehensive In-Situ Sensing and Machine Learning. Sensors 2021, 21, 2240. https://doi.org/10.3390/s21062240
-4. Zhang, Y.; Wijeratne, L.O.H.; Talebi, S.; Lary, D.J. Machine Learning for Light Sensor Calibration. Sensors 2021, 21, 6259. https://doi.org/10.3390/s21186259
-5. Talebi, S.; Waczak, J.; Fernando, B.; Sridhar, A.; Lary, D.J. Data-Driven EEG Band Discovery with Decision Trees. Preprints 2022, 2022030145 (doi: 10.20944/preprints202203.0145.v1).
-6. Fernando, B.A.; Sridhar, A.; Talebi, S.; Waczak, J.; Lary, D.J. Unsupervised Blink Detection Using Eye Aspect Ratio Values. Preprints 2022, 2022030200 (doi: 10.20944/preprints202203.0200.v1).
-7. Talebi, S. et al. Decoding Physical and Cognitive Impacts of PM Concentrations at Ultra-fine Scales, 29 March 2022, PREPRINT (Version 1) available at Research Square [https://doi.org/10.21203/rs.3.rs-1499191/v1]
-8. Lary, D.J. et al. (2022). Machine Learning, Big Data, and Spatial Tools: A Combination to Reveal Complex Facts That Impact Environmental Health. In: Faruque, F.S. (eds) Geospatial Technology for Human Well-Being and Health. Springer, Cham. https://doi.org/10.1007/978-3-030-71377-5_12
-9. Wijerante, L.O.H. et al. (2022). Advancement in Airborne Particulate Estimation Using Machine Learning. In: Faruque, F.S. (eds) Geospatial Technology for Human Well-Being and Health. Springer, Cham. https://doi.org/10.1007/978-3-030-71377-5_13
+---
 
-- [Data Science Blog](https://medium.com/@shawhin)
+### 🚴 Air Quality & Cognitive Load Estimation
+📄 [Publication Link](#)  
+Used **MATLAB** to train 100+ ML models predicting particulate matter concentrations from biometric features.  
+Results achieved **R² = 0.91**, showing smaller particles correlate strongly with measurable physiological responses.
+
+![Bike Study](assets/img/bike_study.jpeg)
+
+---
+
+## 🎤 Talks & Lectures
+- *Causality: The New Science of an Old Question* — Research Seminar (2021)  
+- *Dimensionality Reduction for Scientific Discovery* — Guest Lecture (2020)  
+- *Fourier & Wavelet Transforms* — Guest Lecture (2019)  
+- *Introduction to Optimization* — Seminar (2019)
+
+🎥 [YouTube Channel](https://youtube.com)
+
+---
+
+## 📝 Publications
+1. Doe, J. et al. *Modeling Autonomic Pupillary Responses Using ML*. (2022)  
+2. Doe, J. et al. *Machine Learning for Sensor Calibration*. *Sensors*, 2021.  
+3. Doe, J. *Autonomous Learning with Robotic Sensing*. *Sensors*, 2021.  
+4. Doe, J. *Light Sensor Calibration via ML*. *Sensors*, 2021.  
+5. Doe, J. *EEG Band Discovery with Decision Trees*. *Preprint*, 2022.  
+6. Doe, J. *Unsupervised Blink Detection*. *Preprint*, 2022.  
+7. Doe, J. *Environmental Health Insights via Big Data*. *Springer*, 2022.
+
+📰 [Data Science Blog](https://medium.com)
+
+---
+
+## 🌐 Links
+- [GitHub](https://github.com/yourusername)  
+- [LinkedIn](https://linkedin.com/in/yourusername)  
+- [Google Scholar](https://scholar.google.com)  
+- [Email](mailto:your.email@example.com)
