@@ -26,41 +26,41 @@ a:hover {
 
 /* ---------- Container ---------- */
 .container {
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
 }
 
 /* ---------- Header ---------- */
 .header {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 3rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .photo img {
-  width: 200px;
-  height: 200px;
-  border-radius: 6px;
+  width: 260px;
+  height: auto;
   object-fit: cover;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .intro {
   flex: 1;
-  min-width: 260px;
+  min-width: 300px;
 }
 
 .intro h1 {
   color: var(--accent);
-  font-size: 1.9rem;
-  margin: 0 0 0.8rem 0;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
 }
 
 .intro p {
-  margin: 0.4rem 0;
+  margin: 0.5rem 0;
 }
 
 /* ---------- Sections ---------- */
@@ -69,7 +69,7 @@ h2 {
   font-size: 1.25rem;
   border-bottom: 1px solid var(--accent);
   padding-bottom: 0.3rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
@@ -82,15 +82,15 @@ h2 {
   background-color: #fff;
   border: 1px solid #e2e8f0;
   border-left: 4px solid var(--accent);
-  padding: 1rem 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1.2rem 1.8rem;
+  margin-bottom: 2.5rem;
 }
 
 .updates-header {
   font-family: monospace;
   color: var(--accent);
   font-size: 15px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 .updates ul {
@@ -103,17 +103,16 @@ h2 {
 .publication {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 1.8rem;
+  margin-top: 1.8rem;
   flex-wrap: wrap;
 }
 
 .pub-image img {
-  width: 260px;
+  width: 300px;
   height: auto;
-  border-radius: 4px;
   object-fit: cover;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .pub-text {
@@ -157,12 +156,12 @@ footer {
   }
 
   .photo img {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    margin-bottom: 1rem;
   }
 
   .intro h1 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .publication {
@@ -172,7 +171,7 @@ footer {
 
   .pub-image img {
     width: 100%;
-    max-width: 320px;
+    max-width: 350px;
   }
 
   footer {
