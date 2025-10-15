@@ -5,14 +5,16 @@
   --link-hover: #718096;  /* Muted gray-blue */
 }
 
-::selection {
-  background-color: #4a5568; /* Slate Gray */
-  color: #ffffff; /* White text for contrast */
-}
-
+/* Option 1 */
 ::selection {
   background-color: #a0aec0; /* Light Slate Gray */
   color: #1a202c; /* Charcoal text */
+}
+
+/* Option 2 */
+::selection {
+  background-color: #4a5568; /* Slate Gray */
+  color: #ffffff; /* White text for contrast */
 }
 
 /* ---------- Base ---------- */
