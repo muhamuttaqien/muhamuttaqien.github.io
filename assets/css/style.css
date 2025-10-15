@@ -132,6 +132,19 @@ h2 {
   color: var(--accent);
   font-weight: 600;
   font-size: 17px;
+  line-height: 1.4;
+}
+
+.authors {
+  font-size: 14px;
+  color: #4a5568; /* Slate Gray */
+  display: inline-block;
+  margin: 2px 0 4px 0;
+}
+
+.pub-text em {
+  font-size: 14.5px;
+  color: #2d3748;
 }
 
 .pub-text p {
