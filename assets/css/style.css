@@ -10,6 +10,11 @@
   color: #ffffff; /* White text for contrast */
 }
 
+::selection {
+  background-color: #a0aec0; /* Light Slate Gray */
+  color: #1a202c; /* Charcoal text */
+}
+
 /* ---------- Base ---------- */
 body {
   font-family: "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
