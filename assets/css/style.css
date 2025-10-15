@@ -117,7 +117,7 @@ h2 {
 }
 
 .pub-image img {
-  width: 300px;
+  width: 200px;
   height: auto;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -162,7 +162,7 @@ h2 {
 }
 
 .project-image img {
-  width: 300px;
+  width: 200px;
   height: auto;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
