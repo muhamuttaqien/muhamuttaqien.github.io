@@ -120,7 +120,7 @@ h2 {
   margin-top: 1.8rem;
 }
 
-.pub-image img {
+.pub-video video {
   width: 270px;
   height: 190px; /* closer to ratio 3:2 */
   object-fit: cover;
@@ -231,7 +231,7 @@ footer {
     align-items: center;
   }
 
-  .pub-image img,
+  .pub-video video,
   .project-image img {
     width: 100%;
     height: auto;
