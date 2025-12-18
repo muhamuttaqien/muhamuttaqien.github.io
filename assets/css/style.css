@@ -5,16 +5,10 @@
   --link-hover: #718096;  /* Muted gray-blue */
 }
 
-/* Option 1 */
-::selection {
-  background-color: #a0aec0; /* Light Slate Gray */
-  color: #1a202c; /* Charcoal text */
-}
-
-/* Option 2 */
+/* ---------- Text Selection ---------- */
 ::selection {
   background-color: #4a5568; /* Slate Gray */
-  color: #ffffff; /* White text for contrast */
+  color: #ffffff;
 }
 
 /* ---------- Base ---------- */
@@ -41,7 +35,6 @@ a {
 
 a:hover {
   border-bottom: 1px solid var(--link-hover);
-  text-decoration: none;
 }
 
 /* ---------- Container ---------- */
@@ -70,11 +63,11 @@ a:hover {
 
 .intro {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
 }
 
 .intro h1 {
-  color: #2d3748;
+  color: var(--text);
   font-size: 2rem;
   margin: 0 0 1rem 0;
 }
@@ -99,7 +92,7 @@ h2 {
 
 /* ---------- Updates ---------- */
 .updates {
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-left: 4px solid var(--accent);
   padding: 1.2rem 1.8rem;
@@ -125,12 +118,11 @@ h2 {
   align-items: flex-start;
   gap: 1.8rem;
   margin-top: 1.8rem;
-  flex-wrap: wrap;
 }
 
 .pub-image img {
-  width: 180px;
-  height: 101px; /* 16:9 ratio */
+  width: 240px;
+  height: 135px; /* 16:9 */
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -138,7 +130,8 @@ h2 {
 
 .pub-text {
   flex: 1;
-  min-width: 250px;
+  min-width: 320px;
+  line-height: 1.55;
 }
 
 .paper-title {
@@ -150,14 +143,14 @@ h2 {
 
 .authors {
   font-size: 14px;
-  color: #4a5568; /* Slate Gray */
+  color: var(--accent);
   display: inline-block;
   margin: 2px 0 4px 0;
 }
 
 .pub-text em {
   font-size: 14.5px;
-  color: #2d3748;
+  color: var(--text);
 }
 
 .pub-text p {
@@ -172,24 +165,24 @@ h2 {
   align-items: flex-start;
   gap: 1.8rem;
   margin-top: 1.8rem;
-  flex-wrap: wrap;
 }
 
 .project-image img {
-  width: 200px;
+  width: 220px;
   height: auto;
   object-fit: cover;
+  border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .project-text {
   flex: 1;
-  min-width: 250px;
+  min-width: 320px;
 }
 
 .project-subtitle {
   font-size: 14.5px;
-  color: #4a5568;
+  color: var(--accent);
   display: inline-block;
   margin-bottom: 6px;
 }
@@ -198,18 +191,6 @@ h2 {
   margin-top: 0.4rem;
   font-size: 15px;
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .project {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-image img {
-    width: 100%;
-    max-width: 340px;
-  }
 }
 
 /* ---------- Lists ---------- */
@@ -244,14 +225,22 @@ footer {
     font-size: 1.7rem;
   }
 
-  .publication {
+  .publication,
+  .project {
     flex-direction: column;
     align-items: center;
   }
 
-  .pub-image img {
+  .pub-image img,
+  .project-image img {
     width: 100%;
-    max-width: 350px;
+    height: auto;
+    max-width: 360px;
+  }
+
+  .pub-text,
+  .project-text {
+    min-width: unset;
   }
 
   footer {
