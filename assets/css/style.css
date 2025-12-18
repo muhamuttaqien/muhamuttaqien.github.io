@@ -121,8 +121,8 @@ h2 {
 }
 
 .pub-image img {
-  width: 240px;
-  height: 160px; /* 16:9 */
+  width: 260px;
+  height: 150px; /* 16:9 */
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
