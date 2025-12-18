@@ -7,7 +7,7 @@
 
 /* ---------- Text Selection ---------- */
 ::selection {
-  background-color: #4a5568;
+  background-color: #4a5568; /* Slate Gray */
   color: #ffffff;
 }
 
@@ -116,13 +116,13 @@ h2 {
 .publication {
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1.8rem;
   margin-top: 1.8rem;
 }
 
 .pub-image img {
-  width: 280px;
-  height: 158px; /* 16:9 */
+  width: 240px;
+  height: 135px; /* 16:9 */
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -130,8 +130,8 @@ h2 {
 
 .pub-text {
   flex: 1;
-  min-width: 360px;
-  line-height: 1.6;
+  min-width: 320px;
+  line-height: 1.55;
 }
 
 .paper-title {
@@ -163,7 +163,7 @@ h2 {
 .project {
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1.8rem;
   margin-top: 1.8rem;
 }
 
@@ -235,7 +235,7 @@ footer {
   .project-image img {
     width: 100%;
     height: auto;
-    max-width: 380px;
+    max-width: 360px;
   }
 
   .pub-text,
