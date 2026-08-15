@@ -1,1 +1,1134 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Muhammad Angga Muttaqien">
+    <meta
+      name="description"
+      content="Master's thesis research by Muhammad Angga Muttaqien on curriculum-based deep reinforcement learning for home robot navigation with natural language interaction."
+    >
+    <title>Thesis Research | Muhammad Angga Muttaqien</title>
+
+    <!-- Reuse the same stylesheet as the main website -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Page-specific additions.
+         These deliberately reuse the variables, typography, spacing, and visual
+         language already defined in assets/css/style.css. -->
+    <style>
+      .thesis-nav {
+        margin-bottom: 2rem;
+        font-size: 15px;
+      }
+
+      .thesis-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .thesis-header h1 {
+        color: var(--text);
+        font-size: 2rem;
+        line-height: 1.3;
+        margin: 0 0 0.8rem 0;
+      }
+
+      .thesis-subtitle {
+        color: var(--accent);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .thesis-links {
+        margin-top: 0.8rem;
+        font-size: 15px;
+      }
+
+      .lead {
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .highlight-box {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid var(--accent);
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0 1.8rem 0;
+      }
+
+      .highlight-box p:last-child {
+        margin-bottom: 0;
+      }
+
+      .media-placeholder {
+        background-color: #ffffff;
+        border: 1px dashed #a0aec0;
+        color: #6b7280;
+        text-align: center;
+        padding: 2.2rem 1.2rem;
+        margin: 1.3rem 0 1.8rem 0;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .pipeline {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0 1.8rem 0;
+        line-height: 1.9;
+        text-align: center;
+      }
+
+      .pipeline strong {
+        white-space: nowrap;
+      }
+
+      .curriculum-grid,
+      .result-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin: 1.2rem 0 1.8rem 0;
+      }
+
+      .curriculum-card,
+      .result-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        padding: 1rem 1.2rem;
+      }
+
+      .curriculum-card h3,
+      .result-card h3 {
+        color: var(--text);
+        font-size: 16.5px;
+        margin: 0 0 0.5rem 0;
+      }
+
+      .curriculum-card p,
+      .result-card p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0.35rem 0;
+      }
+
+      .stage-list {
+        margin-top: 0.6rem;
+        padding-left: 1.1rem;
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+
+      .instruction-example {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        padding: 1rem 1.2rem;
+        margin: 1rem 0 1.5rem 0;
+        font-size: 15px;
+      }
+
+      .instruction-example code {
+        white-space: normal;
+        color: var(--text);
+      }
+
+      .compact-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0 1.8rem 0;
+        font-size: 14.5px;
+      }
+
+      .compact-table th,
+      .compact-table td {
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 0.7rem 0.65rem;
+      }
+
+      .compact-table th {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .note {
+        color: #6b7280;
+        font-size: 14px;
+      }
+
+      .key-takeaway {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid var(--accent);
+        padding: 1.2rem 1.5rem;
+        margin-top: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
+        .thesis-header h1 {
+          font-size: 1.7rem;
+        }
+
+        .curriculum-grid,
+        .result-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .compact-table {
+          display: block;
+          overflow-x: auto;
+        }
+
+        .pipeline {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- Navigation -->
+      <nav class="thesis-nav">
+        <a href="index.html">← Back to Home</a>
+      </nav>
+
+      <!-- Thesis Header -->
+      <header class="thesis-header">
+        <h1>
+          Curriculum-based Deep Reinforcement Learning for Home Robot Navigation
+          with Natural Language Interaction
+        </h1>
+
+        <div class="thesis-subtitle">
+          <strong>Master’s Thesis</strong> — Master’s Program in Computer Science<br>
+          Graduate School of Science and Technology,
+          Degree Programs in Systems and Information Engineering<br>
+          <strong>University of Tsukuba</strong> · January 2025<br>
+          Muhammad Angga Muttaqien · Advised by
+          <strong>Prof. Akihisa Ohya</strong>
+        </div>
+
+        <div class="thesis-links">
+          <a href="index.html">Research Profile</a> |
+          <a href="https://scholar.google.com/citations?user=NA9hcLQAAAAJ" target="_blank">Google Scholar</a> |
+          <a href="https://github.com/muhamuttaqien" target="_blank">GitHub</a>
+          <!-- Optional:
+               Upload the thesis PDF to assets/pdf/thesis.pdf, then add:
+               | <a href="assets/pdf/thesis.pdf" target="_blank">Thesis PDF</a>
+          -->
+        </div>
+      </header>
+
+      <!-- Overview -->
+      <section class="section">
+        <h2>Overview</h2>
+
+        <p class="lead">
+          This research investigates how a home robot can learn to
+          <strong>navigate household environments</strong>,
+          <strong>interact with objects</strong>, and
+          <strong>follow natural-language instructions</strong>
+          within one learning framework. The central idea is to combine
+          multi-modal deep reinforcement learning with
+          <strong>curriculum learning</strong>, allowing the robot to acquire
+          foundational skills before being exposed to increasingly complex,
+          multi-step instructions.
+        </p>
+
+        <div class="highlight-box">
+          <p>
+            <strong>TLDR:</strong>
+            Instead of asking a reinforcement-learning agent to solve a complete
+            instruction such as
+            <em>“find the bread, take it, go to the fridge, and place it inside”</em>
+            from the beginning, the proposed approach progressively teaches the
+            required skills. The thesis evaluates five different curriculum
+            strategies and finds that curriculum design strongly influences
+            learning stability, task performance, generalization, and robot
+            behavior.
+          </p>
+        </div>
+
+        <div class="media-placeholder">
+          [VIDEOS - Short demonstration montage of the trained AI2-THOR robot
+          following several natural-language household instructions]
+        </div>
+      </section>
+
+      <!-- Motivation -->
+      <section class="section">
+        <h2>Motivation and Research Problem</h2>
+
+        <p>
+          Future home robots need more than point-to-point navigation. They must
+          understand what a user wants, perceive the surrounding environment,
+          identify relevant objects and locations, and execute a sequence of
+          actions in the correct order. A seemingly simple instruction can
+          therefore require several tightly coupled abilities:
+          <strong>language understanding, visual perception, navigation,
+          object interaction, and sequential decision-making</strong>.
+        </p>
+
+        <p>
+          Standard deep reinforcement learning can struggle when an agent is
+          exposed to the full complexity of such a task from the start.
+          Exploration becomes difficult, useful rewards can be sparse, and the
+          agent may fail to discover the intermediate behaviors needed to
+          complete a long instruction. This thesis studies whether
+          <strong>progressively structured training</strong> can make this
+          learning process more effective.
+        </p>
+
+        <div class="instruction-example">
+          <strong>Example target instruction</strong><br>
+          <code>
+            “Find the bread, take it, go to the fridge, and place the bread inside.”
+          </code>
+        </div>
+
+        <div class="media-placeholder">
+          [IMAGES - Example AI2-THOR kitchen scene showing the robot,
+          target object, destination, and the corresponding human instruction]
+        </div>
+      </section>
+
+      <!-- Objectives -->
+      <section class="section">
+        <h2>Research Objectives</h2>
+
+        <ul>
+          <li>
+            Design curriculum-learning strategies that introduce task
+            complexity progressively, from basic navigation to object
+            interaction and multi-step household tasks.
+          </li>
+          <li>
+            Develop an end-to-end deep reinforcement-learning framework capable
+            of learning from visual observations and language instructions.
+          </li>
+          <li>
+            Integrate natural-language processing so that user instructions can
+            be represented and translated into actionable robot behavior.
+          </li>
+          <li>
+            Combine curriculum learning, deep reinforcement learning, and
+            natural-language interaction into one simulated home-robot system.
+          </li>
+          <li>
+            Evaluate learning performance through task accomplishment,
+            generalization, scalability, and qualitative inspection of robot
+            behavior.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Contributions -->
+      <section class="section">
+        <h2>Main Contributions</h2>
+
+        <div class="result-grid">
+          <div class="result-card">
+            <h3>1. Curriculum-based Training</h3>
+            <p>
+              A staged training methodology that systematically changes task
+              complexity so foundational robot skills can be acquired before
+              full multi-step tasks are introduced.
+            </p>
+          </div>
+
+          <div class="result-card">
+            <h3>2. Multi-modal Deep RL</h3>
+            <p>
+              A visual-language reinforcement-learning setup that combines RGB
+              observations and natural-language commands for navigation and
+              object interaction.
+            </p>
+          </div>
+
+          <div class="result-card">
+            <h3>3. Integrated Robot Framework</h3>
+            <p>
+              A unified pipeline connecting perception, language processing,
+              reinforcement learning, curriculum progression, and action
+              execution inside AI2-THOR.
+            </p>
+          </div>
+
+          <div class="result-card">
+            <h3>4. Empirical Curriculum Comparison</h3>
+            <p>
+              Five curriculum designs are experimentally compared to understand
+              how task ordering and progression affect learning outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Framework -->
+      <section class="section">
+        <h2>Proposed Multi-modal Deep Reinforcement Learning Framework</h2>
+
+        <p>
+          At each time step, the agent receives two main information streams:
+          an <strong>RGB observation</strong> of the simulated environment and a
+          <strong>natural-language instruction</strong>. The visual observation
+          is encoded using a pre-trained <strong>ResNet-18</strong>. The textual
+          instruction is represented using <strong>Word2Vec</strong> embeddings
+          and processed by an <strong>LSTM</strong>. The visual and language
+          features are fused into a joint state representation used by the
+          reinforcement-learning policy.
+        </p>
+
+        <div class="pipeline">
+          <strong>RGB Observation</strong>
+          &nbsp;→&nbsp; ResNet-18 Visual Encoder
+          &nbsp;↘<br>
+          <strong>Human Instruction</strong>
+          &nbsp;→&nbsp; Word2Vec + LSTM Textual Encoder
+          &nbsp;→&nbsp;
+          <strong>Feature Fusion</strong>
+          &nbsp;→&nbsp;
+          <strong>MM-DQN / MM-A2C</strong>
+          &nbsp;→&nbsp;
+          <strong>Robot Action</strong>
+          &nbsp;→&nbsp;
+          AI2-THOR Environment
+        </div>
+
+        <p>
+          Two multi-modal reinforcement-learning formulations are implemented:
+          <strong>Multi-Modal Deep Q-Network (MM-DQN)</strong> and
+          <strong>Multi-Modal Advantage Actor-Critic (MM-A2C)</strong>.
+          The main experimental evaluation reported in the thesis focuses on
+          MM-DQN.
+        </p>
+
+        <p>
+          The robot uses a discrete action space that includes navigation
+          actions such as moving and turning, together with task-oriented
+          actions such as picking up and placing objects. Positive rewards are
+          assigned to useful progress and task completion, while collisions,
+          redundant actions, and inefficient behavior are penalized. The reward
+          structure can change between curriculum stages to emphasize the skill
+          currently being learned.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figure 3.1: complete visual-language MM-DQN/MM-A2C
+          architecture from RGB image and human instruction to robot action]
+        </div>
+      </section>
+
+      <!-- Language -->
+      <section class="section">
+        <h2>Natural Language Interaction</h2>
+
+        <p>
+          Natural-language commands are represented with Word2Vec and an LSTM.
+          Longer commands are decomposed into smaller sub-instructions so that
+          the robot can execute a sequence systematically. For example:
+        </p>
+
+        <div class="instruction-example">
+          <code>
+            “Pick up the mug from the kitchen table and place it on the counter”
+          </code>
+          <br><br>
+          becomes:
+          <br>
+          <code>
+            identify mug → navigate to mug → pick up mug → move to destination → place mug
+          </code>
+        </div>
+
+        <p>
+          The embedding-based language representation also allows the system to
+          respond to semantically similar words. In the reported robot-behavior
+          experiments, variations such as <em>find</em>, <em>locate</em>, and
+          <em>identify</em> could be used to refer to the object-search action.
+        </p>
+      </section>
+
+      <!-- Simulation -->
+      <section class="section">
+        <h2>Simulation Environment</h2>
+
+        <p>
+          Training and evaluation are performed entirely in
+          <strong>AI2-THOR</strong>, an interactive household simulation
+          environment. The primary training experiments use kitchen scenes,
+          while additional experiments extend the framework to bathrooms,
+          bedrooms, and living rooms.
+        </p>
+
+        <p>
+          AI2-THOR provides several visual modalities, including RGB, depth,
+          instance segmentation, semantic segmentation, and surface normals.
+          Although these modalities are available in the simulator, the learning
+          framework in this thesis uses the <strong>RGB image</strong> as its
+          visual input. The simulated agent can navigate through rooms and
+          interact with household objects using actions such as finding,
+          taking, moving toward, and placing objects.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - AI2-THOR overview: first-person scene, simulated robot,
+          bird's-eye kitchen layout, and example household objects]
+        </div>
+
+        <div class="media-placeholder">
+          [VIDEOS - First-person AI2-THOR navigation and object-manipulation
+          sequence during one complete multi-step instruction]
+        </div>
+      </section>
+
+      <!-- Curriculum -->
+      <section class="section">
+        <h2>Five Curriculum Designs</h2>
+
+        <p>
+          A major part of the thesis is the comparison of five ways to structure
+          the learning progression. Each curriculum is motivated by a different
+          assumption about how complex skills should be acquired.
+        </p>
+
+        <div class="curriculum-grid">
+          <div class="curriculum-card">
+            <h3>Incremental Curriculum (ICL)</h3>
+            <p>
+              Complexity is increased progressively so that each new stage adds
+              another component to the previous skill.
+            </p>
+            <ol class="stage-list">
+              <li>Find the bread</li>
+              <li>Find the bread, take it</li>
+              <li>Find the bread, take it, go to the fridge</li>
+              <li>Find the bread, take it, go to the fridge, place it inside</li>
+            </ol>
+          </div>
+
+          <div class="curriculum-card">
+            <h3>Reverse Curriculum (ReCL)</h3>
+            <p>
+              The robot begins from the final part of the task and progressively
+              adds earlier sub-tasks until the complete instruction is learned.
+            </p>
+            <ol class="stage-list">
+              <li>Place the bread inside</li>
+              <li>Go to the fridge, place the bread inside</li>
+              <li>Take it, go to the fridge, place it inside</li>
+              <li>Find the bread, take it, go to the fridge, place it inside</li>
+            </ol>
+          </div>
+
+          <div class="curriculum-card">
+            <h3>Random Curriculum (RCL)</h3>
+            <p>
+              Training remains structured, but randomness is introduced in the
+              objects or scenarios encountered within the curriculum.
+            </p>
+            <p>
+              <strong>Assumption:</strong> controlled randomness can reduce
+              overfitting and improve adaptability.
+            </p>
+          </div>
+
+          <div class="curriculum-card">
+            <h3>Mastery Curriculum (MCL)</h3>
+            <p>
+              The robot focuses on mastering one complete instruction before
+              additional complete instructions involving other objects and
+              locations are added.
+            </p>
+            <p>
+              <strong>Assumption:</strong> deep mastery of one complete behavior
+              can support transfer to new instructions.
+            </p>
+          </div>
+
+          <div class="curriculum-card">
+            <h3>Constructive Curriculum (CCL)</h3>
+            <p>
+              Individual skills are learned separately and then deliberately
+              recombined into increasingly complete behaviors.
+            </p>
+            <ol class="stage-list">
+              <li>Find</li>
+              <li>Take</li>
+              <li>Find + Take</li>
+              <li>Go to location</li>
+              <li>Find + Take + Go</li>
+              <li>Place</li>
+              <li>Find + Take + Go + Place</li>
+            </ol>
+          </div>
+
+          <div class="curriculum-card">
+            <h3>Why Compare Them?</h3>
+            <p>
+              The goal is not only to test whether curriculum learning helps,
+              but also to determine how the <strong>structure of the
+              curriculum itself</strong> affects stability, task completion,
+              adaptability, and scalability.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-placeholder">
+          [IMAGES - One comparison diagram showing ICL, ReCL, RCL, MCL,
+          and CCL progression side-by-side]
+        </div>
+      </section>
+
+      <!-- Experimental setup -->
+      <section class="section">
+        <h2>Experimental Setup</h2>
+
+        <p>
+          The main experiments use Multi-Modal DQN in AI2-THOR. Each trial begins
+          from a randomized robot starting position. The evaluation initially
+          focuses on kitchen tasks and later expands to environmental variations
+          and additional rooms.
+        </p>
+
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Replay buffer</td>
+              <td>10,000 transitions</td>
+            </tr>
+            <tr>
+              <td>Batch size</td>
+              <td>64</td>
+            </tr>
+            <tr>
+              <td>Discount factor (γ)</td>
+              <td>0.999</td>
+            </tr>
+            <tr>
+              <td>Epsilon</td>
+              <td>0.90 → 0.05</td>
+            </tr>
+            <tr>
+              <td>Maximum training episodes</td>
+              <td>12,000</td>
+            </tr>
+            <tr>
+              <td>Target-network update frequency</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Soft-update factor (τ)</td>
+              <td>1 × 10<sup>−4</sup></td>
+            </tr>
+            <tr>
+              <td>Learning rate</td>
+              <td>1 × 10<sup>−4</sup></td>
+            </tr>
+            <tr>
+              <td>Optimizer</td>
+              <td>RMSprop</td>
+            </tr>
+            <tr>
+              <td>Maximum time steps per episode</td>
+              <td>200</td>
+            </tr>
+            <tr>
+              <td>Visual input</td>
+              <td>64 × 64 RGB</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          The principal evaluation criteria are
+          <strong>learning performance, task accomplishment,
+          generalization capability, scalability, and robot behavior</strong>.
+        </p>
+      </section>
+
+      <!-- Results -->
+      <section class="section">
+        <h2>Results</h2>
+
+        <h3>Curriculum Learning vs. Standard DRL</h3>
+        <p>
+          The baseline agent is trained directly on the full task without
+          staged progression. In the reported learning curves, this baseline
+          struggles to learn the complex human-instruction task. In contrast,
+          the Incremental Curriculum agent shows clear progression as the task
+          evolves from simple object finding toward full navigation and
+          manipulation.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figure 5.1: baseline DRL versus Incremental
+          Curriculum Learning curve]
+        </div>
+
+        <h3>Learning Curves Across Curricula</h3>
+
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th>Curriculum</th>
+              <th>Reported behavior at the most difficult stage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ICL</strong></td>
+              <td>
+                Full Find + Take + Go + Place task stabilizes around
+                <strong>48.55</strong> mean cumulative reward, with reduced
+                variability.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>ReCL</strong></td>
+              <td>
+                Final full task becomes unstable and settles around
+                <strong>−15.40</strong>, indicating difficulty when the complete
+                task is assembled from the reverse progression.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>RCL</strong></td>
+              <td>
+                Final stage steadily improves and stabilizes near
+                <strong>79.00</strong> in its learning-curve experiment.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>MCL</strong></td>
+              <td>
+                Performance deteriorates as more full instructions are added;
+                the final stage stabilizes near <strong>−10.15</strong>.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>CCL</strong></td>
+              <td>
+                Early component skills are learned successfully, but the final
+                combined task becomes unstable and settles near
+                <strong>−15.00</strong>.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Based on these learning-curve experiments, the thesis selects
+          <strong>Incremental Curriculum (ICL)</strong> and
+          <strong>Random Curriculum (RCL)</strong> for deeper evaluation.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figures 5.2–5.6: learning curves for ICL, ReCL,
+          RCL, MCL, and CCL]
+        </div>
+
+        <h3>Task Performance: ICL vs. RCL</h3>
+
+        <p>
+          The deeper comparison shows that the two curricula can perform
+          similarly on some instructions, while ICL has a strong advantage on
+          particular complex tasks. For example, during Stage 4 the reported
+          mean cumulative rewards are:
+        </p>
+
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th>Stage 4 Instruction</th>
+              <th>ICL</th>
+              <th>RCL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Find bowl → take → go to table → place</td>
+              <td>49.37</td>
+              <td>49.37</td>
+            </tr>
+            <tr>
+              <td>Find bread → take → go to fridge → place</td>
+              <td>49.33</td>
+              <td>49.41</td>
+            </tr>
+            <tr>
+              <td>Find vase → take → go to trashcan → place</td>
+              <td><strong>48.89</strong></td>
+              <td>17.60</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note">
+          The thesis additionally tests multiple random seeds. The reported
+          seed-wise comparisons show task-dependent variability, reinforcing
+          that curriculum effectiveness depends on both the progression
+          strategy and the particular task structure.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figures 5.7–5.10: ICL versus RCL task-performance
+          comparisons, including multiple random seeds]
+        </div>
+      </section>
+
+      <!-- Generalization -->
+      <section class="section">
+        <h2>Generalization to Environmental Changes</h2>
+
+        <p>
+          Generalization is tested by modifying scene illumination. Under
+          moderate changes, the agent often retains strong performance on
+          simpler instructions. Visually demanding tasks, however, are more
+          sensitive to illumination changes.
+        </p>
+
+        <div class="result-grid">
+          <div class="result-card">
+            <h3>Incremental Curriculum</h3>
+            <p>
+              For the bowl and bread tasks, performance remains close to the
+              normal-condition reward under moderate lighting changes.
+            </p>
+            <p>
+              For the vase task, the reported reward drops from about
+              <strong>48.89</strong> in normal lighting to
+              <strong>12.67</strong> in a brighter environment.
+            </p>
+          </div>
+
+          <div class="result-card">
+            <h3>Random Curriculum</h3>
+            <p>
+              RCL shows some resilience to environmental variation, but its
+              visually demanding vase task also drops substantially under
+              darker or brighter conditions.
+            </p>
+            <p>
+              Under sufficiently extreme darkness, performance for several
+              tasks collapses, showing that the learned visual policy is not
+              robust to all unseen conditions.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          These experiments indicate that curriculum learning improves task
+          acquisition, but <strong>curriculum alone does not solve visual
+          domain generalization</strong>. More explicit robustness techniques
+          are needed for large environmental shifts.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figures 5.11–5.18: ICL and RCL performance under
+          darker and brighter scene conditions]
+        </div>
+      </section>
+
+      <!-- Scalability -->
+      <section class="section">
+        <h2>Scalability</h2>
+
+        <p>
+          The Incremental Curriculum framework is extended beyond the original
+          three-instruction setting. With <strong>six instructions</strong>,
+          cumulative reward stabilizes around <strong>19.30</strong>; with
+          <strong>nine instructions</strong>, it stabilizes near
+          <strong>19.95</strong> after 12,000 epochs. The decreasing variability
+          suggests that the agent can continue learning as the instruction set
+          expands.
+        </p>
+
+        <p>
+          The curriculum framework is also evaluated in
+          <strong>bathroom, bedroom, and living-room</strong> scenes with
+          room-specific objects. The robot learns useful behaviors in all three
+          room categories, although the living-room experiment is identified as
+          requiring additional hyperparameter tuning.
+        </p>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figure 5.19: scalability from 3 to 6 to 9
+          instructions]
+        </div>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figure 5.20: curriculum-learning curves in bathroom,
+          bedroom, and living-room environments]
+        </div>
+      </section>
+
+      <!-- Robot Behavior -->
+      <section class="section">
+        <h2>Robot Behavior</h2>
+
+        <p>
+          Beyond numerical learning curves, the thesis inspects how the robot
+          actually executes full instructions. Under ICL, the robot generally
+          exhibits more precise and efficient behavior aligned with the target
+          sequence. RCL can also complete tasks but is reported to occasionally
+          produce less predictable or unnecessary actions.
+        </p>
+
+        <p>Example evaluated commands include:</p>
+
+        <ul>
+          <li>
+            “Find the bowl, take it, go to the table, and place it there.”
+          </li>
+          <li>
+            “Locate the bread, grasp it, move to the fridge, and set it inside.”
+          </li>
+          <li>
+            “Identify the vase, collect it, proceed to the trashcan, and
+            position it within.”
+          </li>
+        </ul>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figures 5.21–5.23: sequential robot behavior for
+          bowl, bread, and vase instructions]
+        </div>
+
+        <div class="media-placeholder">
+          [VIDEOS - Side-by-side behavioral comparison of ICL and RCL executing
+          the same multi-step instruction]
+        </div>
+      </section>
+
+      <!-- Sensitivity -->
+      <section class="section">
+        <h2>Sensitivity Analysis</h2>
+
+        <p>
+          The thesis studies how several training choices influence learning
+          during Stage 2:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Maximum episode length:</strong> increasing the maximum
+            number of steps from 100 toward 400 improves cumulative reward,
+            particularly for sequential tasks that require more exploration and
+            execution time.
+          </li>
+          <li>
+            <strong>Exploration rate:</strong> reducing epsilon from 0.90 toward
+            0.50 leads to faster convergence and higher cumulative rewards in
+            several tested tasks, suggesting that excessive random exploration
+            can slow learning after useful behavior has been acquired.
+          </li>
+          <li>
+            <strong>Reward scaling:</strong> incremental rewards for individual
+            task components outperform normalized or heavily scaled-down
+            rewards, providing a stronger learning signal for multi-step tasks.
+          </li>
+        </ul>
+
+        <div class="media-placeholder">
+          [IMAGES - Thesis Figure 5.24: sensitivity analysis for maximum time,
+          epsilon, and reward scaling]
+        </div>
+      </section>
+
+      <!-- Key findings -->
+      <section class="section">
+        <h2>Key Findings</h2>
+
+        <div class="key-takeaway">
+          <p>
+            <strong>1. Curriculum structure matters.</strong>
+            Simply using curriculum learning is not enough; the ordering and
+            decomposition of tasks strongly affect whether the agent can
+            eventually solve the complete instruction.
+          </p>
+
+          <p>
+            <strong>2. Incremental progression fits multi-stage household
+            instructions particularly well.</strong>
+            Learning object finding, interaction, navigation, and placement in
+            a progressively expanding sequence gives the agent useful
+            foundational skills for the complete task.
+          </p>
+
+          <p>
+            <strong>3. Randomness can improve adaptability, but can also make
+            behavior less predictable.</strong>
+            RCL is one of the strongest alternatives and shows robustness in
+            several experiments, while ICL generally produces more structured
+            task execution.
+          </p>
+
+          <p>
+            <strong>4. Multi-modal state representation is effective.</strong>
+            Combining visual features with language embeddings enables one
+            policy to connect what the robot sees with what the user asks it to
+            do.
+          </p>
+
+          <p>
+            <strong>5. Generalization remains an open problem.</strong>
+            Performance degrades under extreme illumination and greater
+            environmental variation, indicating that curriculum learning should
+            be combined with stronger visual generalization methods.
+          </p>
+        </div>
+      </section>
+
+      <!-- Limitations -->
+      <section class="section">
+        <h2>Limitations</h2>
+
+        <ul>
+          <li>
+            Reward design for long, multi-step tasks remains difficult; the
+            agent can terminate prematurely or transition poorly between
+            sub-goals.
+          </li>
+          <li>
+            Generalization degrades under extreme lighting and other unseen
+            visual conditions.
+          </li>
+          <li>
+            Several curricula, particularly ReCL and MCL, become difficult to
+            scale as task complexity increases.
+          </li>
+          <li>
+            Curriculum stages are manually designed and sequenced, limiting
+            adaptability to much larger and less structured task spaces.
+          </li>
+          <li>
+            Training complex curricula requires substantial computation and
+            restricts the number of configurations that can be explored.
+          </li>
+          <li>
+            The evaluation is simulation-based; real-world robot deployment
+            remains future work.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Future work -->
+      <section class="section">
+        <h2>Future Work</h2>
+
+        <p>
+          The thesis identifies several directions for extending this work:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Automated curriculum generation</strong> using methods such
+            as reinforcement-learning-based curriculum optimization or
+            self-paced learning.
+          </li>
+          <li>
+            Scaling to substantially more <strong>objects, instructions,
+            layouts, and scenes</strong>.
+          </li>
+          <li>
+            Improving generalization using techniques such as
+            <strong>data augmentation, domain adaptation, and adversarial
+            training</strong>.
+          </li>
+          <li>
+            Moving from simulation toward <strong>real-world deployment</strong>
+            in dynamic homes and offices.
+          </li>
+          <li>
+            Improving computational efficiency to support larger-scale
+            experiments and more complex robot behaviors.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Takeaway -->
+      <section class="section">
+        <h2>Research Takeaway</h2>
+
+        <p class="lead">
+          The central lesson of this thesis is that
+          <strong>how a robot is taught can be as important as the learning
+          algorithm itself</strong>. For multi-step home-robot tasks, exposing a
+          reinforcement-learning agent to the complete problem immediately can
+          make exploration and learning unnecessarily difficult. A carefully
+          designed curriculum allows the robot to acquire reusable foundational
+          skills and progressively compose them into more complex behavior.
+        </p>
+
+        <p>
+          The results establish curriculum learning as a promising mechanism
+          for connecting multi-modal perception, natural-language interaction,
+          navigation, and object manipulation in intelligent home robots, while
+          also highlighting the remaining challenges of generalization,
+          automatic curriculum design, scalability, and real-world transfer.
+        </p>
+      </section>
+
+      <!-- Related Publication -->
+      <section class="section">
+        <h2>Related Publication</h2>
+
+        <div class="publication">
+          <div class="pub-video">
+            <div class="media-placeholder" style="width: 270px; min-height: 130px; margin: 0;">
+              [IMAGES - Research-paper preview or representative AI2-THOR scene]
+            </div>
+          </div>
+
+          <div class="pub-text">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10673231" target="_blank">
+              <span class="paper-title">
+                Mobile Robots through Task-Based Human Instructions using
+                Incremental Curriculum Learning
+              </span>
+            </a><br>
+
+            <span class="authors">
+              Muhammad A. Muttaqien, Ayanori Yorozu, Akihisa Ohya
+            </span><br>
+
+            <em>
+              2024 IEEE International Conference on Cybernetics and Intelligent
+              Systems (CIS), Hangzhou, China
+            </em>
+
+            <p>
+              <strong>TLDR:</strong>
+              This related work investigates incremental curriculum learning
+              for mobile-robot behavior driven by task-based human
+              instructions, forming an important foundation for the broader
+              multi-modal and curriculum-based framework developed in the
+              Master’s thesis.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          © 2026 Muhammad Angga Muttaqien (muhamuttaqien) — Hosted on GitHub Pages
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
