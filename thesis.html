@@ -11,17 +11,15 @@
 
   <title>Curriculum-based Deep Reinforcement Learning | Muhammad Angga Muttaqien</title>
 
-  <!-- Reuse the visual identity of the main portfolio -->
-  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <!-- Styles -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-    /* =========================================================
-       Thesis Project Page
-       Clean research-project layout inspired by modern robotics
-       paper websites, while preserving the portfolio colors.
-       ========================================================= */
-
+    /* Page */
     body {
       background: #ffffff;
     }
@@ -32,45 +30,52 @@
       padding: 2rem 1.5rem 3rem;
     }
 
-    /* ---------- Top Navigation ---------- */
+    /* Navigation */
     .top-nav {
       margin-bottom: 3rem;
       font-size: 15px;
     }
 
-    /* ---------- Hero ---------- */
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Header */
     .hero {
-      text-align: center;
-      margin: 0 auto 3.5rem;
       max-width: 860px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
     }
 
     .hero h1 {
+      margin: 0 0 0.9rem;
+      color: var(--text);
       font-size: 2.5rem;
       line-height: 1.2;
       letter-spacing: -0.025em;
-      margin: 0 0 0.9rem;
-      color: var(--text);
     }
 
     .hero .subtitle {
-      font-size: 1.15rem;
-      color: var(--accent);
       margin-bottom: 1.3rem;
+      color: var(--accent);
+      font-size: 1.15rem;
     }
 
     .hero .author {
-      font-size: 17px;
       margin-bottom: 0.25rem;
+      font-size: 17px;
     }
 
     .hero .affiliation {
+      margin-bottom: 1.6rem;
+      color: #6b7280;
       font-size: 15px;
       line-height: 1.6;
-      color: #6b7280;
-      margin-bottom: 1.6rem;
     }
 
+    /* Resource Links */
     .resource-links {
       display: flex;
       justify-content: center;
@@ -83,66 +88,59 @@
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-    
       padding: 0.55rem 1rem;
       border: 1px solid #2d3748;
       border-radius: 999px;
-    
       background: #2d3748;
       color: #ffffff;
-    
       font-size: 14.5px;
-      transition: 0.15s ease;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
     }
-    
+
     .resource-links a:hover {
-      background: #4a5568;
       border-color: #4a5568;
-      color: #ffffff;
-    }
-    
-    .resource-links a i {
+      background: #4a5568;
       color: #ffffff;
     }
 
-    /* ---------- Main Hero Media ---------- */
+    /* Media */
     .hero-media {
-      margin: 2rem auto 0;
       max-width: 860px;
+      margin: 2rem auto 0;
     }
 
     .media-placeholder {
-      min-height: 250px;
-      border: 1px dashed #a0aec0;
-      background: #f8f9fa;
-      color: #718096;
-      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      box-sizing: border-box;
+      min-height: 250px;
       padding: 1.5rem;
+      border: 1px dashed #a0aec0;
+      border-radius: 8px;
+      background: #f8f9fa;
+      color: #718096;
       font-family: monospace;
       font-size: 14px;
       line-height: 1.6;
-      box-sizing: border-box;
+      text-align: center;
     }
 
     .media-placeholder.small {
       min-height: 180px;
     }
 
-    /* ---------- Sections ---------- */
+    /* Sections */
     .research-section {
       margin: 3.8rem 0;
     }
 
     .research-section h2 {
-      text-align: center;
-      border: 0;
-      font-size: 1.65rem;
       margin: 0 0 1.5rem;
+      border: 0;
       color: var(--text);
+      font-size: 1.65rem;
+      text-align: center;
     }
 
     .research-section > p {
@@ -153,19 +151,19 @@
     }
 
     .section-intro {
-      text-align: center;
-      color: #4a5568;
       max-width: 760px !important;
       margin-bottom: 1.6rem !important;
+      color: #4a5568;
+      text-align: center;
     }
 
-    /* ---------- Method ---------- */
+    /* Method */
     .method-flow {
       display: flex;
       align-items: stretch;
       justify-content: center;
-      gap: 0.7rem;
       flex-wrap: wrap;
+      gap: 0.7rem;
       margin: 1.8rem 0;
     }
 
@@ -173,13 +171,13 @@
       flex: 1;
       min-width: 140px;
       max-width: 180px;
+      padding: 1rem;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
       background: #ffffff;
       font-size: 14px;
       line-height: 1.5;
+      text-align: center;
     }
 
     .method-box strong {
@@ -191,10 +189,10 @@
       display: flex;
       align-items: center;
       color: #718096;
-      font-size: 22px;
+      font-size: 18px;
     }
 
-    /* ---------- Curriculum ---------- */
+    /* Curriculum */
     .curriculum-row {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -203,17 +201,17 @@
     }
 
     .curriculum-item {
-      border-top: 3px solid var(--accent);
-      background: #f8f9fa;
       padding: 1rem 0.8rem;
-      text-align: center;
+      border-top: 3px solid var(--accent);
       border-radius: 4px;
+      background: #f8f9fa;
+      text-align: center;
     }
 
     .curriculum-item strong {
       display: block;
-      font-size: 15px;
       margin-bottom: 0.35rem;
+      font-size: 15px;
     }
 
     .curriculum-item span {
@@ -222,7 +220,7 @@
       line-height: 1.45;
     }
 
-    /* ---------- Results ---------- */
+    /* Results */
     .result-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -231,35 +229,35 @@
     }
 
     .result-card {
-      text-align: center;
       padding: 1.3rem 1rem;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
       background: #ffffff;
+      text-align: center;
     }
 
     .result-number {
       display: block;
+      margin-bottom: 0.35rem;
+      color: var(--accent);
       font-size: 1.8rem;
       font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
     }
 
     .result-label {
+      color: #4a5568;
       font-size: 14px;
       line-height: 1.5;
-      color: #4a5568;
     }
 
     .result-note {
-      text-align: center;
+      margin-top: 1rem !important;
       color: #6b7280;
       font-size: 14px !important;
-      margin-top: 1rem !important;
+      text-align: center;
     }
 
-    /* ---------- Demo Grid ---------- */
+    /* Demos */
     .demo-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -268,28 +266,33 @@
     }
 
     .demo-card p {
-      text-align: center;
       margin-top: 0.6rem;
-      font-size: 14px;
       color: #6b7280;
+      font-size: 14px;
+      text-align: center;
     }
 
-    /* ---------- Takeaway ---------- */
+    .inline-arrow {
+      margin: 0 0.25rem;
+      font-size: 0.85em;
+    }
+
+    /* Takeaway */
     .takeaway {
       max-width: 790px;
       margin: 4rem auto 0;
       padding: 1.5rem 1.7rem;
-      background: #f8f9fa;
       border-left: 4px solid var(--accent);
+      background: #f8f9fa;
       line-height: 1.75;
     }
 
-    /* ---------- Publication ---------- */
+    /* Publication */
     .publication-simple {
       max-width: 790px;
       margin: 1.5rem auto 0;
-      text-align: center;
       line-height: 1.65;
+      text-align: center;
     }
 
     .publication-simple .paper-title {
@@ -297,7 +300,7 @@
       margin-bottom: 0.3rem;
     }
 
-    /* ---------- Responsive ---------- */
+    /* Responsive */
     @media (max-width: 768px) {
       .thesis-page {
         padding: 1.5rem 1rem 2.5rem;
@@ -323,10 +326,7 @@
         font-size: 1.45rem;
       }
 
-      .curriculum-row {
-        grid-template-columns: 1fr;
-      }
-
+      .curriculum-row,
       .result-grid,
       .demo-grid {
         grid-template-columns: 1fr;
@@ -334,9 +334,9 @@
 
       .arrow {
         width: 100%;
+        height: 20px;
         justify-content: center;
         transform: rotate(90deg);
-        height: 20px;
       }
 
       .method-box {
@@ -349,19 +349,16 @@
 <body>
   <main class="thesis-page">
 
-    <!-- =======================================================
-         Navigation
-         ======================================================= -->
+    <!-- Navigation -->
     <nav class="top-nav">
-      <a href="index.html">← Back to Home</a>
+      <a href="index.html">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Back to Home
+      </a>
     </nav>
 
-
-    <!-- =======================================================
-         Hero
-         ======================================================= -->
+    <!-- Header -->
     <section class="hero">
-
       <h1>
         Curriculum-based Deep Reinforcement Learning
         for Home Robot Navigation with Natural Language Interaction
@@ -382,29 +379,29 @@
       </div>
 
       <div class="resource-links">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          Thesis PDF
+        </a>
 
-      <a href="#" target="_blank">
-        <i class="fa-solid fa-file-pdf"></i>
-        Thesis PDF
-      </a>
-    
-      <a
-        href="https://ieeexplore.ieee.org/abstract/document/10673231"
-        target="_blank"
-      >
-        <i class="fa-solid fa-file-lines"></i>
-        Related Paper
-      </a>
-    
-      <a
-        href="https://github.com/muhamuttaqien"
-        target="_blank"
-      >
-        <i class="fa-brands fa-github"></i>
-        GitHub
-      </a>
-    
-    </div>
+        <a
+          href="https://ieeexplore.ieee.org/abstract/document/10673231"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+          Related Paper
+        </a>
+
+        <a
+          href="https://github.com/muhamuttaqien"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          GitHub
+        </a>
+      </div>
 
       <div class="hero-media">
         <div class="media-placeholder">
@@ -413,15 +410,10 @@
           a multi-step household task]
         </div>
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Abstract
-         ======================================================= -->
+    <!-- Abstract -->
     <section class="research-section">
-
       <h2>Abstract</h2>
 
       <p>
@@ -430,9 +422,7 @@
         instructions. However, directly training a reinforcement-learning
         agent on complex multi-step tasks can make exploration and learning
         difficult.
-      </p>
-
-      <p>
+        
         This research investigates a curriculum-based approach in which a
         robot progressively acquires foundational skills before attempting
         complete household instructions. Visual observations and language
@@ -440,15 +430,10 @@
         learning, and five curriculum strategies are evaluated in the
         AI2-THOR home simulation environment.
       </p>
-
     </section>
 
-
-    <!-- =======================================================
-         Method
-         ======================================================= -->
+    <!-- Method -->
     <section class="research-section">
-
       <h2>Method</h2>
 
       <p class="section-intro">
@@ -457,40 +442,46 @@
       </p>
 
       <div class="method-flow">
-
         <div class="method-box">
           <strong>RGB Image</strong>
           Robot's first-person observation
         </div>
 
-        <div class="arrow">→</div>
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
 
         <div class="method-box">
           <strong>Visual Encoder</strong>
           ResNet-18
         </div>
 
-        <div class="arrow">+</div>
+        <div class="arrow">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+        </div>
 
         <div class="method-box">
           <strong>Language Encoder</strong>
           Word2Vec + LSTM
         </div>
 
-        <div class="arrow">→</div>
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
 
         <div class="method-box">
           <strong>Multi-modal RL</strong>
           MM-DQN / MM-A2C
         </div>
 
-        <div class="arrow">→</div>
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
 
         <div class="method-box">
           <strong>Robot Action</strong>
           Navigate, pick, place
         </div>
-
       </div>
 
       <div class="media-placeholder small">
@@ -498,15 +489,10 @@
         RGB + human instruction → visual/text encoders →
         feature fusion → MM-DQN/MM-A2C → robot action]
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Curriculum Learning
-         ======================================================= -->
+    <!-- Curriculum Learning -->
     <section class="research-section">
-
       <h2>Curriculum Learning</h2>
 
       <p class="section-intro">
@@ -527,7 +513,6 @@
       </p>
 
       <div class="curriculum-row">
-
         <div class="curriculum-item">
           <strong>ICL</strong>
           <span>Incrementally adds task complexity</span>
@@ -552,17 +537,11 @@
           <strong>CCL</strong>
           <span>Constructs complex tasks from individual skills</span>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Simulation
-         ======================================================= -->
+    <!-- Home Robot Simulation -->
     <section class="research-section">
-
       <h2>Home Robot Simulation</h2>
 
       <p class="section-intro">
@@ -572,7 +551,6 @@
       </p>
 
       <div class="demo-grid">
-
         <div class="demo-card">
           <div class="media-placeholder small">
             [IMAGES - Bird's-eye view and first-person view
@@ -588,17 +566,11 @@
           </div>
           <p>Robot perception and task execution</p>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Results
-         ======================================================= -->
+    <!-- Key Results -->
     <section class="research-section">
-
       <h2>Key Results</h2>
 
       <p class="section-intro">
@@ -607,7 +579,6 @@
       </p>
 
       <div class="result-grid">
-
         <div class="result-card">
           <span class="result-number">ICL + RCL</span>
           <div class="result-label">
@@ -620,18 +591,19 @@
           <span class="result-number">48.89 vs 17.60</span>
           <div class="result-label">
             Mean cumulative reward for ICL vs RCL on the Stage-4
-            vase → trashcan task.
+            vase <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i> trashcan task.
           </div>
         </div>
 
         <div class="result-card">
-          <span class="result-number">3 → 9</span>
+          <span class="result-number">
+            3 <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i> 9
+          </span>
           <div class="result-label">
             Instruction-set scaling tested from three tasks to
             six and nine tasks.
           </div>
         </div>
-
       </div>
 
       <div class="media-placeholder small">
@@ -646,15 +618,10 @@
         hyperparameter sensitivity, and detailed curriculum comparisons
         are available in the thesis.
       </p>
-
     </section>
 
-
-    <!-- =======================================================
-         Qualitative Results / Demos
-         ======================================================= -->
+    <!-- Robot Behavior -->
     <section class="research-section">
-
       <h2>Robot Behavior</h2>
 
       <p class="section-intro">
@@ -663,13 +630,16 @@
       </p>
 
       <div class="demo-grid">
-
         <div class="demo-card">
           <div class="media-placeholder small">
             [VIDEOS - "Find the bowl, take it,
             go to the table, and place it there"]
           </div>
-          <p>Bowl → Table</p>
+          <p>
+            Bowl
+            <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
+            Table
+          </p>
         </div>
 
         <div class="demo-card">
@@ -677,7 +647,11 @@
             [VIDEOS - "Locate the bread, grasp it,
             move to the fridge, and set it inside"]
           </div>
-          <p>Bread → Fridge</p>
+          <p>
+            Bread
+            <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
+            Fridge
+          </p>
         </div>
 
         <div class="demo-card">
@@ -685,7 +659,11 @@
             [VIDEOS - "Identify the vase, collect it,
             proceed to the trashcan, and position it within"]
           </div>
-          <p>Vase → Trashcan</p>
+          <p>
+            Vase
+            <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
+            Trashcan
+          </p>
         </div>
 
         <div class="demo-card">
@@ -695,17 +673,11 @@
           </div>
           <p>ICL vs RCL</p>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Takeaway
-         ======================================================= -->
+    <!-- Takeaway -->
     <section class="research-section">
-
       <h2>Takeaway</h2>
 
       <div class="takeaway">
@@ -720,22 +692,17 @@
         visual generalization remains an important challenge for future
         real-world deployment.
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Related Publication
-         ======================================================= -->
+    <!-- Related Publication -->
     <section class="research-section">
-
       <h2>Related Publication</h2>
 
       <div class="publication-simple">
-
         <a
           href="https://ieeexplore.ieee.org/abstract/document/10673231"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <span class="paper-title">
             Mobile Robots through Task-Based Human Instructions
@@ -755,21 +722,13 @@
           IEEE International Conference on Cybernetics and Intelligent
           Systems (CIS), Hangzhou, China, 2024
         </em>
-
       </div>
-
     </section>
 
-
-    <!-- =======================================================
-         Footer
-         ======================================================= -->
+    <!-- Footer -->
     <footer>
-      <p>
-        © 2026 Muhammad Angga Muttaqien (muhamuttaqien) — Hosted on GitHub Pages
-      </p>
+      <p>© 2026 Muhammad Angga Muttaqien (muhamuttaqien) — Hosted on GitHub Pages</p>
     </footer>
-
   </main>
 </body>
 </html>
