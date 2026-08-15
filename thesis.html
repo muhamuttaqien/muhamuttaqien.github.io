@@ -417,18 +417,15 @@
       <h2>Abstract</h2>
 
       <p>
-        Home robots must combine perception, navigation, object interaction,
-        and natural-language understanding to execute everyday human
-        instructions. However, directly training a reinforcement-learning
-        agent on complex multi-step tasks can make exploration and learning
-        difficult.
-        
-        This research investigates a curriculum-based approach in which a
-        robot progressively acquires foundational skills before attempting
-        complete household instructions. Visual observations and language
-        commands are integrated through multi-modal deep reinforcement
-        learning, and five curriculum strategies are evaluated in the
-        AI2-THOR home simulation environment.
+        Human-robot interaction is becoming increasingly important in various aspects of daily life, driving the demand for intelligent robots with navigation and natural language capabilities. 
+        This research introduces a novel approach that combines end-to-end deep reinforcement learning with a curriculumbased learning strategy to address this challenge. 
+        The proposed method employs Multi-Modal Deep Q-Network (MM-DQN) and Multi-Modal Advantage Actor-Critic (MM-A2C) algorithms to enable robots to autonomously navigate homes, interact with objects, 
+        and process users’ instructions, fostering an enhanced human-machine interaction experience. To optimize the learning process, the research designs and evaluates five different curricula, 
+        each structured based on its concepts and underlying assumptions. These curricula address specific aspects of robot functionality, such as spatial navigation and natural language understanding. 
+        This approach allows the robot to acquire foundational skills individually before integrating them into more complex behaviors. 
+        The gradual progression ensures a balance between learning efficiency and adaptability to various tasks and environments. Comprehensive evaluation forms a critical part of this research, 
+        focusing on simulations to assess the robot’s performance. Metrics such as accomplishment rate, generalization capability, scalability, 
+        and robot behavior inspection are evaluated to validate the approach.
       </p>
     </section>
 
@@ -438,7 +435,8 @@
 
       <p class="section-intro">
         The robot learns an end-to-end policy from what it
-        <strong>sees</strong> and what a human <strong>asks it to do</strong>.
+        <strong>sees</strong> and what a human <strong>asks it to do</strong>. 
+        Visual and language features are combined to guide navigation and object-interaction actions.
       </p>
 
       <div class="method-flow">
@@ -497,7 +495,8 @@
 
       <p class="section-intro">
         Instead of learning the entire instruction at once, the robot can
-        progressively build the skills needed for the final task.
+        progressively build the skills needed for the final task. 
+        Different curriculum strategies are compared to study how task progression affects learning performance.        
       </p>
 
       <div class="media-placeholder small">
@@ -547,7 +546,8 @@
       <p class="section-intro">
         Experiments are conducted in <strong>AI2-THOR</strong>,
         where the robot navigates realistic household scenes,
-        identifies objects, and performs object interactions.
+        identifies objects, and performs object interactions. 
+        The environment provides controlled yet diverse scenarios for training and evaluating multi-step household tasks.
       </p>
 
       <div class="demo-grid">
@@ -575,7 +575,8 @@
 
       <p class="section-intro">
         Curriculum design has a strong effect on whether the agent can
-        successfully learn complex multi-step instructions.
+        successfully learn complex multi-step instructions. 
+        Incremental and Random Curriculum Learning emerge as the most effective strategies across the main experiments.
       </p>
 
       <div class="result-grid">
@@ -626,7 +627,8 @@
 
       <p class="section-intro">
         The trained robot executes language-conditioned sequences involving
-        object search, manipulation, navigation, and placement.
+        object search, manipulation, navigation, and placement. 
+        The learned policy enables the robot to connect multiple subtasks into a complete response to a human instruction.
       </p>
 
       <div class="demo-grid">
@@ -690,7 +692,8 @@
         them into increasingly complex instructions. The experiments also
         show that the design of the curriculum itself matters, and that
         visual generalization remains an important challenge for future
-        real-world deployment.
+        real-world deployment. This suggests that structured learning can be 
+        an effective foundation for building more capable and adaptable home robots.
       </div>
     </section>
 
