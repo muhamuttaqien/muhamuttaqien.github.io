@@ -12,6 +12,7 @@
   <title>Curriculum-based Deep Reinforcement Learning | Muhammad Angga Muttaqien</title>
 
   <!-- Reuse the visual identity of the main portfolio -->
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
@@ -79,19 +80,29 @@
     }
 
     .resource-links a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    
       padding: 0.55rem 1rem;
-      border: 1px solid #cbd5e0;
+      border: 1px solid #2d3748;
       border-radius: 999px;
-      background: #ffffff;
-      color: var(--text);
+    
+      background: #2d3748;
+      color: #ffffff;
+    
       font-size: 14.5px;
       transition: 0.15s ease;
     }
-
+    
     .resource-links a:hover {
-      border-color: var(--accent);
-      background: #f8f9fa;
+      background: #4a5568;
+      border-color: #4a5568;
+      color: #ffffff;
+    }
+    
+    .resource-links a i {
+      color: #ffffff;
     }
 
     /* ---------- Main Hero Media ---------- */
@@ -371,23 +382,29 @@
       </div>
 
       <div class="resource-links">
-        <!-- Replace # after uploading the thesis PDF -->
-        <a href="#" target="_blank">Thesis PDF</a>
 
-        <a
-          href="https://ieeexplore.ieee.org/abstract/document/10673231"
-          target="_blank"
-        >
-          Related Paper
-        </a>
-
-        <a
-          href="https://github.com/muhamuttaqien"
-          target="_blank"
-        >
-          GitHub
-        </a>
-      </div>
+      <a href="#" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i>
+        Thesis PDF
+      </a>
+    
+      <a
+        href="https://ieeexplore.ieee.org/abstract/document/10673231"
+        target="_blank"
+      >
+        <i class="fa-solid fa-file-lines"></i>
+        Related Paper
+      </a>
+    
+      <a
+        href="https://github.com/muhamuttaqien"
+        target="_blank"
+      >
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
+    
+    </div>
 
       <div class="hero-media">
         <div class="media-placeholder">
