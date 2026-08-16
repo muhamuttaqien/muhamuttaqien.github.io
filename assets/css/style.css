@@ -37,6 +37,21 @@ a:hover {
   border-bottom: 1px solid var(--link-hover);
 }
 
+a {
+  text-decoration: none;
+  border-bottom: 0;
+  background-image: linear-gradient(to right, #4a5568, #4a5568);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 0% 100%;
+  transition: background-size 0.2s ease, color 0.2s ease;
+}
+
+a:hover {
+  background-size: 100% 100%;
+  color: #ffffff;
+}
+
 /* ---------- Container ---------- */
 .container {
   max-width: 960px;
