@@ -33,10 +33,9 @@ a {
   background-repeat: no-repeat;
   background-position: left;
   background-size: 0% 100%;
-  transition: background-size 0.2s ease, color 0.2s ease;
 }
 
-a:hover {
+a:hover, a:hover strong, a:hover span {
   background-size: 100% 100%;
   color: #ffffff;
 }
