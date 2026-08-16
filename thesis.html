@@ -333,6 +333,31 @@
       font-size: 14px;
     }
 
+    /* Sensitivity */
+    .sensitivity-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .sensitivity-result {
+      text-align: center;
+    }
+    
+    .sensitivity-result img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    .sensitivity-result p {
+      margin: 0.5rem 0 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
     /* Demos */
     .demo-grid {
       display: grid;
@@ -435,6 +460,10 @@
       }
 
       .scalability-results {
+        grid-template-columns: 1fr;
+      }
+
+      .sensitivity-results {
         grid-template-columns: 1fr;
       }
     }
@@ -693,6 +722,8 @@
       </div>
 
       <!-- Incremental Curriculum Learning -->
+      <h3 class="subsection-title">Curriculum Evaluation</h3>
+      
       <div class="icl-results">
         <div class="icl-result">
           <img
@@ -765,6 +796,88 @@
       <p class="result-note">
         Scalability evaluation of curriculum learning across three rooms:
         bathroom (left), bedroom (middle), and living room (right).
+      </p>
+
+      <!-- Sensitivity -->
+      <h3 class="subsection-title">Sensitivity</h3>
+      
+      <div class="sensitivity-results">
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2bmax100.png"
+            alt="Sensitivity analysis with maxtime 100"
+          >
+          <p>Maxtime 100</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2bmax200.png"
+            alt="Sensitivity analysis with maxtime 200"
+          >
+          <p>Maxtime 200</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2bmax400.png"
+            alt="Sensitivity analysis with maxtime 400"
+          >
+          <p>Maxtime 400</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2beps090.png"
+            alt="Sensitivity analysis with epsilon 0.90"
+          >
+          <p>Epsilon 0.90</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2beps075.png"
+            alt="Sensitivity analysis with epsilon 0.75"
+          >
+          <p>Epsilon 0.75</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2beps050.png"
+            alt="Sensitivity analysis with epsilon 0.50"
+          >
+          <p>Epsilon 0.50</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2bincr.png"
+            alt="Sensitivity analysis with incremental rewards"
+          >
+          <p>Incremental Rewards</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2bnorm.png"
+            alt="Sensitivity analysis with normalized rewards"
+          >
+          <p>Normalized Rewards</p>
+        </div>
+      
+        <div class="sensitivity-result">
+          <img
+            src="assets/img/thesis/stage2bdiv10.png"
+            alt="Sensitivity analysis with rewards divided by 10"
+          >
+          <p>Rewards Divided by 10</p>
+        </div>
+      </div>
+      
+      <p class="result-note">
+        Sensitivity analysis of key hyperparameters
+        (maxtime, epsilon, and reward scaling) during Stage 2.
       </p>
     </section>
 
