@@ -276,6 +276,31 @@
       text-align: center;
     }
 
+    /* ICL Learning Curves */
+    .icl-results {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .icl-result {
+      text-align: center;
+    }
+    
+    .icl-result img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    .icl-result p {
+      margin: 0.5rem 0 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
     /* Demos */
     .demo-grid {
       display: grid;
@@ -371,6 +396,10 @@
 
       .curriculum-gifs {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .icl-results {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -627,17 +656,44 @@
         </div>
       </div>
 
-      <div class="media-placeholder small">
-        [IMAGES - One concise results figure combining:
-        baseline vs curriculum learning,
-        ICL vs RCL comparison,
-        and scalability to more instructions]
+      <div class="icl-results">
+        <div class="icl-result">
+          <img
+            src="assets/img/thesis/iclstage1.png"
+            alt="ICL learning curve for Stage 1"
+          >
+          <p>Stage 1</p>
+        </div>
+      
+        <div class="icl-result">
+          <img
+            src="assets/img/thesis/iclstage2.png"
+            alt="ICL learning curve for Stage 2"
+          >
+          <p>Stage 2</p>
+        </div>
+      
+        <div class="icl-result">
+          <img
+            src="assets/img/thesis/iclstage3.png"
+            alt="ICL learning curve for Stage 3"
+          >
+          <p>Stage 3</p>
+        </div>
+      
+        <div class="icl-result">
+          <img
+            src="assets/img/thesis/iclstage4.png"
+            alt="ICL learning curve for Stage 4"
+          >
+          <p>Stage 4</p>
+        </div>
       </div>
-
+      
       <p class="result-note">
-        Full learning curves, random-seed analysis, lighting tests,
-        hyperparameter sensitivity, and detailed curriculum comparisons
-        are available in the thesis.
+        Learning curves across the four curriculum stages using
+        Incremental Curriculum Learning (ICL). Detailed curriculum
+        comparisons are available in the thesis.
       </p>
     </section>
 
