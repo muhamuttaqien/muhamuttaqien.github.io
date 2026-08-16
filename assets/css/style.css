@@ -27,17 +27,14 @@ strong {
 }
 
 a {
+  color: var(--text);
   text-decoration: none;
-  border-bottom: 0;
-  background-image: linear-gradient(to right, #4a5568, #4a5568);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: 0% 100%;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.1s ease;
 }
 
-a:hover, a:hover strong, a:hover span {
-  background-size: 100% 100%;
-  color: #ffffff;
+a:hover {
+  border-bottom: 1px solid var(--link-hover);
 }
 
 /* ---------- Container ---------- */
