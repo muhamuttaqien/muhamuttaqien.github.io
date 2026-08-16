@@ -215,6 +215,31 @@
       line-height: 1.45;
     }
 
+    /* Curriculum GIFs */
+    .curriculum-gifs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .curriculum-gif {
+      text-align: center;
+    }
+    
+    .curriculum-gif img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    .curriculum-gif p {
+      margin: 0.5rem 0 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     /* Results */
     .result-grid {
       display: grid;
@@ -327,6 +352,10 @@
         grid-template-columns: 1fr;
       }
 
+      .method-box {
+        max-width: none;
+      }
+
       .arrow {
         width: 100%;
         height: 20px;
@@ -334,8 +363,8 @@
         transform: rotate(90deg);
       }
 
-      .method-box {
-        max-width: none;
+      .curriculum-gifs {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -466,14 +495,29 @@
         Instead of learning the entire instruction at once, the robot can
         progressively build the skills needed for the final task. 
         Different curriculum strategies are compared to study how task progression affects learning performance. 
-        For example, “Find the bread, take it, go to the fridge, and place it inside” can be learned progressively from simpler subtasks.
+        For example, "Find the bread, take it, go to the fridge, and place it inside" can be learned progressively from simpler subtasks.
       </p>
 
-      <div class="media-placeholder small">
-        [IMAGES - Simple four-stage illustration:
-        "Find bread" → "Find + Take" →
-        "Find + Take + Go to fridge" →
-        "Find + Take + Go + Place"]
+      <div class="curriculum-gifs">
+        <div class="curriculum-gif">
+          <img src="assets/video/thesis/find.gif" alt="Find action">
+          <p><em>"find/discover/identify"</em></p>
+        </div>
+      
+        <div class="curriculum-gif">
+          <img src="assets/video/thesis/take.gif" alt="Take action">
+          <p><em>"take/grab/obtain"</em></p>
+        </div>
+      
+        <div class="curriculum-gif">
+          <img src="assets/video/thesis/go.gif" alt="Go action">
+          <p><em>"go/move/travel"</em></p>
+        </div>
+      
+        <div class="curriculum-gif">
+          <img src="assets/video/thesis/place.gif" alt="Place action">
+          <p><em>"place/put/locate"</em></p>
+        </div>
       </div>
 
       <p>
