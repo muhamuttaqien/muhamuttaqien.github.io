@@ -276,7 +276,7 @@
       text-align: center;
     }
 
-    /* ICL Learning Curves */
+    /* Incremental Curriculum Learning */
     .icl-results {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -296,6 +296,31 @@
     }
     
     .icl-result p {
+      margin: 0.5rem 0 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Scalability */
+    .scalability-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .scalability-result {
+      text-align: center;
+    }
+    
+    .scalability-result img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    .scalability-result p {
       margin: 0.5rem 0 0;
       color: #6b7280;
       font-size: 14px;
@@ -399,6 +424,10 @@
       }
 
       .icl-results {
+        grid-template-columns: 1fr;
+      }
+
+      .scalability-results {
         grid-template-columns: 1fr;
       }
     }
@@ -656,6 +685,7 @@
         </div>
       </div>
 
+      <!-- Incremental Curriculum Learning -->
       <div class="icl-results">
         <div class="icl-result">
           <img
@@ -694,6 +724,40 @@
         Learning curves across the four curriculum stages using
         Incremental Curriculum Learning (ICL). Detailed curriculum
         comparisons are available in the thesis.
+      </p>
+
+      <!-- Scalability -->
+      <h2 class="subsection-title">Scalability</h2>
+      
+      <div class="scalability-results">
+        <div class="scalability-result">
+          <img
+            src="assets/img/thesis/scalability-scene1.png"
+            alt="Scalability evaluation in bathroom environment"
+          >
+          <p>Bathroom</p>
+        </div>
+      
+        <div class="scalability-result">
+          <img
+            src="assets/img/thesis/scalability-scene2.png"
+            alt="Scalability evaluation in bedroom environment"
+          >
+          <p>Bedroom</p>
+        </div>
+      
+        <div class="scalability-result">
+          <img
+            src="assets/img/thesis/scalability-scene3.png"
+            alt="Scalability evaluation in living room environment"
+          >
+          <p>Living Room</p>
+        </div>
+      </div>
+      
+      <p class="result-note">
+        Scalability evaluation of curriculum learning across three rooms:
+        bathroom (left), bedroom (middle), and living room (right).
       </p>
     </section>
 
