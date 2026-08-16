@@ -29,12 +29,11 @@ strong {
 a {
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.1s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  border-bottom: 1px solid var(--link-hover);
+  color: var(--link-hover);
 }
 
 /* ---------- Container ---------- */
