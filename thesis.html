@@ -31,6 +31,13 @@
       text-align: center;
     }
 
+    .hero-video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
     .hero h1 {
       margin: 0 0 0.9rem;
       color: var(--text);
@@ -384,11 +391,9 @@
       </div>
 
       <div class="hero-media">
-        <div class="media-placeholder">
-          [VIDEOS - 30–60 second overview showing the AI2-THOR robot
-          receiving a natural-language instruction and completing
-          a multi-step household task]
-        </div>
+        <video class="hero-video" autoplay loop muted playsinline>
+          <source src="assets/video/thesis-grid.mp4" type="video/mp4">
+        </video>
       </div>
     </section>
 
