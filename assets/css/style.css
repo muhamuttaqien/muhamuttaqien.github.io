@@ -34,7 +34,7 @@ a {
 }
 
 a:hover {
-  border-bottom: 1px solid var(--link-hover);
+  border-bottom: 0px solid var(--link-hover);
 }
 
 /* ---------- Container ---------- */
