@@ -380,6 +380,11 @@ body {
   line-height: 1.75;
 }
 
+.future-work i {
+  color: #16a34a;
+  margin-right: 0.4rem;
+}
+
 /* Publication */
 .publication-simple {
   max-width: 790px;
