@@ -120,12 +120,33 @@ h2 {
   margin-top: 1.8rem;
 }
 
+.pub-video {
+  position: relative;
+}
+
 .pub-video video, .pub-video img {
   width: 270px;
   height: 190px; /* closer to ratio 3:2 */
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.conference-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+
+  background: #2d3748;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .pub-text {
