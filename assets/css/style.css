@@ -33,7 +33,7 @@ a {
   transition: border-color 0.1s ease;
 }
 
-a:hover {
+a:hover, a:focus. a:active {
   border-bottom: 0px solid var(--link-hover);
 }
 
