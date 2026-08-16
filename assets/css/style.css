@@ -206,7 +206,7 @@ footer {
   color: #6b7280;
   border-top: 1px solid #e2e8f0;
   margin-top: 3rem;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 }
 
 /* ---------- Responsive ---------- */
@@ -244,6 +244,6 @@ footer {
   }
 
   footer {
-    font-size: 13.5px;
+    font-size: 12.5px;
   }
 }
