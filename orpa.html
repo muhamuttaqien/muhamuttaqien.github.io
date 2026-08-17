@@ -34,8 +34,7 @@
       </h1>
 
       <div class="subtitle">
-        Correcting robot manipulation online through lightweight,
-        feedback-conditioned residual adaptation
+        Correcting robot manipulation online without retraining the base policy
       </div>
 
       <div class="author">
@@ -51,7 +50,6 @@
       </div>
 
       <div class="resource-links">
-        <!-- Replace links when public resources are available -->
         <a href="#" target="_blank" rel="noopener noreferrer">
           <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
           Paper
@@ -70,8 +68,9 @@
 
       <div class="hero-media">
         <div class="media-placeholder">
-          [VIDEOS - ALOHA manipulation failure followed by
-          human feedback and ORPA online correction]
+          [VIDEOS - Original ACT fails after a small perturbation,
+          human gives corrective feedback, and ORPA adapts
+          the robot action online]
         </div>
       </div>
     </section>
@@ -81,20 +80,57 @@
       <h2>Abstract</h2>
 
       <p>
-        Imitation learning policies such as Action Chunking with Transformers (ACT)
-        can achieve strong robot manipulation performance, but they can remain
-        sensitive to small execution errors and distribution shifts. Correcting
-        these failures through additional demonstrations and full-policy retraining
-        is computationally expensive and impractical for real-time deployment.
+        Imitation-learning policies such as Action Chunking with Transformers (ACT)
+        can achieve strong manipulation performance under nominal conditions, but
+        small execution errors and distribution shifts can still cause failures.
+        Correcting these failures through additional demonstrations and full-policy
+        retraining is computationally expensive and unsuitable for real-time adaptation.
       </p>
 
       <p>
         This research introduces Online Residual Policy Adaptation (ORPA), a
         lightweight framework that augments a pretrained manipulation policy with
-        a feedback-conditioned module. ORPA predicts residual joint-space
-        corrections at runtime while keeping the underlying policy frozen,
-        enabling immediate and context-dependent adaptation from human feedback.
+        a feedback-conditioned residual module. ORPA predicts corrective joint-space
+        actions at runtime while keeping the underlying ACT policy frozen, enabling
+        immediate and context-dependent adaptation from human feedback.
       </p>
+    </section>
+
+    <!-- Why ORPA -->
+    <section class="research-section">
+      <h2>Why ORPA?</h2>
+
+      <p class="section-intro">
+        A strong manipulation policy does not always need to be retrained when it
+        fails. Many failures arise from small local execution errors that only
+        require a small corrective adjustment.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+          <strong>Full Retraining</strong>
+          <span>
+            Requires additional demonstrations and repeated optimization.
+          </span>
+        </div>
+
+        <div class="problem-card">
+          <i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>
+          <strong>Rule-based IK</strong>
+          <span>
+            Uses predefined geometric corrections without sufficient task context.
+          </span>
+        </div>
+
+        <div class="problem-card highlight">
+          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+          <strong>ORPA</strong>
+          <span>
+            Learns context-dependent residual corrections during execution.
+          </span>
+        </div>
+      </div>
     </section>
 
     <!-- Method -->
@@ -102,14 +138,22 @@
       <h2>Method</h2>
 
       <p class="section-intro">
-        ORPA keeps the pretrained ACT policy unchanged and learns only the
-        correction needed for the current execution context. Human feedback is
-        encoded and used to refine the predicted action trajectory online.
+        ORPA keeps the pretrained ACT policy frozen and learns only the correction
+        required for the current execution context. Human feedback is encoded and
+        used to refine the action trajectory online.
       </p>
+
+      <div class="equation-box">
+        <span>a<sub>final</sub></span>
+        <span>=</span>
+        <span>a<sub>ACT</sub></span>
+        <span>+</span>
+        <span>Δa<sub>ORPA</sub></span>
+      </div>
 
       <div class="method-flow">
         <div class="method-box">
-          <strong>Pretrained ACT Policy</strong>
+          <strong>Pretrained ACT</strong>
           Visual observations + robot states
         </div>
 
@@ -119,7 +163,7 @@
 
         <div class="method-box">
           <strong>Human Feedback</strong>
-          Good / Too left / Too right / Too high
+          Corrective instruction
         </div>
 
         <div class="arrow">
@@ -127,8 +171,8 @@
         </div>
 
         <div class="method-box">
-          <strong>ORPA</strong>
-          Feedback Encoder + Policy Updater
+          <strong>Feedback Encoder</strong>
+          Feedback representation
         </div>
 
         <div class="arrow">
@@ -136,26 +180,34 @@
         </div>
 
         <div class="method-box">
-          <strong>Residual Correction</strong>
-          Final action = ACT action + Δa
+          <strong>Policy Updater</strong>
+          Predict residual Δa
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="method-box">
+          <strong>Corrected Action</strong>
+          ACT action + residual
         </div>
       </div>
 
       <div class="media-placeholder">
         [IMAGES - ORPA architecture showing frozen ACT,
-        Feedback Encoder, Policy Updater, and residual action correction]
+        Feedback Encoder, Policy Updater, and residual correction]
       </div>
     </section>
 
-    <!-- Feedback-Driven Adaptation -->
+    <!-- Human Feedback -->
     <section class="research-section">
-      <h2>Feedback-Driven Adaptation</h2>
+      <h2>Human Feedback</h2>
 
       <p class="section-intro">
-        Instead of retraining the entire manipulation policy, ORPA learns
-        lightweight residual corrections from corrective feedback. The magnitude
-        and direction of each correction can change depending on the robot state,
-        visual context, and current phase of the task.
+        ORPA does not assume that the same feedback should always produce the same
+        correction. The appropriate residual depends on the robot pose, object
+        configuration, and current phase of the manipulation task.
       </p>
 
       <div class="feedback-grid">
@@ -175,31 +227,30 @@
         </div>
 
         <div class="feedback-item">
-          <i class="fa-solid fa-check" aria-hidden="true"></i>
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
           <strong>Good</strong>
         </div>
       </div>
 
       <p>
-        This makes the correction context-dependent rather than applying the same
-        predefined geometric offset every time a feedback label is received.
+        For example, <em>"too left"</em> may require different correction
+        magnitudes during object approach, grasping, or placement.
       </p>
     </section>
 
-    <!-- Training -->
+    <!-- Corrective Data Generation -->
     <section class="research-section">
-      <h2>Training ORPA</h2>
+      <h2>Corrective Data Generation</h2>
 
       <p class="section-intro">
-        Corrective training data are generated from successful manipulation
-        demonstrations by introducing controlled perturbations and assigning
-        corresponding feedback labels. This reduces the need to recollect a large
-        corrective demonstration dataset from scratch.
+        Collecting large amounts of corrective demonstrations from humans is
+        expensive. ORPA instead creates corrective supervision from successful
+        demonstrations by introducing structured perturbations.
       </p>
 
       <div class="training-flow">
         <div class="training-box">
-          <strong>Successful Demonstration</strong>
+          <strong>Successful Demo</strong>
           Reference trajectory
         </div>
 
@@ -209,7 +260,7 @@
 
         <div class="training-box">
           <strong>Perturbation</strong>
-          Create execution error
+          Introduce execution error
         </div>
 
         <div class="arrow">
@@ -218,7 +269,7 @@
 
         <div class="training-box">
           <strong>Feedback Label</strong>
-          e.g. “too left”
+          e.g. "too left"
         </div>
 
         <div class="arrow">
@@ -232,19 +283,20 @@
       </div>
 
       <div class="media-placeholder">
-        [IMAGES - Synthetic error generation from successful trajectories:
-        reference → perturbation → corrective feedback → residual target]
+        [IMAGES - Synthetic error generation:
+        random object pose → successful reference →
+        perturbed execution → corrective feedback]
       </div>
     </section>
 
-    <!-- Quantitative Results -->
+    <!-- Simulation Results -->
     <section class="research-section">
-      <h2>Quantitative Results</h2>
+      <h2>Simulation Results</h2>
 
       <p class="section-intro">
-        ORPA improves manipulation robustness under execution perturbations and
-        distribution shifts compared with the original ACT policy and rule-based
-        inverse-kinematics correction.
+        ORPA is evaluated on precision-sensitive bimanual manipulation tasks where
+        small positional, rotational, or timing errors can significantly affect
+        task success.
       </p>
 
       <div class="result-grid">
@@ -254,9 +306,10 @@
             <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
             92.3%
           </span>
+
           <div class="result-label">
             Cube Transfer<br>
-            Original ACT → ORPA
+            ACT → ORPA (Discrete)
           </div>
         </div>
 
@@ -266,14 +319,18 @@
             <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
             84.7%
           </span>
+
           <div class="result-label">
             Bimanual Insertion<br>
-            Original ACT → ORPA
+            ACT → ORPA (Continuous)
           </div>
         </div>
 
         <div class="result-card">
-          <span class="result-number">92.3% vs 81.0%</span>
+          <span class="result-number">
+            92.3% vs 81.0%
+          </span>
+
           <div class="result-label">
             ORPA vs Rule-based IK<br>
             Cube Transfer
@@ -281,32 +338,8 @@
         </div>
       </div>
 
-      <!-- Simulation -->
-      <h3 class="subsection-title">Simulation</h3>
-
-      <div class="comparison-grid">
-        <div class="comparison-card">
-          <div class="media-placeholder small">
-            [IMAGES - Cube Transfer simulation result]
-          </div>
-          <p>Cube Transfer</p>
-        </div>
-
-        <div class="comparison-card">
-          <div class="media-placeholder small">
-            [IMAGES - Bimanual Insertion simulation result]
-          </div>
-          <p>Bimanual Insertion</p>
-        </div>
-      </div>
-
-      <p class="result-note">
-        ORPA consistently improves recovery under failure conditions while
-        preserving the pretrained ACT policy.
-      </p>
-
-      <!-- Method Comparison -->
-      <h3 class="subsection-title">Method Comparison</h3>
+      <!-- Recovery Benchmark -->
+      <h3 class="subsection-title">Recovery Benchmark</h3>
 
       <div class="method-comparison">
         <div class="method-result">
@@ -331,8 +364,29 @@
       </div>
 
       <p class="result-note">
-        Cube Transfer performance under failure conditions.
+        Cube Transfer success rate under failure conditions.
       </p>
+
+      <!-- Precision-Sensitive Tasks -->
+      <h3 class="subsection-title">Precision-Sensitive Tasks</h3>
+
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <div class="media-placeholder small">
+            [VIDEOS - Cube Transfer with perturbation and ORPA recovery]
+          </div>
+
+          <p>Cube Transfer</p>
+        </div>
+
+        <div class="comparison-card">
+          <div class="media-placeholder small">
+            [VIDEOS - Bimanual Insertion with perturbation and ORPA recovery]
+          </div>
+
+          <p>Bimanual Insertion</p>
+        </div>
+      </div>
     </section>
 
     <!-- Real-World Validation -->
@@ -340,36 +394,39 @@
       <h2>Real-World Validation</h2>
 
       <p class="section-intro">
-        ORPA is also evaluated on the real ALOHA platform across three
-        precision-sensitive bimanual manipulation tasks. The experiments test
-        whether lightweight residual adaptation can improve an already strong
-        pretrained ACT policy during real execution.
+        ORPA is deployed on the real ALOHA platform across three manipulation
+        tasks requiring accurate grasping, coordinated motion, and precise
+        object interaction.
       </p>
 
-      <div class="demo-grid">
-        <div class="demo-card">
+      <div class="realworld-grid">
+        <div class="realworld-card">
           <div class="media-placeholder small">
             [VIDEOS - Snack Box Transfer]
           </div>
+
           <p>Snack Box Transfer</p>
         </div>
 
-        <div class="demo-card">
+        <div class="realworld-card">
           <div class="media-placeholder small">
             [VIDEOS - Chip Tube Opening]
           </div>
+
           <p>Chip Tube Opening</p>
         </div>
 
-        <div class="demo-card full-width">
+        <div class="realworld-card">
           <div class="media-placeholder small">
             [VIDEOS - Object Sorting]
           </div>
+
           <p>Object Sorting</p>
         </div>
       </div>
 
-      <h3 class="subsection-title">Real-World Performance</h3>
+      <!-- Real-World Task Scores -->
+      <h3 class="subsection-title">Real-World Task Scores</h3>
 
       <div class="result-grid">
         <div class="result-card">
@@ -378,6 +435,7 @@
             <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
             0.86
           </span>
+
           <div class="result-label">
             Snack Box Transfer<br>
             ACT → ORPA
@@ -390,6 +448,7 @@
             <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
             0.82
           </span>
+
           <div class="result-label">
             Chip Tube Opening<br>
             ACT → ORPA
@@ -402,6 +461,7 @@
             <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
             0.83
           </span>
+
           <div class="result-label">
             Object Sorting<br>
             ACT → ORPA
@@ -410,52 +470,57 @@
       </div>
 
       <p class="result-note">
-        Real-world task scores compare Original ACT with ORPA using
-        action and observation perturbations.
+        Scores compare Original ACT with ORPA using action and
+        observation perturbations.
       </p>
     </section>
 
-    <!-- Robot Behavior -->
+    <!-- Failure and Recovery -->
     <section class="research-section">
-      <h2>Robot Behavior</h2>
+      <h2>Failure and Recovery</h2>
 
       <p class="section-intro">
-        ORPA applies corrections only when needed. Feedback such as
-        <em>“too left”</em>, <em>“too right”</em>, or <em>“too high”</em>
-        refines the ACT trajectory without replacing the behavior learned by
-        the base policy.
+        Not every perturbation requires corrective feedback. Some errors remain
+        within the recovery capability of the original ACT policy, while larger
+        deviations can lead to failure.
       </p>
 
-      <div class="behavior-grid">
-        <div class="behavior-card">
+      <div class="failure-grid">
+        <div class="failure-card">
           <div class="media-placeholder small">
-            [VIDEOS - Failed ACT execution before correction]
+            [IMAGES - Too Left manipulation outcome]
           </div>
-          <p>Original ACT</p>
+
+          <p>
+            <strong>Too Left</strong> — Failure
+          </p>
         </div>
 
-        <div class="behavior-arrow">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </div>
-
-        <div class="behavior-card">
+        <div class="failure-card">
           <div class="media-placeholder small">
-            [VIDEOS - Human corrective feedback applied online]
+            [IMAGES - Too Far manipulation outcome]
           </div>
-          <p>Human Feedback</p>
+
+          <p>
+            <strong>Too Far</strong> — Failure
+          </p>
         </div>
 
-        <div class="behavior-arrow">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </div>
-
-        <div class="behavior-card">
+        <div class="failure-card">
           <div class="media-placeholder small">
-            [VIDEOS - ORPA-corrected successful execution]
+            [IMAGES - Too Low manipulation outcome]
           </div>
-          <p>Adapted Execution</p>
+
+          <p>
+            <strong>Too Low</strong> — Recoverable by ACT
+          </p>
         </div>
       </div>
+
+      <p class="result-note">
+        ORPA complements rather than replaces the recovery capability already
+        present in the pretrained manipulation policy.
+      </p>
     </section>
 
     <!-- Takeaway -->
@@ -464,21 +529,23 @@
 
       <div class="takeaway">
         <strong>
-          What if a robot could correct small manipulation failures immediately,
-          without retraining its entire policy?
+          What if a robot could correct a manipulation mistake immediately
+          instead of retraining the entire policy?
         </strong>
-        ORPA addresses this problem by preserving the pretrained ACT policy and
-        learning only a lightweight, feedback-conditioned residual correction.
-        This allows human feedback to refine robot actions directly in joint
-        space while maintaining the behavior already learned from demonstrations.
-        The results show that online residual adaptation can improve recovery and
-        robustness in both simulated and real-world manipulation tasks.
+
+        ORPA treats deployment failures as a residual adaptation problem.
+        The pretrained ACT policy preserves its learned manipulation behavior,
+        while human feedback provides the information needed to make small,
+        context-dependent corrections directly in joint space. This enables
+        improved recovery from execution perturbations with minimal additional
+        computation and without modifying the base policy.
       </div>
 
       <p class="future-work">
-        🚀 As for future work, ORPA could be extended to richer forms of human
-        feedback, broader manipulation skills, and more general robot policies
-        to support increasingly adaptive and interactive robot behavior.
+        🚀 As for future work, ORPA could be extended toward richer language
+        feedback, contact-aware corrections, broader manipulation skills, and
+        more general robot policies for increasingly adaptive and interactive
+        robot behavior.
       </p>
     </section>
 
