@@ -1,0 +1,407 @@
+body {
+  background: #ffffff;
+}
+
+.orpa-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 1rem 1rem;
+}
+
+/* Header */
+.hero {
+  max-width: 860px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 0.9rem;
+  color: var(--text);
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.hero .subtitle {
+  margin-bottom: 1.3rem;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.hero .author {
+  margin-bottom: 0.25rem;
+  font-size: 17px;
+}
+
+.hero .affiliation {
+  margin-bottom: 1.6rem;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Resource Links */
+.resource-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+.resource-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid #2d3748;
+  border-radius: 999px;
+  background: #2d3748;
+  color: #ffffff;
+  font-size: 14.5px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.resource-links a:hover {
+  border-color: #4a5568;
+  background: #4a5568;
+  color: #ffffff;
+}
+
+/* Media */
+.hero-media {
+  max-width: 860px;
+  margin: 2rem auto 0;
+}
+
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 250px;
+  padding: 0.5rem;
+  border: 1px dashed #a0aec0;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #718096;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.media-placeholder.small {
+  min-height: 180px;
+}
+
+/* Sections */
+.research-section {
+  margin: 3.8rem 0;
+}
+
+.research-section h2 {
+  margin: 0 0 1.5rem;
+  border: 0;
+  color: var(--text);
+  font-size: 1.65rem;
+  text-align: center;
+}
+
+.research-section > p {
+  max-width: 790px;
+  margin: 0.6rem auto 1rem;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.section-intro {
+  max-width: 760px !important;
+  margin-bottom: 1.6rem !important;
+  color: #4a5568;
+  text-align: center;
+}
+
+.subsection-title {
+  margin: 2.5rem 0 1.2rem;
+  color: var(--text);
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+/* Method */
+.method-flow,
+.training-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.8rem 0;
+}
+
+.method-box,
+.training-box {
+  flex: 1;
+  min-width: 140px;
+  max-width: 180px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.method-box strong,
+.training-box strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  color: #718096;
+  font-size: 18px;
+}
+
+/* Feedback */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+  margin: 1.5rem 0;
+}
+
+.feedback-item {
+  padding: 1rem 0.8rem;
+  border-top: 3px solid var(--accent);
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.feedback-item i {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--accent);
+}
+
+.feedback-item strong {
+  font-size: 14px;
+}
+
+/* Results */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.result-card {
+  padding: 1.3rem 1rem;
+  border: 1px solid #2d3748;
+  border-radius: 4px;
+  background: #2d3748;
+  text-align: center;
+}
+
+.result-number {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.result-label {
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.result-note {
+  margin-top: 1rem !important;
+  color: #6b7280;
+  font-size: 14px !important;
+  text-align: center;
+}
+
+.inline-arrow {
+  margin: 0 0.25rem;
+  font-size: 0.75em;
+}
+
+/* Simulation */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.comparison-card p {
+  margin-top: 0.6rem;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Method Comparison */
+.method-comparison {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.method-result {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.method-result strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 14px;
+}
+
+.method-result span {
+  color: var(--accent);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.method-result.highlight {
+  border-color: #2d3748;
+  background: #2d3748;
+}
+
+.method-result.highlight strong,
+.method-result.highlight span {
+  color: #ffffff;
+}
+
+/* Demos */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.demo-card p {
+  margin-top: 0.6rem;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.demo-card.full-width {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 0.5rem);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Robot Behavior */
+.behavior-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.behavior-card p {
+  margin-top: 0.6rem;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.behavior-arrow {
+  color: #718096;
+  font-size: 18px;
+}
+
+/* Takeaway */
+.takeaway {
+  max-width: 790px;
+  margin: 4rem auto 0;
+  padding: 1.5rem 1.7rem;
+  border-left: 4px solid var(--accent);
+  background: #f8f9fa;
+  line-height: 1.75;
+}
+
+.future-work {
+  margin-top: 1.3rem !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orpa-page {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .hero {
+    margin-bottom: 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+
+  .research-section {
+    margin: 3rem 0;
+  }
+
+  .research-section h2 {
+    font-size: 1.45rem;
+  }
+
+  .feedback-grid,
+  .result-grid,
+  .comparison-grid,
+  .method-comparison,
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-box,
+  .training-box {
+    max-width: none;
+  }
+
+  .arrow {
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    transform: rotate(90deg);
+  }
+
+  .demo-card.full-width {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .behavior-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .behavior-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}
