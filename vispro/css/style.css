@@ -83,7 +83,7 @@ body {
   box-sizing: border-box;
   min-height: 250px;
   padding: 0.5rem;
-  border: 1px dashed #a0aec0;
+  /* border: 1px dashed #a0aec0; */
   border-radius: 4px;
   background: #ffffff;
   color: #718096;
@@ -99,7 +99,7 @@ body {
 
 .media-placeholder img {
   display: block;
-  width: 100%;
+  width: 120%;
   height: auto;
   border-radius: 4px;
 }
