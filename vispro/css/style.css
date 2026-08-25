@@ -1,0 +1,457 @@
+/* Page */
+body {
+  background: #ffffff;
+}
+
+.vispro-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1rem 1rem;
+}
+
+/* Header */
+.hero {
+  max-width: 860px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 0.9rem;
+  color: var(--text);
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.hero .subtitle {
+  margin-bottom: 1.3rem;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.hero .author {
+  margin-bottom: 0.25rem;
+  font-size: 17px;
+}
+
+.hero .affiliation {
+  margin-bottom: 1.6rem;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Resource Links */
+.resource-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+.resource-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid #2d3748;
+  border-radius: 999px;
+  background: #2d3748;
+  color: #ffffff;
+  font-size: 14.5px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.resource-links a:hover {
+  border-color: #4a5568;
+  background: #4a5568;
+  color: #ffffff;
+}
+
+/* Media */
+.hero-media {
+  max-width: 860px;
+  margin: 2rem auto 0;
+}
+
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 250px;
+  padding: 0.5rem;
+  border: 1px dashed #a0aec0;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #718096;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.media-placeholder.small {
+  min-height: 180px;
+}
+
+.media-placeholder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Sections */
+.research-section {
+  margin: 3.8rem 0;
+}
+
+.research-section h2 {
+  margin: 0 0 1.5rem;
+  border: 0;
+  color: var(--text);
+  font-size: 1.65rem;
+  text-align: center;
+}
+
+.research-section > p {
+  max-width: 790px;
+  margin: 0.6rem auto 1rem;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.section-intro {
+  max-width: 760px !important;
+  margin-bottom: 1.6rem !important;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Why Visual Prompting */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.problem-card {
+  padding: 1.3rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.problem-card i {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.problem-card strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.problem-card span {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.problem-card.highlight {
+  border-color: #2d3748;
+  background: #2d3748;
+}
+
+.problem-card.highlight i,
+.problem-card.highlight strong {
+  color: #ffffff;
+}
+
+.problem-card.highlight span {
+  color: #e2e8f0;
+}
+
+/* Method */
+.method-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.8rem 0;
+}
+
+.method-box {
+  flex: 1;
+  min-width: 135px;
+  max-width: 170px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.method-box strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  color: #718096;
+  font-size: 18px;
+}
+
+/* Visual Prompting */
+.prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 650px;
+  margin: 1.5rem auto 2rem;
+}
+
+.prompt-card {
+  padding: 1.2rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.prompt-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.prompt-card span {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.prompt-icon {
+  width: 42px;
+  height: 32px;
+  margin: 0 auto 0.7rem;
+  border: 3px solid;
+}
+
+.prompt-card.pick .prompt-icon {
+  border-color: #16a34a;
+}
+
+.prompt-card.place .prompt-icon {
+  border-color: #dc2626;
+}
+
+/* Progressive Task Complexity */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.7rem;
+}
+
+.scenario-card {
+  padding: 1.2rem 1rem;
+  border-top: 3px solid var(--accent);
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.scenario-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 0.65rem;
+  border-radius: 50%;
+  background: #2d3748;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.scenario-card strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.scenario-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Results */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.result-card {
+  padding: 1.3rem 1rem;
+  border: 1px solid #2d3748;
+  border-radius: 4px;
+  background: #2d3748;
+  text-align: center;
+}
+
+.result-number {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.result-label {
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.result-note {
+  margin-top: 1rem !important;
+  color: #6b7280;
+  font-size: 14px !important;
+  text-align: center;
+}
+
+.inline-arrow {
+  margin: 0 0.25rem;
+  font-size: 0.75em;
+}
+
+/* Failure Analysis */
+.failure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.failure-card {
+  padding: 1.2rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.failure-card i {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+
+.failure-card strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.failure-card span {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Takeaway */
+.takeaway {
+  max-width: 790px;
+  margin: 4rem auto 0;
+  padding: 1.5rem 1.7rem;
+  border-left: 4px solid var(--accent);
+  background: #f8f9fa;
+  line-height: 1.75;
+}
+
+.future-work {
+  margin-top: 1.3rem !important;
+}
+
+/* BibTeX */
+.bibtex-box {
+  max-width: 790px;
+  margin: 0 auto;
+  padding: 1.2rem 1.4rem;
+  border-radius: 4px;
+  background: #f8f9fa;
+  overflow-x: auto;
+}
+
+.bibtex-box pre {
+  margin: 0;
+  white-space: pre;
+}
+
+.bibtex-box code {
+  color: #2d3748;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .visprompt-page {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .hero {
+    margin-bottom: 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+
+  .research-section {
+    margin: 3rem 0;
+  }
+
+  .research-section h2 {
+    font-size: 1.45rem;
+  }
+
+  .problem-grid,
+  .prompt-grid,
+  .scenario-grid,
+  .result-grid,
+  .failure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-box {
+    max-width: none;
+  }
+
+  .arrow {
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    transform: rotate(90deg);
+  }
+}
