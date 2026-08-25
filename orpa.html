@@ -72,16 +72,15 @@
       <h2>Abstract</h2>
 
       <p>
-        Imitation-learning policies such as Action Chunking with Transformers (ACT)
-        can achieve strong manipulation performance under nominal conditions, but
-        small execution errors and distribution shifts can still cause failures.
-        Correcting these failures through additional demonstrations and full-policy
-        retraining is computationally expensive and unsuitable for real-time adaptation. 
-        This research introduces Online Residual Policy Adaptation (ORPA), a 
-        lightweight framework that augments a pretrained manipulation policy with
-        a feedback-conditioned residual module. ORPA predicts corrective joint-space
-        actions at runtime while keeping the underlying ACT policy frozen, enabling
-        immediate and context-dependent adaptation from human feedback.
+        Robotic manipulation policies trained via imitation learning, such as Action Chunking with Transformers (ACT), 
+        can achieve strong performance under ideal conditions but often remain sensitive to small execution errors and distribution shifts. 
+        Correcting these failures typically requires dataset aggregation and full-policy retraining, 
+        which is computationally expensive and unsuitable for real-time deployment. 
+        In this work, we propose Online Residual Policy Adaptation (ORPA), a framework that enables immediate, 
+        feedback-driven correction of robot actions without modifying the underlying policy parameters. 
+        ORPA augments a pretrained control policy with a lightweight, feedback-conditioned module that predicts residual adjustments directly in joint space, 
+        allowing the system to adapt its behavior at runtime. We evaluate ORPA on a set of precision-sensitive manipulation tasks using the ALOHA platform, 
+        demonstrating improvements in success rate and recovery from small perturbations compared to baseline control policies and rule-based inverse kinematics corrections
       </p>
     </section>
 
