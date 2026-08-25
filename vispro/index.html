@@ -1,1 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Muhammad Angga Muttaqien">
+  <meta name="description" content="Visual Prompting for Robotic Manipulation with Annotation-Guided Pick-and-Place Using ACT.">
 
+  <title>Visual Prompting for Robotic Manipulation with Annotation-Guided Pick-and-Place Using ACT | muhamuttaqien</title>
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://muhamuttaqien.github.io/vispro/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <main class="vispro-page">
+
+    <!-- Header -->
+    <section class="hero">
+      <h1>
+        Visual Prompting for Robotic Manipulation
+        with Annotation-Guided Pick-and-Place Using ACT
+      </h1>
+
+      <div class="subtitle">
+        Guiding data-driven robot manipulation using simple visual annotations
+      </div>
+
+      <div class="author">
+        <strong>Muhammad A. Muttaqien*</strong>,
+        <strong>Tomohiro Motoda*</strong>,
+        Ryo Hanai,
+        Yukiyasu Domae
+      </div>
+
+      <div class="affiliation">
+        Embodied AI Research Team · National Institute of AIST · Tokyo, Japan<br>
+        * Equal contribution
+      </div>
+
+      <div class="resource-links">
+        <a
+          href="https://ieeexplore.ieee.org/abstract/document/11164002"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          Paper
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          GitHub
+        </a>
+
+        <a href="#bibtex">
+          <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
+          BibTeX
+        </a>
+      </div>
+
+      <div class="hero-media">
+        <div class="media-placeholder">
+          [VIDEOS - Robot selecting a prompted object,
+          grasping it, and placing it at the prompted destination]
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="research-section">
+      <h2>Abstract</h2>
+
+      <p>
+        Robotic pick-and-place tasks in convenience stores pose challenges due to dense object arrangements, occlusions, 
+        and variations in object properties such as color, shape, size, and texture. These factors complicate trajectory planning and grasping. 
+        This paper introduces a perception-action pipeline leveraging annotation-guided visual prompting, 
+        where bounding box annotations identify both pickable objects and placement locations, providing structured spatial guidance. 
+        Instead of traditional step-by-step planning, we employ Action Chunking with Transformers (ACT) as an imitation learning algorithm, 
+        enabling the robotic arm to predict chunked action sequences from human demonstrations. This facilitates smooth, adaptive, and data-driven pick-and-place operations. 
+        We evaluate our system based on success rate and visual analysis of grasping behavior, demonstrating improved grasp accuracy and adaptability in retail environments.
+      </p>
+    </section>
+
+    <!-- Why Visual Prompting -->
+    <section class="research-section">
+      <h2>Why Visual Prompting?</h2>
+
+      <p class="section-intro">
+        A robot does not always need to understand every object in a cluttered
+        scene. A simple visual cue can tell the policy what matters for the
+        current manipulation task.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i>
+          <strong>Cluttered Scenes</strong>
+          <span>
+            Dense arrangements and occlusions make object selection difficult.
+          </span>
+        </div>
+
+        <div class="problem-card">
+          <i class="fa-solid fa-shapes" aria-hidden="true"></i>
+          <strong>Diverse Products</strong>
+          <span>
+            Objects vary in shape, size, texture, color, and graspability.
+          </span>
+        </div>
+
+        <div class="problem-card highlight">
+          <i class="fa-regular fa-square" aria-hidden="true"></i>
+          <strong>Visual Prompting</strong>
+          <span>
+            Bounding boxes provide lightweight spatial guidance for manipulation.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="research-section">
+      <h2>Method</h2>
+
+      <p class="section-intro">
+        The manipulation policy receives both the original camera observation
+        and a visually prompted image. Green annotations indicate the object to
+        pick, while red annotations indicate the placement destination.
+      </p>
+
+      <div class="media-placeholder">
+        <img
+          src="./img/architecture.jpg"
+          alt="Architecture of ACT with annotation-guided visual prompting for robotic pick-and-place"
+        >
+      </div>
+
+      <p class="section-intro">
+        Visual features from the original and prompted images are fused with
+        robot joint states and processed by ACT to predict a chunk of future
+        joint-space actions.
+      </p>
+
+      <div class="method-flow">
+        <div class="method-box">
+          <strong>RGB Observation</strong>
+          Current workspace
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="method-box">
+          <strong>Visual Prompt</strong>
+          Pick + place annotations
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="method-box">
+          <strong>Feature Extraction</strong>
+          ResNet-18 + positional embedding
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="method-box">
+          <strong>ACT</strong>
+          Transformer-based action chunking
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="method-box">
+          <strong>Robot Action</strong>
+          14-D joint action sequence
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Prompting -->
+    <section class="research-section">
+      <h2>Annotation-Guided Manipulation</h2>
+
+      <p class="section-intro">
+        The annotation encodes task-relevant spatial information directly into
+        the robot's visual observation, reducing the need for exhaustive scene
+        understanding.
+      </p>
+
+      <div class="prompt-grid">
+        <div class="prompt-card pick">
+          <div class="prompt-icon"></div>
+          <strong>Pick Prompt</strong>
+          <span>Green bounding box identifies the target object.</span>
+        </div>
+
+        <div class="prompt-card place">
+          <div class="prompt-icon"></div>
+          <strong>Place Prompt</strong>
+          <span>Red bounding box identifies the destination.</span>
+        </div>
+      </div>
+
+      <div class="media-placeholder">
+        <img
+          src="./img/visual-prompt.jpg"
+          alt="Robot workspace with green bounding box for picking and red bounding box for placement"
+        >
+      </div>
+    </section>
+
+    <!-- Progressive Task Complexity -->
+    <section class="research-section">
+      <h2>Progressive Task Complexity</h2>
+
+      <p class="section-intro">
+        The system is evaluated across progressively harder scenarios to study
+        how visual prompting behaves as object diversity and manipulation
+        complexity increase.
+      </p>
+
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <span class="scenario-number">1</span>
+          <strong>Simple</strong>
+          <p>
+            Similar box-shaped products arranged in a 3×3 layout with one
+            prompted picking target.
+          </p>
+        </div>
+
+        <div class="scenario-card">
+          <span class="scenario-number">2</span>
+          <strong>Complex</strong>
+          <p>
+            Diverse products with different shapes, sizes, colors, and textures
+            arranged in a 3×3 layout.
+          </p>
+        </div>
+
+        <div class="scenario-card">
+          <span class="scenario-number">3</span>
+          <strong>More Complex</strong>
+          <p>
+            Diverse products at varying positions with separate picking and
+            placement prompts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Results -->
+    <section class="research-section">
+      <h2>Key Results</h2>
+
+      <p class="section-intro">
+        Visual prompting successfully guides ACT across increasingly diverse
+        and spatially challenging manipulation scenarios.
+      </p>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <span class="result-number">90%</span>
+
+          <div class="result-label">
+            Simple Scenario<br>
+            Similar rigid products
+          </div>
+        </div>
+
+        <div class="result-card">
+          <span class="result-number">
+            70%
+            <i class="fa-solid fa-arrow-right inline-arrow" aria-hidden="true"></i>
+            100%
+          </span>
+
+          <div class="result-label">
+            Complex Scenario<br>
+            After additional failure-case data
+          </div>
+        </div>
+
+        <div class="result-card">
+          <span class="result-number">80–90%</span>
+
+          <div class="result-label">
+            More Complex Scenario<br>
+            Across evaluated product categories
+          </div>
+        </div>
+      </div>
+
+      <p class="result-note">
+        Performance varies with object properties and task complexity.
+        Detailed per-category results are available in the paper.
+      </p>
+    </section>
+
+    <!-- Attention Analysis -->
+    <section class="research-section">
+      <h2>Attention Analysis</h2>
+
+      <p class="section-intro">
+        Transformer attention provides insight into how ACT uses the visual
+        prompts. The policy shifts its focus between the picking target and the
+        placement destination as the manipulation progresses.
+      </p>
+
+      <div class="media-placeholder">
+        <img
+          src="./img/attention.jpg"
+          alt="ACT transformer attention heatmaps for prompted picking and placement targets"
+        >
+      </div>
+
+      <p class="result-note">
+        Attention becomes more distributed as scene complexity increases,
+        suggesting that the policy adapts its visual focus to the surrounding
+        manipulation context.
+      </p>
+    </section>
+
+    <!-- Failure Analysis -->
+    <section class="research-section">
+      <h2>Failure Analysis</h2>
+
+      <p class="section-intro">
+        Remaining failures are primarily related to physical interaction and
+        precision rather than object selection alone.
+      </p>
+
+      <div class="failure-grid">
+        <div class="failure-card">
+          <i class="fa-solid fa-arrows-left-right-to-line" aria-hidden="true"></i>
+          <strong>Finger Misalignment</strong>
+          <span>Gripper fingers do not align correctly with the object.</span>
+        </div>
+
+        <div class="failure-card">
+          <i class="fa-solid fa-hand" aria-hidden="true"></i>
+          <strong>Weak Grasp</strong>
+          <span>Insufficient grasp force allows the object to slip.</span>
+        </div>
+
+        <div class="failure-card">
+          <i class="fa-solid fa-droplet" aria-hidden="true"></i>
+          <strong>Slippery Surface</strong>
+          <span>Object properties make stable manipulation difficult.</span>
+        </div>
+
+        <div class="failure-card">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <strong>Placement Misalignment</strong>
+          <span>The object reaches the destination but is inaccurately placed.</span>
+        </div>
+
+        <div class="failure-card">
+          <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+          <strong>Placement Failure</strong>
+          <span>The object is dropped before completing the task.</span>
+        </div>
+
+        <div class="failure-card">
+          <i class="fa-solid fa-compress" aria-hidden="true"></i>
+          <strong>Narrow Destination</strong>
+          <span>Tight placement regions require higher manipulation precision.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Takeaway -->
+    <section class="research-section">
+      <h2>Takeaway</h2>
+
+      <div class="takeaway">
+        <strong>
+          What if a robot could be told where to act simply by marking the image?
+        </strong>
+
+        This research shows that lightweight bounding-box visual prompts can
+        provide effective spatial guidance for data-driven robotic manipulation.
+        By combining task-relevant visual annotations with ACT, the robot can
+        learn smooth pick-and-place behaviors across objects with different
+        appearances and physical properties, without requiring exhaustive scene
+        parsing or rigid motion-planning rules.
+      </div>
+
+      <p class="future-work">
+        🚀 As for future work, the visual prompting framework could be extended
+        toward automatically generated prompts from vision-language models,
+        larger and more diverse manipulation datasets, and general-purpose robot
+        policies that can interpret richer visual and language guidance.
+      </p>
+    </section>
+
+    <!-- BibTeX -->
+    <section class="research-section">
+      <h2>BibTeX</h2>
+
+      <div class="bibtex-box" id="bibtex">
+        <pre><code>@inproceedings{muttaqien2025visualprompting,
+  author    = {Muhammad A. Muttaqien and Tomohiro Motoda and Ryo Hanai and Yukiyasu Domae},
+  title     = {Visual Prompting for Robotic Manipulation with Annotation-Guided Pick-and-Place Using ACT},
+  booktitle = {2025 IEEE International Conference on Automation Science and Engineering (CASE)},
+  year      = {2025}
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 muhamuttaqien — Hosted on GitHub Pages</p>
+    </footer>
+
+  </main>
+</body>
+</html>
