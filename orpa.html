@@ -89,6 +89,43 @@
       </p>
     </section>
 
+    <!-- Why ORPA -->
+    <section class="research-section">
+      <h2>Why ORPA?</h2>
+
+      <p class="section-intro">
+        A strong manipulation policy does not always need to be retrained when it
+        fails. Many failures arise from small local execution errors that only
+        require a small corrective adjustment.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+          <strong>Full Retraining</strong>
+          <span>
+            Requires additional demonstrations and repeated optimization.
+          </span>
+        </div>
+
+        <div class="problem-card">
+          <i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>
+          <strong>Rule-based IK</strong>
+          <span>
+            Uses predefined geometric corrections without sufficient task context.
+          </span>
+        </div>
+
+        <div class="problem-card highlight">
+          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+          <strong>ORPA</strong>
+          <span>
+            Learns context-dependent residual corrections during execution.
+          </span>
+        </div>
+      </div>
+    </section>
+
     <!-- Method -->
     <section class="research-section">
       <h2>Method</h2>
@@ -151,43 +188,6 @@
         <div class="method-box">
           <strong>Corrected Action</strong>
           ACT action + residual
-        </div>
-      </div>
-    </section>
-
-    <!-- Why ORPA -->
-    <section class="research-section">
-      <h2>Why ORPA?</h2>
-
-      <p class="section-intro">
-        A strong manipulation policy does not always need to be retrained when it
-        fails. Many failures arise from small local execution errors that only
-        require a small corrective adjustment.
-      </p>
-
-      <div class="problem-grid">
-        <div class="problem-card">
-          <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
-          <strong>Full Retraining</strong>
-          <span>
-            Requires additional demonstrations and repeated optimization.
-          </span>
-        </div>
-
-        <div class="problem-card">
-          <i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>
-          <strong>Rule-based IK</strong>
-          <span>
-            Uses predefined geometric corrections without sufficient task context.
-          </span>
-        </div>
-
-        <div class="problem-card highlight">
-          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-          <strong>ORPA</strong>
-          <span>
-            Learns context-dependent residual corrections during execution.
-          </span>
         </div>
       </div>
     </section>
