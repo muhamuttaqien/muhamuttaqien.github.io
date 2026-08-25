@@ -85,7 +85,7 @@
         feedback-driven correction of robot actions without modifying the underlying policy parameters. 
         ORPA augments a pretrained control policy with a lightweight, feedback-conditioned module that predicts residual adjustments directly in joint space, 
         allowing the system to adapt its behavior at runtime. We evaluate ORPA on a set of precision-sensitive manipulation tasks using the ALOHA platform, 
-        demonstrating improvements in success rate and recovery from small perturbations compared to baseline control policies and rule-based inverse kinematics corrections
+        demonstrating improvements in success rate and recovery from small perturbations compared to baseline control policies and rule-based inverse kinematics corrections.
       </p>
     </section>
 
@@ -139,6 +139,12 @@
       <div class="media-placeholder">
         <img src="assets/img/orpa/architecture.jpg" alt="Architecture of the proposed Online Residual Policy Adaptation framework">
       </div>
+
+      <p class="section-intro">
+        ORPA augments the frozen ACT policy with a lightweight feedback-conditioned module.
+        Given the current execution context and human feedback, it predicts a residual
+        correction that refines the original ACT action without modifying the base policy.
+      </p>
 
       <div class="equation-box">
         <span>a<sub>final</sub></span>
