@@ -1,3 +1,4 @@
+/* Page */
 body {
   background: #ffffff;
 }
@@ -6,6 +7,22 @@ body {
   max-width: 960px;
   margin: 0 auto;
   padding: 4rem 1rem 1rem;
+}
+
+/* Back */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-size: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--link-hover);
+  transform: translateX(-3px);
 }
 
 /* Header */
