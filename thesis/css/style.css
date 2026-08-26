@@ -9,24 +9,6 @@ body {
   padding: 4rem 1rem 1rem;
 }
 
-/* Back */
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  color: var(--text);
-  font-size: 20px;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.back-button:hover {
-  color: var(--link-hover);
-  text-decoration: none;
-  border-bottom: none;
-  transform: translateX(-3px);
-}
-
 /* Header */
 .hero {
   max-width: 860px;
