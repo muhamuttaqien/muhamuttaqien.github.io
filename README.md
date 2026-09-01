@@ -17,7 +17,7 @@ Human–Robot Interaction
 Learning, Generalization, and Human-Centered Intelligence
 
 **Domain**: 
-Mobile Manipulation
+Mobile Robots, Mobile Manipulation
 
 **Methods**: 
 World Models, Vision-Language-Action (VLA) Models, and Reinforcement/Imitation Learning
