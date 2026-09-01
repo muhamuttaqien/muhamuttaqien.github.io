@@ -5,7 +5,7 @@ My research profile built with HTML and CSS, hosted on **GitHub Pages**.  🌐 [
 ## Research Profile
 
 🎯 **Research Question**: 
-_How far can machines 'learn', 'reason', and 'adapt' to effectively collaborate with humans in novel environments and tasks?_
+_How far can machines 'learn', 'reason', and 'adapt' to effectively collaborate with humans in novel environments and tasks? (and what do these capabilities imply about the possibility of AGI?)_
 
 **Research Field**: 
 Embodied AI
