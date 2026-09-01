@@ -4,20 +4,20 @@ My research profile built with HTML and CSS, hosted on **GitHub Pages**.  🌐 [
 
 ## Research Profile
 
-**Research Question**
+**Research Question**: 
 How can machines learn, reason, and adapt to effectively collaborate with humans in novel environments and tasks?
 
-**Field**
+**Field**: 
 Embodied AI
 
-**Research Context**
+**Research Context**: 
 Human–Robot Interaction
 
-**Domain**
+**Domain**: 
 Mobile Manipulation
 
-**Research Axis**
+**Research Axis**: 
 Learning, Generalization, and Human-Centered Intelligence
 
-**Methods**
+**Methods**: 
 World Models · Vision-Language-Action (VLA) Models · Imitation Learning
