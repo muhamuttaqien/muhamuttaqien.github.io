@@ -5,7 +5,7 @@ My research profile built with HTML and CSS, hosted on **GitHub Pages**.  🌐 [
 ## Research Profile
 
 🎯 **Research Question**: 
-How can machines learn, reason, and adapt to effectively collaborate with humans in novel environments and tasks?
+How can machines 'learn', 'reason', and 'adapt' to effectively collaborate with humans in novel environments and tasks?
 
 **Research Field**: 
 Embodied AI
