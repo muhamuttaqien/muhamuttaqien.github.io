@@ -20,4 +20,4 @@ Learning, Generalization, and Human-Centered Intelligence
 Mobile Manipulation
 
 **Methods**: 
-World Models · Vision-Language-Action (VLA) Models · Imitation Learning
+World Models, Vision-Language-Action (VLA) Models, and Reinforcement/Imitation Learning
