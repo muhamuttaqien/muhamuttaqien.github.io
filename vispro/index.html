@@ -318,57 +318,6 @@
       </p>
     </section>
 
-    <!-- Robot Demonstrations: activated after all six MP4s are available -->
-    <section class="research-section vispro-video-gallery" id="vispro-video-gallery" hidden>
-      <h2>Robot Demonstrations</h2>
-      <p class="section-intro">
-        Short UR5e recordings showing robot motion and grasping with retail products.
-        These clips illustrate execution; they are not individual scenario or success-rate evaluations.
-      </p>
-      <h3>Trajectory Examples</h3>
-      <div class="vispro-video-grid">
-        <figure class="vispro-video-card">
-          <video class="vispro-clip" autoplay loop muted playsinline controls preload="none" aria-label="Trajectory example 1">
-            <source data-src="./video/trajectory1.mp4" type="video/mp4">
-          </video>
-          <figcaption>Trajectory 1</figcaption>
-        </figure>
-        <figure class="vispro-video-card">
-          <video class="vispro-clip" autoplay loop muted playsinline controls preload="none" aria-label="Trajectory example 2">
-            <source data-src="./video/trajectory2.mp4" type="video/mp4">
-          </video>
-          <figcaption>Trajectory 2</figcaption>
-        </figure>
-        <figure class="vispro-video-card">
-          <video class="vispro-clip" autoplay loop muted playsinline controls preload="none" aria-label="Trajectory example 3">
-            <source data-src="./video/trajectory3.mp4" type="video/mp4">
-          </video>
-          <figcaption>Trajectory 3</figcaption>
-        </figure>
-      </div>
-      <h3>Grasping Examples</h3>
-      <div class="vispro-video-grid">
-        <figure class="vispro-video-card">
-          <video class="vispro-clip" autoplay loop muted playsinline controls preload="none" aria-label="Grasping example 1">
-            <source data-src="./video/grasping1.mp4" type="video/mp4">
-          </video>
-          <figcaption>Grasping 1</figcaption>
-        </figure>
-        <figure class="vispro-video-card">
-          <video class="vispro-clip" autoplay loop muted playsinline controls preload="none" aria-label="Grasping example 2">
-            <source data-src="./video/grasping2.mp4" type="video/mp4">
-          </video>
-          <figcaption>Grasping 2</figcaption>
-        </figure>
-        <figure class="vispro-video-card">
-          <video class="vispro-clip" autoplay loop muted playsinline controls preload="none" aria-label="Grasping example 3">
-            <source data-src="./video/grasping3.mp4" type="video/mp4">
-          </video>
-          <figcaption>Grasping 3</figcaption>
-        </figure>
-      </div>
-    </section>
-
     <!-- Attention Analysis -->
     <!-- <section class="research-section">
       <h2>Attention Analysis</h2>
@@ -534,59 +483,6 @@
             button.setAttribute('aria-label', 'Copy BibTeX citation');
           }, 2000);
         }
-      });
-    })();
-  </script>
-  <!-- Publish the video gallery only when every referenced video has been uploaded. -->
-  <script>
-    (() => {
-      const gallery = document.getElementById('vispro-video-gallery');
-      if (!gallery) return;
-      const videos = Array.from(gallery.querySelectorAll('.vispro-clip'));
-      const sources = videos.map((video) => video.querySelector('source[data-src]'));
-      if (!sources.every(Boolean)) return;
-
-      Promise.all(sources.map((source) =>
-        fetch(source.dataset.src, { method: 'HEAD' })
-          .then((response) => response.ok)
-          .catch(() => false)
-      )).then((available) => {
-        if (!available.every(Boolean)) return;
-        gallery.hidden = false;
-
-        const load = (video) => {
-          const source = video.querySelector('source[data-src]');
-          if (source) {
-            source.src = source.dataset.src;
-            source.removeAttribute('data-src');
-            video.load();
-          }
-        };
-        const play = (video) => {
-          const attempt = video.play();
-          if (attempt && typeof attempt.catch === 'function') attempt.catch(() => {});
-        };
-
-        if (!('IntersectionObserver' in window)) {
-          videos.forEach((video) => {
-            load(video);
-            play(video);
-          });
-          return;
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            const video = entry.target;
-            if (entry.isIntersecting) {
-              load(video);
-              play(video);
-            } else {
-              video.pause();
-            }
-          });
-        }, { rootMargin: '120px 0px', threshold: 0.05 });
-        videos.forEach((video) => observer.observe(video));
       });
     })();
   </script>
