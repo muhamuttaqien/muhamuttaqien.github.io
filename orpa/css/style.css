@@ -406,6 +406,68 @@ body {
   text-align: center;
 }
 
+
+/* ORPA experiment videos */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 860px;
+  margin: 1.6rem auto 0;
+}
+
+.demo-grid.demo-single {
+  grid-template-columns: minmax(0, 430px);
+  justify-content: center;
+}
+
+.demo-card {
+  min-width: 0;
+  margin: 0;
+}
+
+.research-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #0c1420;
+}
+
+.demo-comparisons .research-video {
+  aspect-ratio: 1280 / 600;
+}
+
+.demo-multicamera .research-video {
+  aspect-ratio: 1280 / 1020;
+}
+
+.demo-single .research-video {
+  aspect-ratio: 16 / 9;
+}
+
+.demo-card figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+.demo-card figcaption strong {
+  color: #2d3748;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.demo-card figcaption span {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 /* Takeaway */
 .takeaway {
   max-width: 790px;
@@ -476,6 +538,11 @@ body {
   .realworld-grid,
   .failure-grid {
     grid-template-columns: 1fr;
+  }
+
+  .demo-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
   }
 
   .method-box,
