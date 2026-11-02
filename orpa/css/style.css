@@ -476,3 +476,25 @@ body {
     transform: rotate(90deg);
   }
 }
+
+/* Research page usability and accessibility */
+html { scroll-behavior: smooth; }
+.research-section, .subsection-title, #bibtex { scroll-margin-top: 1.25rem; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 20; padding: .65rem 1rem; background: #2d3748; color: #fff; }
+.skip-link:focus { top: .75rem; color: #fff; }
+.section-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .45rem 1.2rem; max-width: 860px; margin: -2rem auto 2.5rem; padding: .85rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+.section-nav a { font-size: .92rem; color: #4a5568; }
+.section-nav a:hover { color: #2d3748; border-bottom-color: #2d3748; }
+.orpa-page a:focus-visible { outline: 3px solid #4a5568; outline-offset: 3px; }
+.media-placeholder img { max-width: 100%; width: 100%; object-fit: contain; }
+.method-inputs { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1.4rem auto .4rem; }
+.method-inputs .method-box { max-width: 290px; min-width: 220px; }
+.method-plus { align-self: center; font-weight: 700; font-size: 1.6rem; color: #718096; }
+.method-output { max-width: 540px; margin: 0 auto; display: grid; gap: .3rem; justify-items: center; text-align: center; line-height: 1.5; }
+.method-output > span:last-child { color: #6b7280; font-size: .9rem; }
+@media (max-width: 768px) {
+  .section-nav { margin-top: -1rem; }
+  .method-plus { width: 100%; text-align: center; }
+  .research-section > p { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
