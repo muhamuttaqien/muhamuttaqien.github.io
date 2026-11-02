@@ -435,6 +435,10 @@ body {
   aspect-ratio: 1280 / 600;
 }
 
+.demo-multicamera {
+  max-width: 760px;
+}
+
 .demo-multicamera .research-video {
   aspect-ratio: 1280 / 1020;
 }
