@@ -206,7 +206,13 @@
     <section class="research-section" id="qualitative-results">
       <h2>Qualitative Results</h2>
       <p class="section-intro">
-        Independent real-world rollouts compare Baseline ACT failures with ACT + ORPA successes.
+        These side-by-side videos show independent real-world rollouts of Baseline ACT
+        and ACT + ORPA on snack box transfer and chip tube opening; they are not
+        synchronized trial pairs. In the paper's 30-trial evaluations, task-completion
+        scores improved from 0.83 to 0.86 for transfer and from 0.79 to 0.82 for
+        opening with ORPA trained using action and observation perturbations.
+        Qualitative results show improved recovery from grasping and placement errors
+        in transfer and greater stability during contact-rich tube opening.
       </p>
       <div class="demo-grid demo-comparisons">
         <figure class="demo-card">
@@ -218,9 +224,6 @@
             <strong>Snack Box Transfer</strong>
             <span>Independent Baseline ACT and ACT + ORPA rollouts</span>
           </figcaption>
-          <button class="demo-fullscreen" type="button" aria-label="View Snack Box Transfer demonstration fullscreen">
-            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
-          </button>
           <noscript><p><a href="./video/snack_box_transfer_baseline_vs_orpa_comparison.mp4">Watch Snack Box Transfer video</a></p></noscript>
         </figure>
         <figure class="demo-card">
@@ -232,9 +235,6 @@
             <strong>Chip Tube Opening</strong>
             <span>Independent Baseline ACT and ACT + ORPA rollouts</span>
           </figcaption>
-          <button class="demo-fullscreen" type="button" aria-label="View Chip Tube Opening demonstration fullscreen">
-            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
-          </button>
           <noscript><p><a href="./video/chip_tube_opening_baseline_vs_orpa_comparison.mp4">Watch Chip Tube Opening video</a></p></noscript>
         </figure>
       </div>
@@ -244,7 +244,14 @@
     <section class="research-section" id="real-world-demonstrations">
       <h2>Real-World Demonstrations</h2>
       <p class="section-intro">
-        Successful ACT + ORPA executions captured from four camera viewpoints.
+        These recordings show successful ACT + ORPA executions from the high, low,
+        and two wrist-mounted RGB cameras on the real-world ALOHA platform.
+        Across the reported 30-trial evaluations, the action-and-observation ORPA
+        variant achieved task-completion scores of 0.86 for snack box transfer and
+        0.82 for chip tube opening, compared with 0.83 and 0.79 for the original
+        ACT baseline evaluated under normal conditions. The paper describes how
+        feedback-conditioned joint-space corrections improve recovery while leaving
+        the pretrained ACT policy unchanged.
       </p>
       <div class="demo-grid demo-multicamera">
         <figure class="demo-card">
@@ -256,9 +263,6 @@
             <strong>Snack Box Transfer</strong>
             <span>ACT + ORPA success · four-camera view</span>
           </figcaption>
-          <button class="demo-fullscreen" type="button" aria-label="View Snack Box Transfer demonstration fullscreen">
-            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
-          </button>
           <noscript><p><a href="./video/snack_box_transfer_act_orpa_success_multicamera.mp4">Watch Snack Box Transfer video</a></p></noscript>
         </figure>
         <figure class="demo-card">
@@ -270,35 +274,7 @@
             <strong>Chip Tube Opening</strong>
             <span>ACT + ORPA success · four-camera view</span>
           </figcaption>
-          <button class="demo-fullscreen" type="button" aria-label="View Chip Tube Opening demonstration fullscreen">
-            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
-          </button>
           <noscript><p><a href="./video/chip_tube_opening_act_orpa_success_multicamera.mp4">Watch Chip Tube Opening video</a></p></noscript>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Failure Analysis -->
-    <section class="research-section" id="failure-analysis">
-      <h2>Failure Analysis</h2>
-      <p class="section-intro">
-        An Object Sorting failure from Baseline ACT. An ACT + ORPA success video
-        for this task is not included in the available recordings.
-      </p>
-      <div class="demo-grid demo-single">
-        <figure class="demo-card">
-          <video class="research-video" autoplay loop muted playsinline preload="none"
-                 aria-label="Object Sorting - Baseline ACT failure example">
-            <source data-src="./video/object_sorting_act_failure_1_individual.mp4" type="video/mp4">
-          </video>
-          <figcaption>
-            <strong>Object Sorting</strong>
-            <span>Baseline ACT failure example</span>
-          </figcaption>
-          <button class="demo-fullscreen" type="button" aria-label="View Object Sorting demonstration fullscreen">
-            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
-          </button>
-          <noscript><p><a href="./video/object_sorting_act_failure_1_individual.mp4">Watch Object Sorting video</a></p></noscript>
         </figure>
       </div>
     </section>
@@ -714,21 +690,7 @@
         videos.forEach((video) => observer.observe(video));
       }
 
-      document.querySelectorAll('.demo-fullscreen').forEach((button) => {
-        button.addEventListener('click', () => {
-          const video = button.closest('.demo-card').querySelector('.research-video');
-          loadSource(video);
-          if (typeof video.requestFullscreen === 'function') {
-            const result = video.requestFullscreen();
-            if (result && typeof result.catch === 'function') result.catch(() => {});
-          } else if (typeof video.webkitEnterFullscreen === 'function') {
-            video.webkitEnterFullscreen();
-          } else {
-            const source = video.querySelector('source');
-            window.open(source.src, '_blank', 'noopener,noreferrer');
-          }
-        });
-      });
+
     })();
   </script>
 
