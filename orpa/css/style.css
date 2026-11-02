@@ -443,6 +443,17 @@ body {
   aspect-ratio: 1280 / 1020;
 }
 
+.demo-card figcaption {
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+.demo-card figcaption strong {
+  color: #2d3748;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 /* Takeaway */
 .takeaway {
   max-width: 790px;
