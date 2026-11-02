@@ -443,27 +443,6 @@ body {
   aspect-ratio: 1280 / 1020;
 }
 
-.demo-card figcaption {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 0.7rem;
-  text-align: center;
-}
-
-.demo-card figcaption strong {
-  color: #2d3748;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.demo-card figcaption span {
-  color: #6b7280;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
 /* Takeaway */
 .takeaway {
   max-width: 790px;
