@@ -218,6 +218,9 @@
             <strong>Snack Box Transfer</strong>
             <span>Independent Baseline ACT and ACT + ORPA rollouts</span>
           </figcaption>
+          <button class="demo-fullscreen" type="button" aria-label="View Snack Box Transfer demonstration fullscreen">
+            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
+          </button>
           <noscript><p><a href="./video/snack_box_transfer_baseline_vs_orpa_comparison.mp4">Watch Snack Box Transfer video</a></p></noscript>
         </figure>
         <figure class="demo-card">
@@ -229,6 +232,9 @@
             <strong>Chip Tube Opening</strong>
             <span>Independent Baseline ACT and ACT + ORPA rollouts</span>
           </figcaption>
+          <button class="demo-fullscreen" type="button" aria-label="View Chip Tube Opening demonstration fullscreen">
+            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
+          </button>
           <noscript><p><a href="./video/chip_tube_opening_baseline_vs_orpa_comparison.mp4">Watch Chip Tube Opening video</a></p></noscript>
         </figure>
       </div>
@@ -250,6 +256,9 @@
             <strong>Snack Box Transfer</strong>
             <span>ACT + ORPA success · four-camera view</span>
           </figcaption>
+          <button class="demo-fullscreen" type="button" aria-label="View Snack Box Transfer demonstration fullscreen">
+            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
+          </button>
           <noscript><p><a href="./video/snack_box_transfer_act_orpa_success_multicamera.mp4">Watch Snack Box Transfer video</a></p></noscript>
         </figure>
         <figure class="demo-card">
@@ -261,6 +270,9 @@
             <strong>Chip Tube Opening</strong>
             <span>ACT + ORPA success · four-camera view</span>
           </figcaption>
+          <button class="demo-fullscreen" type="button" aria-label="View Chip Tube Opening demonstration fullscreen">
+            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
+          </button>
           <noscript><p><a href="./video/chip_tube_opening_act_orpa_success_multicamera.mp4">Watch Chip Tube Opening video</a></p></noscript>
         </figure>
       </div>
@@ -283,6 +295,9 @@
             <strong>Object Sorting</strong>
             <span>Baseline ACT failure example</span>
           </figcaption>
+          <button class="demo-fullscreen" type="button" aria-label="View Object Sorting demonstration fullscreen">
+            <i class="fa-solid fa-expand" aria-hidden="true"></i> View fullscreen
+          </button>
           <noscript><p><a href="./video/object_sorting_act_failure_1_individual.mp4">Watch Object Sorting video</a></p></noscript>
         </figure>
       </div>
@@ -698,6 +713,22 @@
 
         videos.forEach((video) => observer.observe(video));
       }
+
+      document.querySelectorAll('.demo-fullscreen').forEach((button) => {
+        button.addEventListener('click', () => {
+          const video = button.closest('.demo-card').querySelector('.research-video');
+          loadSource(video);
+          if (typeof video.requestFullscreen === 'function') {
+            const result = video.requestFullscreen();
+            if (result && typeof result.catch === 'function') result.catch(() => {});
+          } else if (typeof video.webkitEnterFullscreen === 'function') {
+            video.webkitEnterFullscreen();
+          } else {
+            const source = video.querySelector('source');
+            window.open(source.src, '_blank', 'noopener,noreferrer');
+          }
+        });
+      });
     })();
   </script>
 
