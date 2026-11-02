@@ -396,9 +396,10 @@ body {
 
 /* BibTeX — GitHub dark syntax */
 .bibtex-box {
+  position: relative;
   max-width: 790px;
   margin: 0 auto;
-  padding: 1.2rem 1.4rem;
+  padding: 3.3rem 1.4rem 1.2rem;
   border: 1px solid #30363D;
   border-radius: 4px;
   background: #0D1117;
@@ -420,6 +421,36 @@ body {
 
 .bibtex-box .bibtex-accent {
   color: #79C0FF;
+}
+
+.bibtex-copy {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #30363D;
+  border-radius: 6px;
+  background: #21262D;
+  color: #C9D1D9;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.bibtex-copy:hover {
+  background: #30363D;
+  color: #FFFFFF;
+}
+
+.bibtex-copy:focus-visible {
+  outline: 2px solid #79C0FF;
+  outline-offset: 2px;
 }
 
 /* Responsive */
