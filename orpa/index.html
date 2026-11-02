@@ -201,6 +201,93 @@
       </div>
     </section>
 
+
+    <!-- Qualitative Results -->
+    <section class="research-section" id="qualitative-results">
+      <h2>Qualitative Results</h2>
+      <p class="section-intro">
+        Independent real-world rollouts compare Baseline ACT failures with ACT + ORPA successes.
+      </p>
+      <div class="demo-grid demo-comparisons">
+        <figure class="demo-card">
+          <video class="research-video" autoplay loop muted playsinline preload="none"
+                 aria-label="Snack Box Transfer - Independent Baseline ACT and ACT + ORPA rollouts">
+            <source data-src="./video/snack_box_transfer_baseline_vs_orpa_comparison.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <strong>Snack Box Transfer</strong>
+            <span>Independent Baseline ACT and ACT + ORPA rollouts</span>
+          </figcaption>
+          <noscript><p><a href="./video/snack_box_transfer_baseline_vs_orpa_comparison.mp4">Watch Snack Box Transfer video</a></p></noscript>
+        </figure>
+        <figure class="demo-card">
+          <video class="research-video" autoplay loop muted playsinline preload="none"
+                 aria-label="Chip Tube Opening - Independent Baseline ACT and ACT + ORPA rollouts">
+            <source data-src="./video/chip_tube_opening_baseline_vs_orpa_comparison.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <strong>Chip Tube Opening</strong>
+            <span>Independent Baseline ACT and ACT + ORPA rollouts</span>
+          </figcaption>
+          <noscript><p><a href="./video/chip_tube_opening_baseline_vs_orpa_comparison.mp4">Watch Chip Tube Opening video</a></p></noscript>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Real-World Demonstrations -->
+    <section class="research-section" id="real-world-demonstrations">
+      <h2>Real-World Demonstrations</h2>
+      <p class="section-intro">
+        Successful ACT + ORPA executions captured from four camera viewpoints.
+      </p>
+      <div class="demo-grid demo-multicamera">
+        <figure class="demo-card">
+          <video class="research-video" autoplay loop muted playsinline preload="none"
+                 aria-label="Snack Box Transfer - ACT + ORPA success · four-camera view">
+            <source data-src="./video/snack_box_transfer_act_orpa_success_multicamera.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <strong>Snack Box Transfer</strong>
+            <span>ACT + ORPA success · four-camera view</span>
+          </figcaption>
+          <noscript><p><a href="./video/snack_box_transfer_act_orpa_success_multicamera.mp4">Watch Snack Box Transfer video</a></p></noscript>
+        </figure>
+        <figure class="demo-card">
+          <video class="research-video" autoplay loop muted playsinline preload="none"
+                 aria-label="Chip Tube Opening - ACT + ORPA success · four-camera view">
+            <source data-src="./video/chip_tube_opening_act_orpa_success_multicamera.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <strong>Chip Tube Opening</strong>
+            <span>ACT + ORPA success · four-camera view</span>
+          </figcaption>
+          <noscript><p><a href="./video/chip_tube_opening_act_orpa_success_multicamera.mp4">Watch Chip Tube Opening video</a></p></noscript>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Failure Analysis -->
+    <section class="research-section" id="failure-analysis">
+      <h2>Failure Analysis</h2>
+      <p class="section-intro">
+        An Object Sorting failure from Baseline ACT. An ACT + ORPA success video
+        for this task is not included in the available recordings.
+      </p>
+      <div class="demo-grid demo-single">
+        <figure class="demo-card">
+          <video class="research-video" autoplay loop muted playsinline preload="none"
+                 aria-label="Object Sorting - Baseline ACT failure example">
+            <source data-src="./video/object_sorting_act_failure_1_individual.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <strong>Object Sorting</strong>
+            <span>Baseline ACT failure example</span>
+          </figcaption>
+          <noscript><p><a href="./video/object_sorting_act_failure_1_individual.mp4">Watch Object Sorting video</a></p></noscript>
+        </figure>
+      </div>
+    </section>
+
     <!-- Human Feedback -->
     <!-- <section class="research-section">
       <h2>Human Feedback</h2>
@@ -570,5 +657,49 @@
     </footer>
 
   </main>
+  <!-- Load experiment videos only when they approach the viewport; pause while offscreen. -->
+  <script>
+    (() => {
+      const videos = document.querySelectorAll('.research-video');
+
+      const loadSource = (video) => {
+        const source = video.querySelector('source[data-src]');
+        if (source) {
+          source.src = source.dataset.src;
+          source.removeAttribute('data-src');
+          video.load();
+        }
+      };
+
+      const playVideo = (video) => {
+        const promise = video.play();
+        if (promise && typeof promise.catch === 'function') {
+          promise.catch(() => {});
+        }
+      };
+
+      if (!('IntersectionObserver' in window)) {
+        videos.forEach((video) => {
+          loadSource(video);
+          playVideo(video);
+        });
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+              loadSource(video);
+              playVideo(video);
+            } else {
+              video.pause();
+            }
+          });
+        }, { rootMargin: '160px 0px', threshold: 0.05 });
+
+        videos.forEach((video) => observer.observe(video));
+      }
+    })();
+  </script>
+
 </body>
 </html>
