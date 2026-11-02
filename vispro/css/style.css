@@ -76,6 +76,16 @@ body {
   margin: 2rem auto 0;
 }
 
+.hero-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #2d3748;
+  border-radius: 4px;
+}
+
 .media-placeholder {
   display: flex;
   align-items: center;
@@ -357,11 +367,13 @@ body {
   text-align: center;
 }
 
-.failure-card i {
+.failure-card img {
   display: block;
-  margin-bottom: 0.7rem;
-  color: var(--accent);
-  font-size: 1.35rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
 }
 
 .failure-card strong {
