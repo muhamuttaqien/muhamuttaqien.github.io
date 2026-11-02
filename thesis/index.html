@@ -533,6 +533,10 @@
       <h2>BibTeX</h2>
     
       <div class="bibtex-box" id="bibtex">
+        <button class="bibtex-copy" type="button" aria-label="Copy BibTeX citation" title="Copy BibTeX">
+          <i class="fa-regular fa-copy" aria-hidden="true"></i>
+          <span>Copy</span>
+        </button>
         <pre><code><span class="bibtex-accent">@inproceedings</span>{muttaqien2024curriculum,
   <span class="bibtex-accent">author</span>    = {Muhammad A. Muttaqien and Ayanori Yorozu and Akihisa Ohya},
   <span class="bibtex-accent">title</span>     = {Mobile Robots through Task-Based Human Instructions using Incremental Curriculum Learning},
@@ -548,5 +552,51 @@
       <p>© 2026 muhamuttaqien — Hosted on GitHub Pages</p>
     </footer>
   </main>
+  <!-- Copy BibTeX without the syntax-highlighting markup. -->
+  <script>
+    (() => {
+      const button = document.querySelector('.bibtex-copy');
+      const citation = document.querySelector('#bibtex pre code');
+      if (!button || !citation) return;
+
+      let resetTimeout;
+      button.addEventListener('click', async () => {
+        const content = citation.textContent.trim();
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(content);
+          } else {
+            const textarea = document.createElement('textarea');
+            textarea.value = content;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            const success = document.execCommand('copy');
+            textarea.remove();
+            if (!success) throw new Error('Clipboard unavailable');
+          }
+          button.querySelector('span').textContent = 'Copied!';
+          button.querySelector('i').className = 'fa-solid fa-check';
+          button.setAttribute('aria-label', 'BibTeX copied');
+          clearTimeout(resetTimeout);
+          resetTimeout = setTimeout(() => {
+            button.querySelector('span').textContent = 'Copy';
+            button.querySelector('i').className = 'fa-regular fa-copy';
+            button.setAttribute('aria-label', 'Copy BibTeX citation');
+          }, 2000);
+        } catch (error) {
+          button.querySelector('span').textContent = 'Copy failed';
+          button.setAttribute('aria-label', 'Failed to copy BibTeX');
+          clearTimeout(resetTimeout);
+          resetTimeout = setTimeout(() => {
+            button.querySelector('span').textContent = 'Copy';
+            button.setAttribute('aria-label', 'Copy BibTeX citation');
+          }, 2000);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
