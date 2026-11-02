@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Muhammad Angga Muttaqien">
   <meta name="description" content="ORPA: Online Residual Policy Adaptation for Robot Manipulation Control with Human Feedback.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ORPA — Online Residual Policy Adaptation">
+  <meta property="og:description" content="Feedback-driven online correction for robot manipulation without retraining the base policy.">
+  <meta property="og:url" content="https://muhamuttaqien.github.io/orpa/">
 
   <title>ORPA: Online Residual Policy Adaptation for Robot Manipulation Control with Human Feedback | muhamuttaqien</title>
 
@@ -21,6 +26,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#abstract">Skip to research content</a>
   <main class="orpa-page">
 
     <!-- Header -->
@@ -72,8 +78,17 @@
       </div> -->
     </section>
 
+    <nav class="section-nav" aria-label="Project sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#motivation">Motivation</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#takeaway">Takeaway</a>
+      <a href="#bibtex">BibTeX</a>
+    </nav>
+
     <!-- Abstract -->
-    <section class="research-section">
+    <section class="research-section" id="abstract">
       <h2>Abstract</h2>
 
       <p>
@@ -90,7 +105,7 @@
     </section>
 
     <!-- Why ORPA -->
-    <section class="research-section">
+    <section class="research-section" id="motivation">
       <h2>Why ORPA?</h2>
 
       <p class="section-intro">
@@ -127,7 +142,7 @@
     </section>
 
     <!-- Method -->
-    <section class="research-section">
+    <section class="research-section" id="method">
       <h2>Method</h2>
 
       <p class="section-intro">
@@ -137,7 +152,7 @@
       </p>
 
       <div class="media-placeholder">
-        <img src="./img/architecture.jpg" alt="Architecture of the proposed Online Residual Policy Adaptation framework">
+        <img src="./img/architecture.jpg" alt="Architecture of the proposed Online Residual Policy Adaptation framework" loading="lazy" decoding="async">
       </div>
 
       <p class="section-intro">
@@ -154,47 +169,21 @@
         <span>Δa<sub>ORPA</sub></span>
       </div>
 
-      <div class="method-flow">
+      <div class="method-inputs" aria-label="Inputs to ORPA correction">
         <div class="method-box">
           <strong>Pretrained ACT</strong>
-          Visual observations + robot states
+          Visual observations and robot state produce a base action.
         </div>
-
-        <div class="arrow">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </div>
-
+        <span class="method-plus" aria-hidden="true">+</span>
         <div class="method-box">
           <strong>Human Feedback</strong>
-          Corrective instruction
+          Corrective feedback informs the residual adjustment.
         </div>
-
-        <div class="arrow">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </div>
-
-        <div class="method-box">
-          <strong>Feedback Encoder</strong>
-          Feedback representation
-        </div>
-
-        <div class="arrow">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </div>
-
-        <div class="method-box">
-          <strong>Policy Updater</strong>
-          Predict residual Δa
-        </div>
-
-        <div class="arrow">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </div>
-
-        <div class="method-box">
-          <strong>Corrected Action</strong>
-          ACT action + residual
-        </div>
+      </div>
+      <div class="method-output">
+        <span aria-hidden="true">↓</span>
+        <strong>Feedback-conditioned residual correction</strong>
+        <span>Applied to the base action during execution, without changing ACT parameters.</span>
       </div>
     </section>
 
@@ -424,7 +413,7 @@
       </div> -->
 
       <!-- Real-World Task Scores -->
-      <h3 class="subsection-title">Real-World Task Scores</h3>
+      <h3 class="subsection-title" id="results">Real-World Task Scores</h3>
 
       <div class="result-grid">
         <div class="result-card">
@@ -469,7 +458,7 @@
 
       <p class="result-note">
         Scores compare Original ACT with ORPA using action and
-        observation perturbations.
+        observation perturbations. Values are reported as task scores rather than success-rate percentages; see the <a href="https://arxiv.org/abs/2608.17323">paper</a> for evaluation details.
       </p>
     </section>
 
@@ -522,7 +511,7 @@
     </section> -->
 
     <!-- Takeaway -->
-    <section class="research-section">
+    <section class="research-section" id="takeaway">
       <h2>Takeaway</h2>
 
       <div class="takeaway">
