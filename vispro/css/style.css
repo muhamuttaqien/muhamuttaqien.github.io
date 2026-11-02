@@ -389,13 +389,14 @@ body {
   margin-top: 1.3rem !important;
 }
 
-/* BibTeX */
+/* BibTeX — GitHub dark syntax */
 .bibtex-box {
   max-width: 790px;
   margin: 0 auto;
   padding: 1.2rem 1.4rem;
+  border: 1px solid #30363D;
   border-radius: 4px;
-  background: #f8f9fa;
+  background: #0D1117;
   overflow-x: auto;
 }
 
@@ -405,10 +406,15 @@ body {
 }
 
 .bibtex-box code {
-  color: #2d3748;
+  color: #C9D1D9;
+  background: transparent;
   font-family: monospace;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.bibtex-box .bibtex-accent {
+  color: #79C0FF;
 }
 
 /* Responsive */
