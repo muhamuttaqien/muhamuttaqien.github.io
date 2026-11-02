@@ -71,12 +71,12 @@
         </a>
       </div>
 
-      <!-- <div class="hero-media">
-        <div class="media-placeholder">
-          [VIDEOS - Robot selecting a prompted object,
-          grasping it, and placing it at the prompted destination]
-        </div>
-      </div> -->
+      <div class="hero-media">
+        <video class="hero-video" autoplay loop muted playsinline controls preload="metadata" aria-label="VisPro research overview and robot manipulation demonstrations">
+          <source src="./video/vispro_hero.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
     </section>
 
     <!-- Abstract -->
@@ -404,39 +404,39 @@
 
       <div class="failure-grid">
         <div class="failure-card">
-          <i class="fa-solid fa-arrows-left-right-to-line" aria-hidden="true"></i>
+          <img src="./img/fp1.png" alt="Misaligned gripper fingers approaching a boxed product" loading="lazy" decoding="async">
           <strong>Finger Misalignment</strong>
-          <span>Gripper fingers do not align correctly with the object.</span>
+          <span>The gripper fingers are offset from the product, preventing a reliable grasp.</span>
         </div>
 
         <div class="failure-card">
-          <i class="fa-solid fa-hand" aria-hidden="true"></i>
-          <strong>Weak Grasp</strong>
-          <span>Insufficient grasp force allows the object to slip.</span>
-        </div>
-
-        <div class="failure-card">
-          <i class="fa-solid fa-droplet" aria-hidden="true"></i>
-          <strong>Slippery Surface</strong>
-          <span>Object properties make stable manipulation difficult.</span>
-        </div>
-
-        <div class="failure-card">
-          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-          <strong>Placement Misalignment</strong>
-          <span>The object reaches the destination but is inaccurately placed.</span>
-        </div>
-
-        <div class="failure-card">
-          <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+          <img src="./img/fp2.png" alt="Tea bottle lying sideways in the shelf area following a placement attempt" loading="lazy" decoding="async">
           <strong>Placement Failure</strong>
-          <span>The object is dropped before completing the task.</span>
+          <span>The product is not successfully placed at its intended destination.</span>
         </div>
 
         <div class="failure-card">
-          <i class="fa-solid fa-compress" aria-hidden="true"></i>
+          <img src="./img/fp3.png" alt="Robot gripper contacting a small cylindrical jar" loading="lazy" decoding="async">
+          <strong>Too Slippery Surface</strong>
+          <span>A smooth container surface makes it difficult to maintain a stable grasp.</span>
+        </div>
+
+        <div class="failure-card">
+          <img src="./img/fp4.png" alt="Shelf scene with a tea bottle illustrating insufficient grasp force" loading="lazy" decoding="async">
+          <strong>Weak Grasp Power</strong>
+          <span>Insufficient gripping force can cause the product to slip during handling.</span>
+        </div>
+
+        <div class="failure-card">
+          <img src="./img/fp5.png" alt="Gripper holding a tea box near the edge of a shelf" loading="lazy" decoding="async">
+          <strong>Placement Misalignment</strong>
+          <span>The product does not align correctly with its intended placement position.</span>
+        </div>
+
+        <div class="failure-card">
+          <img src="./img/fp6.png" alt="Close-up of tea box and surrounding products in a confined placement area" loading="lazy" decoding="async">
           <strong>Narrow Destination</strong>
-          <span>Tight placement regions require higher manipulation precision.</span>
+          <span>Restricted clearance around the target makes accurate placement challenging.</span>
         </div>
       </div>
     </section>
