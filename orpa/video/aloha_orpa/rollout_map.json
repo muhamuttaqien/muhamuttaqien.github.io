@@ -1,0 +1,39 @@
+{
+  "snack_box_transfer": {
+    "available_episodes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "act_orpa_success": 0,
+    "act_failures": [
+      1,
+      2,
+      3
+    ]
+  },
+  "chip_tube_opening": {
+    "available_episodes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "act_orpa_success": 0,
+    "act_failures": [
+      1,
+      2,
+      3
+    ]
+  },
+  "object_sorting": {
+    "available_episodes": [
+      3
+    ],
+    "act_orpa_success": null,
+    "act_failures": [
+      3
+    ]
+  }
+}
