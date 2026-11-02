@@ -410,15 +410,15 @@ body {
 /* ORPA experiment videos */
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 860px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.2rem;
+  width: 100%;
+  max-width: 960px;
   margin: 1.6rem auto 0;
 }
 
 .demo-grid.demo-single {
-  grid-template-columns: minmax(0, 430px);
-  justify-content: center;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .demo-card {
@@ -466,6 +466,28 @@ body {
   color: #6b7280;
   font-size: 13px;
   line-height: 1.5;
+}
+
+.demo-fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.6rem auto 0;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #2d3748;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.demo-fullscreen:hover,
+.demo-fullscreen:focus-visible {
+  background: #f1f5f9;
 }
 
 /* Takeaway */
@@ -541,8 +563,7 @@ body {
   }
 
   .demo-grid {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 560px;
+    gap: 1.8rem;
   }
 
   .method-box,
