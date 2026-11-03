@@ -356,7 +356,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 1.5rem;
+  max-width: 790px;
+  margin: 1.5rem auto 0;
 }
 
 .failure-card {
