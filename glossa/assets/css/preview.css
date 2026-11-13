@@ -67,8 +67,16 @@
 .pv-image .pv-scanning:before{top:-2px;left:-2px;border-width:3px 0 0 3px}
 .pv-image .pv-scanning:after{bottom:-2px;right:-2px;border-width:0 3px 3px 0}
 /* Zoom the white Arabic page so its unvowelled text is readable. */
-.pv-image.pv-arabic-image{background:#fff}
-.pv-image.pv-arabic-image img{transform:scale(1.15);transform-origin:center center;object-position:center}
+.pv-image.pv-arabic-image {
+  background: #fff;
+}
+
+.pv-image.pv-arabic-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
 .pv-image.pv-arabic-image .pv-scanning{inset:45% 7% 36% 7%;border-width:2px;box-shadow:0 0 0 999px #0b0b0b18}
 .pv-image.pv-manga-image{background:#f2f2f2}
 .pv-image.pv-manga-image img{object-fit:cover;object-position:center top}
