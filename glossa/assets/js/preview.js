@@ -77,32 +77,32 @@
   }
   function ocrPreview(which) {
     const isArabic = which === 'arabic';
-    const img = isArabic ? 'ocr-arabic.svg' : 'ocr-naruto.svg';
-    const label = isArabic ? 'Arabic book · sample page' : 'Naruto manga · fan-made';
+    const img = isArabic ? 'ocr-arabic.svg' : 'ocr-naruto.webp';
+    const label = isArabic ? 'Arabic book · close-up' : 'Naruto manga · user-provided page';
     const alt = isArabic
-      ? 'Original illustrated page of a classic-looking Arabic book with a line selected for OCR.'
-      : 'Original fan-style black-and-white ninja manga illustration showing a Japanese speech bubble and red selection box.';
+      ? 'Close-up of a white Arabic book page with Arabic text without vowel marks.'
+      : 'User-provided Naruto manga page, with an OCR selection over the speech bubble in the upper right.';
     const source = '<div class="pv-image ' + (isArabic ? 'pv-arabic-image' : 'pv-manga-image') + '">' +
       '<img src="assets/img/' + img + '" alt="' + alt + '" width="960" height="660" loading="lazy">' +
       '<div class="pv-scanning" aria-hidden="true"></div></div>';
-    const arabicRows = [['الْعِلْم','Al-ʿilm','Knowledge'], ['الْفَهْم','Al-fahm','Understanding'], ['الْحِكْمَة','Al-ḥikmah','Wisdom']];
-    const japaneseRows = [['絶対に','ぜったいに / Zettai ni','Absolutely'], ['諦める','あきらめる / Akirameru','To give up']];
+    const arabicRows = [['العلم','Al-ʿilm','Knowledge'], ['الفهم','Al-fahm','Understanding'], ['الحكمة','Al-ḥikmah','Wisdom']];
+    const japaneseRows = [['懐かしい','なつかしい / Natsukashii','Nostalgic']];
     const recognized = isArabic
-      ? '<div class="pv-ocr-text" lang="ar" dir="rtl">الْعِلْمُ نُورٌ، وَالْفَهْمُ مِفْتَاحُ الْحِكْمَةِ.</div>'
-      : '<div class="pv-ocr-text" lang="ja">絶対にあきらめない！</div>';
+      ? '<div class="pv-ocr-text" lang="ar" dir="rtl">العلم نور، والفهم مفتاح الحكمة.</div>'
+      : '<div class="pv-ocr-text" lang="ja">なっつかしーっ!!</div>';
     const translated = isArabic
       ? '“Knowledge is light, and understanding is the key to wisdom.”'
-      : '“I will never give up!”';
+      : '“So nostalgic!”';
     const explanation = isArabic
       ? 'The sentence uses “light” and “key” as metaphors for learning and understanding.'
-      : '“Zettai ni” emphasizes determination; the exclamation communicates strong resolve.';
+      : 'An excited, casual form of 懐かしい (natsukashii), expressing nostalgia at seeing a familiar place again.';
     const result = title('RECOGNIZED TEXT') + recognized + title('TRANSLATION') +
       '<p class="pv-primary-answer">' + translated + '</p>' +
       '<div class="pv-explain"><strong>MEANING &amp; CONTEXT</strong><p>' + explanation + '</p></div>' +
       title('VOCABULARY') + vocab(isArabic ? arabicRows : japaneseRows);
     const desc = isArabic
-      ? 'Select a sentence from a book page to reveal its meaning, transliteration, and key words.'
-      : 'Capture Japanese dialogue from an illustrative ninja manga panel and study its tone.';
+      ? 'Select a sentence from a white book page to reveal its meaning, transliteration, and key words.'
+      : 'Select dialogue from the provided Naruto manga page to understand the wording and tone.';
     return sourceWrap('SOURCE IMAGE',label,source,desc) + resultWrap('OCR · ' + (isArabic ? 'AR → EN' : 'JA → EN'),result);
   }
 
