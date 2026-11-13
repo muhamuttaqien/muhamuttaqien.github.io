@@ -1,3 +1,18 @@
+/* Screen-reader-only announcements must never occupy visible space.
+   Keep the live region accessible to assistive technology. */
+.sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  clip-path:inset(50%)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
 
 /* Glossa Chrome interactive preview */
 .preview-section{background:var(--bg);border-top:1px solid var(--line);padding-top:100px;padding-bottom:115px}
