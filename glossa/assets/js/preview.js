@@ -11,7 +11,7 @@
   if (!root || !stage || !replayButton || !exampleChooser) return;
 
   let mode = 'writing';
-  let sample = 'arabic';
+  let sample = 'naruto';
   let scheduled = [];
   let runNumber = 0;
 
