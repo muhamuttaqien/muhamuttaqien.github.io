@@ -3,7 +3,7 @@
 
   // This early-access site is intentionally static: no installers, databases,
   // analytics, or third-party data collection are hosted by this page.
-  // Email requests remain user-sent via their own mail application.
+  // FormSubmit forwards the request after the owner activates the form.
   const contact = 'muha.muttaqien@gmail.com';
   const editions = {
     browser: { label: 'Browser Extension', version: 'v4.6' },
@@ -33,12 +33,16 @@
   const feedback = document.getElementById('request-feedback');
   const manual = document.getElementById('manual-contact');
   const contactAddress = document.getElementById('contact-address');
+  const submitButton = document.getElementById('request-submit');
+  const honeypot = document.getElementById('request-website');
+  let submitting = false;
   document.getElementById('current-year').textContent = String(new Date().getFullYear());
 
   function openRequest(type) {
     editionInput.value = Object.hasOwn(editions, type) ? type : 'browser';
     feedback.hidden = true;
     feedback.textContent = '';
+    feedback.classList.remove('is-error', 'is-success');
     manual.hidden = true;
     form.reset();
     editionInput.value = Object.hasOwn(editions, type) ? type : 'browser';
@@ -61,8 +65,10 @@
     manual.hidden = true;
   });
 
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
+    if (submitting) return;
+
     const email = emailInput.value.trim();
     emailInput.value = email;
     if (!emailInput.checkValidity()) {
@@ -71,27 +77,59 @@
     }
     const edition = editions[editionInput.value];
     if (!edition) return;
+    if (honeypot.value.trim()) return;
 
-    const subject = `Glossa AI Early Access Request — ${edition.label}`;
-    const body = [
-      'Hello Glossa AI team,',
-      '',
-      `I would like to request early access to Glossa AI ${edition.label} (${edition.version}).`,
-      '',
-      `My contact email: ${email}`,
-      '',
-      'Please let me know when access is available and how to install it.',
-      '',
-      'Thank you!'
-    ].join('\n');
+    submitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending request…';
+    form.setAttribute('aria-busy', 'true');
+    feedback.classList.remove('is-error', 'is-success');
+    feedback.hidden = true;
+    manual.hidden = true;
 
-    contactAddress.textContent = contact;
-    manual.hidden = false;
-    feedback.textContent = 'Your email app should open with a ready-to-send request. Please press Send there to complete it. This site has not sent an email on your behalf.';
-    feedback.hidden = false;
-
-    // Do not claim submission here: mailto only opens a local email composer.
-    window.location.href = `mailto:${contact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 18000);
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/' + contact, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: 'Glossa AI Early Access',
+          email,
+          edition: edition.label,
+          version: edition.version,
+          message: 'I would like early access to Glossa AI ' + edition.label + ' (' + edition.version + '). Please reply to ' + email + ' when access is available.',
+          _subject: 'Glossa AI Early Access Request - ' + edition.label,
+          _replyto: email,
+          _captcha: 'false',
+          _template: 'table'
+        }),
+        signal: controller.signal
+      });
+      const result = await response.json();
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        throw new Error('Submission was not accepted');
+      }
+      feedback.textContent = 'Request submitted successfully. Thank you! We will contact you by email when access is available.';
+      feedback.classList.add('is-success');
+      feedback.hidden = false;
+      form.reset();
+      editionInput.value = Object.keys(editions).find(key => editions[key] === edition) || 'browser';
+    } catch (error) {
+      feedback.textContent = error && error.name === 'AbortError'
+        ? 'Request timed out. Please try again or contact us using the address below.'
+        : 'Unable to confirm your submission. Please retry or contact us using the address below.';
+      feedback.classList.add('is-error');
+      feedback.hidden = false;
+      manual.hidden = false;
+      contactAddress.textContent = contact;
+    } finally {
+      clearTimeout(timeout);
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send access request';
+      form.removeAttribute('aria-busy');
+    }
   });
 
   document.getElementById('copy-contact').addEventListener('click', async event => {
