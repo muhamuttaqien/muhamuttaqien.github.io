@@ -84,6 +84,7 @@
       : 'User-provided Naruto manga page, with an OCR selection over the speech bubble in the upper right.';
     const source = '<div class="pv-image ' + (isArabic ? 'pv-arabic-image' : 'pv-manga-image') + '">' +
       '<img src="assets/img/' + img + '" alt="' + alt + '" width="960" height="660" loading="lazy">' +
+      (!isArabic ? '<span class="pv-ocr-active" aria-hidden="true"><i></i>OCR ACTIVE</span>' : '') +
       '<div class="pv-scanning" aria-hidden="true"></div></div>';
     const arabicRows = [['العلم','Al-ʿilm','Knowledge'], ['الفهم','Al-fahm','Understanding'], ['الحكمة','Al-ḥikmah','Wisdom']];
     const japaneseRows = [['懐かしい','なつかしい / Natsukashii','Nostalgic']];
