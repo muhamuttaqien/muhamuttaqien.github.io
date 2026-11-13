@@ -29,9 +29,18 @@ glossa/
 - **Browser Extension (recommended):** Glossa AI v4.6
 - **Ubuntu Desktop:** Glossa AI v1.2
 
-The request button opens an email form; after validation, it prepares a message with a `mailto:` link. The visitor **must manually send** the message using their email application. The site does **not** automatically submit emails, store addresses, or host software installers.
+Visitors select an edition and enter an email address, then press **Send access request**. The page sends the request directly using the [FormSubmit AJAX endpoint](https://formsubmit.co/ajax-documentation). No email client is needed, and no installation files are hosted on this site.
 
 The destination inbox is `muha.muttaqien@gmail.com` and is configured in `assets/js/main.js`.
+
+### Required first-time FormSubmit activation
+
+1. Submit one test request using the live landing page.
+2. Check `muha.muttaqien@gmail.com`, including spam, for FormSubmit's activation email.
+3. Confirm/activate the form from that email.
+4. Submit a second test and verify that the notification arrives.
+
+The website can show a request as accepted before the mailbox has been activated; **acceptance is not proof of email delivery**. Do not assume emails arrive until the activation and a second test are complete.
 
 ## Dark and light mode
 
@@ -45,7 +54,7 @@ For local preview, serve the repository folder with a simple HTTP server and ope
 
 ## Privacy and limitations
 
-- There is no website-side collection or database for submitted addresses.
-- A `mailto:` link depends on the visitor having an email handler configured.
-- Seeing the confirmation text in the modal **does not mean an email was sent**.
+- GitHub Pages itself stores no submission database, but the form processor FormSubmit receives user email addresses, edition choices, and submitted message text. Its [privacy policy](https://formsubmit.co/privacy.pdf) applies.
+- AJAX submission requires JavaScript and a network connection to FormSubmit. Client confirmation means FormSubmit accepted the request, not guaranteed delivery to the inbox.
+- The form includes a simple honeypot to discourage automated spam.
 - Do not commit API keys, a visitor email list, or early-access installers to this public Pages repository.
