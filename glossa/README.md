@@ -44,7 +44,7 @@ The website can show a request as accepted before the mailbox has been activated
 
 ## Dark and light mode
 
-Use the theme toggle at the top right to switch between Dark and Light. The selection is saved locally in the browser under `glossa-theme`. Dark is the default. This preference is never sent to a server.
+Use the theme toggle at the top right to switch between Dark and Light. The selection is saved locally in the browser under `glossa-theme`. Dark is the default. Light mode uses a muted slate-gray palette rather than bright white, with darker section surfaces and comfortable text contrast. This preference is never sent to a server.
 
 ## Publishing
 
