@@ -78,6 +78,8 @@
   object-position: center;
 }
 .pv-image.pv-arabic-image .pv-scanning{inset:48% 14% 36% 14%;border-width:2px;box-shadow:0 0 0 999px #0b0b0b18}
+.pv-ocr-active{position:absolute;z-index:3;top:9px;left:9px;display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:4px;background:#151515;color:#fff;font-size:10px;font-weight:750;line-height:1;letter-spacing:.1px;pointer-events:none;box-shadow:0 1px 5px #0005}
+.pv-ocr-active i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ef4d4d;flex-shrink:0}
 .pv-image.pv-manga-image{background:#f2f2f2}
 .pv-image.pv-manga-image img{object-fit:cover;object-position:center top}
 .pv-image.pv-manga-image .pv-scanning{inset:2% 2% 60% 78%;border-width:2px;box-shadow:0 0 0 999px #0b0b0b16}
