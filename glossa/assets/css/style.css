@@ -77,3 +77,12 @@ html[data-theme="light"] .manual-address{background:#f5f7f9;border-color:#d8dfe7
 html[data-theme="light"] .manual-address code{color:#303a45}
 html[data-theme="light"] .manual-address button{background:#e5e9ef;color:#303a45}
 html[data-theme="light"] .request-dialog .dialog-footnote{color:#657282}
+
+/* Early-access request submission states and spam honeypot. */
+.form-honey{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.submit-button:disabled{opacity:.65;cursor:wait;transform:none}
+.request-dialog .request-feedback.is-error{color:#ffc4c4;background:#2b181c;border-color:#874750}
+.request-dialog .request-feedback.is-success{color:#b8e5c5;background:#1b2a20;border-color:#45694e}
+html[data-theme="light"] .request-dialog .request-feedback.is-error{color:#9e2a3b;background:#fff0f1;border-color:#e9b4ba}
+html[data-theme="light"] .request-dialog .request-feedback.is-success{color:#296940;background:#edf9f1;border-color:#b5dbc2}
+.field-help a,.faq-list details p a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
