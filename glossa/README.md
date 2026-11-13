@@ -18,7 +18,8 @@ glossa/
     ├── css/
     │   └── style.css      # Dark theme and responsive layout
     ├── js/
-    │   └── main.js        # Modal, edition selection and email request
+    │   ├── main.js        # Theme toggle, modal and email request
+    │   └── theme.js       # Restores saved theme before stylesheet loads
     └── img/
         └── favicon.svg    # Glossa AI icon
 ```
@@ -30,7 +31,11 @@ glossa/
 
 The request button opens an email form; after validation, it prepares a message with a `mailto:` link. The visitor **must manually send** the message using their email application. The site does **not** automatically submit emails, store addresses, or host software installers.
 
-The destination inbox is set in `assets/js/main.js` (the `contact` constant). Change it to your dedicated Glossa support inbox before wide launch.
+The destination inbox is `muha.muttaqien@gmail.com` and is configured in `assets/js/main.js`.
+
+## Dark and light mode
+
+Use the theme toggle at the top right to switch between Dark and Light. The selection is saved locally in the browser under `glossa-theme`. Dark is the default. This preference is never sent to a server.
 
 ## Publishing
 
