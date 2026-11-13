@@ -136,6 +136,12 @@
 
   function replay() {
     clearAnimation();
+    // Respect visitors who prefer less animation and avoid unnecessary waits.
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setStage('done');
+      announcer.textContent = 'Preview result ready';
+      return;
+    }
     const currentRun = runNumber;
     setStage('select');
     announcer.textContent = 'Selected content is ready for Glossa';
