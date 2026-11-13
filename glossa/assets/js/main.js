@@ -3,13 +3,28 @@
 
   // This early-access site is intentionally static: no installers, databases,
   // analytics, or third-party data collection are hosted by this page.
-  // Contact address is the publicly listed address on the owner's GitHub Pages site.
-  // Replace with a product-specific inbox before a wider public launch.
-  const contact = ['muha.muttaqien', 'aist.go.jp'].join('@');
+  // Email requests remain user-sent via their own mail application.
+  const contact = 'muha.muttaqien@gmail.com';
   const editions = {
     browser: { label: 'Browser Extension', version: 'v4.6' },
     desktop: { label: 'Ubuntu Desktop', version: 'v1.2' },
   };
+
+  const themeToggle = document.getElementById('theme-toggle');
+  function updateThemeButton() {
+    const light = document.documentElement.dataset.theme === 'light';
+    themeToggle.setAttribute('aria-pressed', String(light));
+    themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+    themeToggle.title = light ? 'Switch to dark mode' : 'Switch to light mode';
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', light ? '#fafbfc' : '#080808');
+  }
+  updateThemeButton();
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('glossa-theme', next); } catch (_) {}
+    updateThemeButton();
+  });
 
   const dialog = document.getElementById('request-dialog');
   const form = document.getElementById('request-form');
