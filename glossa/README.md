@@ -16,13 +16,30 @@ glossa/
 ├── README.md              # This file
 └── assets/
     ├── css/
-    │   └── style.css      # Dark theme and responsive layout
+    │   ├── style.css      # Dark and light themes
+    │   └── preview.css    # Extension walkthrough
     ├── js/
     │   ├── main.js        # Theme toggle, modal and email request
-    │   └── theme.js       # Restores saved theme before stylesheet loads
+    │   ├── theme.js       # Restores saved theme before stylesheet loads
+    │   └── preview.js     # Writing/Reading/OCR interactive demo
     └── img/
-        └── favicon.svg    # Glossa AI icon
+        ├── favicon.svg    # Glossa AI icon
+        ├── ocr-arabic.svg  # Arabic book OCR sample
+        └── ocr-naruto.svg  # Fan-made ninja manga example
 ```
+
+## Interactive browser-extension preview
+
+The **See Glossa in Action** section is a standalone visual walkthrough for **Glossa AI Chrome Extension v4.6**. Visitors can switch between Writing, Reading and OCR; OCR provides two scenarios: an illustrative Arabic book page and a fan-created ninja manga example labelled Naruto Manga.
+
+The preview does **not** call an AI API or process uploaded documents. Its mock results are clearly labelled as illustrative. It is intentionally separate from the real early-access form.
+
+- `assets/css/preview.css` — responsive presentation, stage animation and mobile layouts
+- `assets/js/preview.js` — accessible tabs, keyboard navigation, switchable OCR samples and replay
+- `assets/img/ocr-arabic.svg` — original Arabic-language book illustration
+- `assets/img/ocr-naruto.svg` — original fan-style ninja manga illustration (not an official manga scan)
+
+Only the browser extension is previewed. The Ubuntu app remains available to request in the Early Access section.
 
 ## Early-access flow
 
