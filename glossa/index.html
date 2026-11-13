@@ -14,6 +14,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <script src="assets/js/theme.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/preview.css">
 
   <title>Glossa AI — Don't Just Translate. Understand.</title>
 </head>
@@ -24,6 +25,7 @@
       <a class="brand" href="#home" aria-label="Glossa AI home"><span class="brand-mark">G.</span><span class="brand-name">glossa<span class="brand-ai">AI</span></span></a>
       <nav aria-label="Primary navigation" class="main-nav">
         <a href="#features">Features</a>
+        <a href="#preview">Preview</a>
         <a href="#editions">Get Glossa</a>
         <a href="#how-it-works">How it works</a>
       </nav>
@@ -84,6 +86,45 @@
       </div>
     </section>
 
+
+    <section class="section preview-section" id="preview" aria-labelledby="preview-heading">
+      <div class="container">
+        <div class="section-heading preview-heading">
+          <div>
+            <div class="kicker">BROWSER EXTENSION · PRODUCT PREVIEW</div>
+            <h2 id="preview-heading">See Glossa <span>in action.</span></h2>
+          </div>
+          <p>Discover how the Chrome extension helps you write, read and understand text inside images. Choose a mode to explore.</p>
+        </div>
+        <div class="pv-shell" id="glossa-preview" data-stage="done">
+          <div class="pv-topline">
+            <div class="pv-tabs" role="tablist" aria-label="Choose Glossa preview mode">
+              <button class="pv-tab" type="button" id="pv-tab-writing" data-pv-mode="writing" role="tab" aria-selected="true" aria-controls="pv-display" tabindex="0">✎ <span>Writing</span></button>
+              <button class="pv-tab" type="button" id="pv-tab-reading" data-pv-mode="reading" role="tab" aria-selected="false" aria-controls="pv-display" tabindex="-1">▤ <span>Reading</span></button>
+              <button class="pv-tab" type="button" id="pv-tab-ocr" data-pv-mode="ocr" role="tab" aria-selected="false" aria-controls="pv-display" tabindex="-1">▣ <span>OCR</span></button>
+            </div>
+            <div class="pv-brand"><b>G.</b> Glossa AI <span>Chrome v4.6</span></div>
+          </div>
+          <div class="pv-controls">
+            <div class="pv-process" aria-label="Preview steps"><span data-pv-step="select"><i>01</i> Select</span><span data-pv-step="analyze"><i>02</i> Analyze</span><span data-pv-step="done"><i>03</i> Understand</span></div>
+            <button class="pv-replay" id="pv-replay" type="button">Replay demo</button>
+          </div>
+          <div id="pv-ocr-switch" class="pv-ocr-switch" hidden>
+            <span>OCR EXAMPLES</span>
+            <div role="tablist" class="pv-ocr-options" aria-label="Choose OCR preview">
+              <button type="button" role="tab" id="pv-sample-arabic" aria-selected="true" tabindex="0" data-pv-sample="arabic" aria-controls="pv-display">Arabic Book</button>
+              <button type="button" role="tab" id="pv-sample-naruto" aria-selected="false" tabindex="-1" data-pv-sample="naruto" aria-controls="pv-display">Naruto Manga</button>
+            </div>
+          </div>
+          <div class="pv-display" id="pv-display" role="tabpanel" aria-labelledby="pv-tab-writing">
+            <p class="pv-initial">Loading the illustration…</p>
+          </div>
+          <div class="pv-footnote"><span><i class="pv-dot"></i> Interactive illustration — no live AI requests</span><span>Naruto example is fan-made, not an official manga panel.</span></div>
+          <div class="sr-only" id="pv-live" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section editions-section" id="editions" aria-labelledby="editions-title">
       <div class="container">
         <div class="section-heading editions-heading"><div><div class="kicker">CHOOSE HOW YOU USE GLOSSA</div><h2 id="editions-title">Your language companion.<br><span>Your way.</span></h2></div><p>Glossa AI is currently available to a limited group of early users. Choose an edition to request an invitation.</p></div>
@@ -120,7 +161,7 @@
     <section class="bottom-cta"><div class="container bottom-inner"><div><div class="kicker">LEARN MORE FROM EVERY SENTENCE</div><h2>Let understanding<br><em>take you further.</em></h2></div><a class="button button-primary" href="#editions">Explore early access</a></div></section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#home" aria-label="Glossa AI back to top"><span class="brand-mark">G.</span><span class="brand-name">glossa<span class="brand-ai">AI</span></span></a><p>Don't Just Translate. Understand.</p><div><a href="#features">Features</a><a href="#editions">Early access</a><a href="https://github.com/muhamuttaqien" target="_blank" rel="noopener noreferrer">GitHub</a></div><small>© <span id="current-year">2026</span> Glossa AI. Private preview.</small></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#home" aria-label="Glossa AI back to top"><span class="brand-mark">G.</span><span class="brand-name">glossa<span class="brand-ai">AI</span></span></a><p>Don't Just Translate. Understand.</p><div><a href="#features">Features</a><a href="#preview">Preview</a><a href="#editions">Early access</a><a href="https://github.com/muhamuttaqien" target="_blank" rel="noopener noreferrer">GitHub</a></div><small>© <span id="current-year">2026</span> Glossa AI. Private preview.</small></div></footer>
 
   <dialog class="request-dialog" id="request-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
     <form id="request-form" novalidate>
@@ -140,6 +181,7 @@
       <p class="dialog-footnote">Requests are processed by FormSubmit and reviewed individually. No automatic download.</p>
     </form>
   </dialog>
+  <script src="assets/js/preview.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
