@@ -16,7 +16,7 @@
     themeToggle.setAttribute('aria-pressed', String(light));
     themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
     themeToggle.title = light ? 'Switch to dark mode' : 'Switch to light mode';
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', light ? '#fafbfc' : '#080808');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', light ? '#cfd3d9' : '#080808');
   }
   updateThemeButton();
   themeToggle.addEventListener('click', () => {
