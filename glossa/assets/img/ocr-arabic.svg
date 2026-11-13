@@ -1,8 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="title desc">
-<title id="title">Arabic book reading preview</title>
-<desc id="desc">Original illustrative antique Arabic book page with a red selection around the sentence العلم نور والفهم مفتاح الحكمة.</desc>
-<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#3f342c"/><stop offset="1" stop-color="#181816"/></linearGradient><linearGradient id="paper" x2="1" y2="1"><stop stop-color="#f2e9d2"/><stop offset=".5" stop-color="#dfd1b3"/><stop offset="1" stop-color="#c1b08e"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="14"/></filter><pattern id="grain" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="4" cy="9" r=".7" fill="#8b775a" opacity=".28"/><circle cx="13" cy="4" r=".6" fill="#71634c" opacity=".2"/></pattern><pattern id="lines" width="460" height="37" patternUnits="userSpaceOnUse"><path d="M4 29H456" stroke="#a38c6c" stroke-width=".8" opacity=".25"/></pattern></defs>
-<rect width="960" height="660" fill="url(#bg)"/><path d="M0 530Q480 470 960 580V660H0Z" fill="#261f1b"/>
-<g transform="rotate(-4 480 330)"><rect x="182" y="41" width="607" height="610" rx="7" fill="#070606" opacity=".48" filter="url(#shadow)"/><rect x="160" y="24" width="629" height="609" rx="6" fill="#60452e"/><rect x="167" y="21" width="604" height="605" rx="5" fill="url(#paper)" stroke="#bba888" stroke-width="4"/><rect x="167" y="21" width="604" height="605" rx="5" fill="url(#grain)"/><rect x="191" y="45" width="556" height="559" fill="none" stroke="#998260" stroke-width="1.5"/><rect x="202" y="56" width="534" height="537" fill="none" stroke="#947954" stroke-width=".8"/><path d="M209 118H728M209 546H728" stroke="#a38c68" stroke-width="1.5"/><g fill="#645039" text-anchor="middle" font-family="Amiri, Noto Naskh Arabic, serif" direction="rtl"><text x="470" y="99" font-size="35" font-weight="700">في العلم والحكمة</text><text x="468" y="172" font-size="24">إنَّ الكَلِمَةَ الطَّيِّبَةَ تَفْتَحُ أَبْوَابَ المَعْرِفَةِ</text><text x="468" y="216" font-size="25">وَمَعَ التَّعَلُّمِ تَتَّسِعُ آفَاقُ الإِنْسَانِ</text><text x="468" y="269" font-size="25">وَفِي كُلِّ صَفْحَةٍ تَبْدَأُ رِحْلَةٌ جَدِيدَةٌ</text><text x="468" y="331" font-size="27" font-weight="700" fill="#3c3025">الْعِلْمُ نُورٌ، وَالْفَهْمُ مِفْتَاحُ الْحِكْمَةِ.</text><text x="468" y="390" font-size="25">فَاطْلُبِ الْعِلْمَ بِالصَّبْرِ وَالْإِخْلَاصِ</text><text x="468" y="439" font-size="25">فَفِي المَعْرِفَةِ قُوَّةٌ وَفِي الْعَمَلِ أَثَرٌ</text><text x="468" y="488" font-size="23">وَلْيَكُنْ قَلْبُكَ مُنْفَتِحًا لِكُلِّ فَائِدَةٍ</text></g><rect x="208" y="292" width="518" height="57" rx="5" fill="#ef4d4d" fill-opacity=".08" stroke="#ef4d4d" stroke-width="3"/><path d="M203 304v-13h13M730 335v14h-13" stroke="#ffb0b0" stroke-width="4" fill="none"/><path d="M393 569h155" stroke="#a18a66" stroke-width="1.2"/><text x="470" y="587" font-size="13" text-anchor="middle" fill="#816f52" font-family="serif">١٢</text></g>
-<g><rect x="18" y="20" rx="5" width="106" height="32" fill="#111214" stroke="#61524a"/><circle cx="34" cy="36" r="5" fill="#ef4d4d"/><text x="46" y="41" fill="#fff" font-size="13" font-family="Arial,sans-serif" font-weight="700">OCR ACTIVE</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="title description">
+<title id="title">White Arabic book page with unvowelled Arabic text</title>
+<desc id="description">Close-up of a bright white page from an illustrative Arabic book. The text has no vowel diacritics. Glossa AI selects the sentence العلم نور، والفهم مفتاح الحكمة.</desc>
+<defs>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="11"/></filter>
+  <clipPath id="bookcrop"><rect x="48" y="12" width="863" height="633" rx="4"/></clipPath>
+</defs>
+<rect width="960" height="660" fill="#222327"/>
+<rect x="42" y="12" width="877" height="648" rx="7" fill="#111" opacity=".6" filter="url(#shadow)"/>
+<g clip-path="url(#bookcrop)">
+  <rect x="48" y="-45" width="863" height="770" fill="#ffffff"/>
+  <rect x="65" y="-30" width="829" height="754" fill="none" stroke="#d6d6d6" stroke-width="1.5"/>
+  <rect x="79" y="-18" width="801" height="728" fill="none" stroke="#ededed" stroke-width="1"/>
+  <path d="M113 140H850M113 595H850" stroke="#b3b3b3" stroke-width="1"/>
+  <g fill="#181818" text-anchor="middle" font-family="Amiri, Noto Naskh Arabic, Noto Sans Arabic, serif" direction="rtl">
+    <text x="480" y="94" font-size="46" font-weight="700">في العلم والحكمة</text>
+    <text x="480" y="191" font-size="36">إن الكلمة الطيبة تفتح أبواب المعرفة</text>
+    <text x="480" y="246" font-size="36">ومع التعلم تتسع آفاق الإنسان</text>
+    <text x="480" y="302" font-size="36">وفي كل صفحة تبدأ رحلة جديدة</text>
+    <text x="480" y="379" font-size="41" font-weight="700">العلم نور، والفهم مفتاح الحكمة.</text>
+    <text x="480" y="454" font-size="36">فاطلب العلم بالصبر والإخلاص</text>
+    <text x="480" y="508" font-size="36">ففي المعرفة قوة وفي العمل أثر</text>
+    <text x="480" y="565" font-size="35">وليكن قلبك منفتحا لكل فائدة</text>
+  </g>
+  <text x="480" y="625" font-size="15" text-anchor="middle" fill="#777" font-family="serif">١٢</text>
+</g>
+<rect x="48" y="12" width="863" height="633" rx="4" fill="none" stroke="#a7a7a7" stroke-width="2"/>
+<g>
+  <rect x="16" y="19" width="117" height="32" rx="5" fill="#151515"/>
+  <circle cx="34" cy="35" r="5" fill="#ef4d4d"/>
+  <text x="49" y="40" fill="white" font-size="13" font-family="sans-serif" font-weight="700">OCR ACTIVE</text>
+</g>
 </svg>
