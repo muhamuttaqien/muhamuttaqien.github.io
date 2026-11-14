@@ -122,10 +122,11 @@
       '<div class="pv-stt-line"><span>Spoken language</span><strong>Japanese</strong></div>' +
       '<div class="pv-stt-line"><span>Audio type</span><strong>Dialogue</strong></div>' +
       '<div class="pv-stt-line"><span>Speech-to-text</span><strong>GPT Live Transcribe · Cloud</strong></div>' +
-      '<div class="pv-stt-note">Optional: Whisper Large-v3-Turbo (local backend)</div>' +
+      '<div class="pv-stt-line"><span>Translate to</span><strong>English · example setting</strong></div>' +
+      '<div class="pv-stt-note">Optional: Whisper Large-v3-Turbo (local backend). Fresh-install translation default: Indonesian.</div>' +
     '</div>';
     const transcript = '<div class="pv-transcribe-results">' +
-      '<div class="pv-transcribe-status"><span><i class="pv-transcribe-status-dot"></i><span class="pv-live-label">LIVE</span><span class="pv-paused-label">PAUSED · ANALYSIS AVAILABLE</span></span><span>00:12</span></div>' +
+      '<div class="pv-transcribe-status"><span><i class="pv-transcribe-status-dot"></i><span class="pv-live-label">LIVE</span><span class="pv-paused-label">PAUSED · ANALYSIS AVAILABLE</span></span><span>00:12 · Rolling 10</span></div>' +
       '<div class="pv-transcribe-entry"><span class="pv-entry-timestamp">00:07</span>' +
         '<div class="pv-entry-text" lang="ja">今日は新しい言葉を学びましょう。</div>' +
         '<div class="pv-entry-translation pv-transcribe-reveal">Today, let’s learn a new word.</div></div>' +
@@ -148,6 +149,13 @@
       '</div>';
     stage.setAttribute('aria-labelledby', 'pv-tab-' + mode);
     exampleChooser.hidden = mode !== 'ocr';
+    const stageLabels = mode === 'transcribe' ? ['Share tab', 'Transcribe', 'Translate & learn'] : ['Select', 'Analyze', 'Understand'];
+    root.querySelectorAll('[data-pv-step]').forEach((step, index) => {
+      const stepNumber = step.querySelector('i');
+      step.textContent = '';
+      if (stepNumber) step.appendChild(stepNumber);
+      step.appendChild(document.createTextNode(' ' + stageLabels[index]));
+    });
     sourceTabs.forEach(tab => {
       const selected = tab.dataset.pvMode === mode;
       tab.setAttribute('aria-selected', String(selected));
