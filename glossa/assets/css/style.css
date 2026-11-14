@@ -86,3 +86,9 @@ html[data-theme="light"] .request-dialog .dialog-footnote{color:#657282}
 html[data-theme="light"] .request-dialog .request-feedback.is-error{color:#9e2a3b;background:#fff0f1;border-color:#e9b4ba}
 html[data-theme="light"] .request-dialog .request-feedback.is-success{color:#296940;background:#edf9f1;border-color:#b5dbc2}
 .field-help a,.faq-list details p a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+
+/* Four Glossa v5.7 capabilities; keep comfortable card widths on desktop. */
+@media(min-width:861px){
+  .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .feature-card{min-height:275px}
+}
