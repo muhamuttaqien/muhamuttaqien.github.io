@@ -6,7 +6,7 @@
   // FormSubmit forwards the request after the owner activates the form.
   const contact = 'muha.muttaqien@gmail.com';
   const editions = {
-    browser: { label: 'Browser Extension', version: 'v4.6' },
+    browser: { label: 'Browser Extension', version: 'v5.7' },
     desktop: { label: 'Ubuntu Desktop', version: 'v1.2' },
   };
 
