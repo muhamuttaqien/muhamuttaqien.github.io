@@ -25,9 +25,4 @@
   <text x="480" y="625" font-size="15" text-anchor="middle" fill="#777" font-family="serif">١٢</text>
 </g>
 <rect x="48" y="12" width="863" height="633" rx="4" fill="none" stroke="#a7a7a7" stroke-width="2"/>
-<g>
-  <rect x="16" y="19" width="117" height="32" rx="5" fill="#151515"/>
-  <circle cx="34" cy="35" r="5" fill="#ef4d4d"/>
-  <text x="49" y="40" fill="white" font-size="13" font-family="sans-serif" font-weight="700">OCR ACTIVE</text>
-</g>
 </svg>
