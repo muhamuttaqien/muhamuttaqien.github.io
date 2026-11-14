@@ -107,9 +107,44 @@
     return sourceWrap('SOURCE IMAGE',label,source,desc) + resultWrap('OCR · ' + (isArabic ? 'AR → EN' : 'JA → EN'),result);
   }
 
+
+  // Visual walkthrough only. Never requests microphone permissions, captures
+  // tab audio, opens an OpenAI connection, or calls the transcription backend.
+  function transcribePreview() {
+    const source = '<div class="pv-transcribe-source">' +
+      '<div class="pv-transcribe-video" aria-label="Illustrative video player showing a Japanese language lesson">' +
+        '<div class="pv-video-glow"></div><div class="pv-video-play" aria-hidden="true">▶</div>' +
+        '<div class="pv-video-title">Japanese Language Lesson</div>' +
+        '<div class="pv-video-caption" lang="ja">今日は新しい言葉を学びましょう。</div>' +
+        '<div class="pv-video-progress"><span></span></div>' +
+      '</div>' +
+      '<div class="pv-audio-panel"><span><i class="pv-audio-dot" aria-hidden="true"></i> CHROME TAB AUDIO</span><span class="pv-audio-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>' +
+      '<div class="pv-stt-line"><span>Spoken language</span><strong>Japanese</strong></div>' +
+      '<div class="pv-stt-line"><span>Audio type</span><strong>Dialogue</strong></div>' +
+      '<div class="pv-stt-line"><span>Speech-to-text</span><strong>GPT Live Transcribe · Cloud</strong></div>' +
+      '<div class="pv-stt-note">Optional: Whisper Large-v3-Turbo (local backend)</div>' +
+    '</div>';
+    const transcript = '<div class="pv-transcribe-results">' +
+      '<div class="pv-transcribe-status"><span><i class="pv-transcribe-status-dot"></i><span class="pv-live-label">LIVE</span><span class="pv-paused-label">PAUSED · ANALYSIS AVAILABLE</span></span><span>00:12</span></div>' +
+      '<div class="pv-transcribe-entry"><span class="pv-entry-timestamp">00:07</span>' +
+        '<div class="pv-entry-text" lang="ja">今日は新しい言葉を学びましょう。</div>' +
+        '<div class="pv-entry-translation pv-transcribe-reveal">Today, let’s learn a new word.</div></div>' +
+      '<div class="pv-transcribe-entry"><span class="pv-entry-timestamp">00:12</span>' +
+        '<div class="pv-entry-text" lang="ja">言葉の意味を理解することが大切です。</div>' +
+        '<div class="pv-entry-translation pv-transcribe-reveal">Understanding the meaning of words is important.</div></div>' +
+      '<div class="pv-transcribe-analysis pv-transcribe-finished">' +
+        '<div class="pv-analysis-heading"><span class="pv-mini">G.</span><strong>MEANING &amp; CONTEXT</strong><span>After Pause / Stop</span></div>' +
+        '<p>The speaker emphasizes understanding the meaning of words, not just memorizing them.</p>' +
+        '<div class="pv-analysis-followup">Ask a follow-up <span aria-hidden="true">···</span></div>' +
+      '</div>' +
+    '</div>';
+    return sourceWrap('SHARED AUDIO SOURCE','Chrome video tab',source,'Select a Chrome tab, enable Share tab audio, then start transcription. The preview does not capture real audio.') +
+      resultWrap('Live Transcribe',transcript);
+  }
+
   function draw() {
     stage.innerHTML = '<div class="pv-scene">' +
-      (mode === 'writing' ? writingPreview() : mode === 'reading' ? readingPreview() : ocrPreview(sample)) +
+      (mode === 'writing' ? writingPreview() : mode === 'reading' ? readingPreview() : mode === 'ocr' ? ocrPreview(sample) : transcribePreview()) +
       '</div>';
     stage.setAttribute('aria-labelledby', 'pv-tab-' + mode);
     exampleChooser.hidden = mode !== 'ocr';
@@ -140,26 +175,26 @@
     // Respect visitors who prefer less animation and avoid unnecessary waits.
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setStage('done');
-      announcer.textContent = 'Preview result ready';
+      announcer.textContent = mode === 'transcribe' ? 'Transcript paused with example analysis available' : 'Preview result ready';
       return;
     }
     const currentRun = runNumber;
     setStage('select');
-    announcer.textContent = 'Selected content is ready for Glossa';
+    announcer.textContent = mode === 'transcribe' ? 'Ready to share a Chrome tab' : 'Selected content is ready for Glossa';
     scheduled.push(setTimeout(() => {
       if (runNumber !== currentRun) return;
       setStage('analyze');
-      announcer.textContent = 'Analyzing selected text';
+      announcer.textContent = mode === 'transcribe' ? 'Live transcript example playing' : 'Analyzing selected text';
     }, 850));
     scheduled.push(setTimeout(() => {
       if (runNumber !== currentRun) return;
       setStage('done');
-      announcer.textContent = 'Preview result ready';
+      announcer.textContent = mode === 'transcribe' ? 'Transcript paused with example analysis available' : 'Preview result ready';
     }, 1850));
   }
 
   function selectMode(next, focus = false) {
-    if (!['writing','reading','ocr'].includes(next)) return;
+    if (!['writing','reading','ocr','transcribe'].includes(next)) return;
     mode = next;
     draw();
     replay();
