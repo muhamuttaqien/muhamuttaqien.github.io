@@ -181,3 +181,15 @@
 @media(max-width:720px){.pv-transcribe-video{min-height:195px}.pv-analysis-heading{flex-wrap:wrap}.pv-analysis-heading>span:last-child{white-space:normal}}
 @media(max-width:520px){.pv-tab{gap:5px;padding:9px 8px;font-size:11px}.pv-mic-icon{font-size:13px}.pv-transcribe-video{min-height:185px}}
 @media(prefers-reduced-motion:reduce){.pv-audio-meter i{animation:none!important}.pv-video-progress span,.pv-transcribe-finished,.pv-transcribe-reveal{transition:none!important}}
+
+/* v5.7: stage message remains accurate for the Transcribe demonstration. */
+#pv-display[aria-labelledby="pv-tab-transcribe"] .pv-result-card::after{content:"Transcribing shared audio…"}
+@media(max-width:620px){
+  .pv-controls{flex-wrap:wrap;row-gap:11px}
+  .pv-process{width:100%;justify-content:space-between;gap:8px}
+  .pv-process>span{min-width:0;white-space:nowrap}
+  .pv-replay{margin-left:auto}
+  .pv-topline{gap:8px}
+  .pv-tabs{min-width:0}
+  .pv-tab{padding:9px 8px}
+}
