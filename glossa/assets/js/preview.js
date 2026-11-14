@@ -140,7 +140,7 @@
       '</div>' +
     '</div>';
     return sourceWrap('SHARED AUDIO SOURCE','Chrome video tab',source,'Select a Chrome tab, enable Share tab audio, then start transcription. The preview does not capture real audio.') +
-      resultWrap('Live Transcribe',transcript);
+      resultWrap('GPT-6 Luna translation',transcript);
   }
 
   function draw() {
